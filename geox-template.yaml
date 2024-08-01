@@ -160,5 +160,5 @@ rule-providers:
     <<: *classical
     url: "https://raw.gitmirror.com/EAlyce/conf/main/Rule/OpenAI.list"
   ADs_merged:
-    <<: *domaintxt
-    url: "https://raw.gitmirror.com/JohnsonRan/CRules/master/rules/ADs_merged.txt"
+    <<: *mrs
+    url: "https://raw.gitmirror.com/JohnsonRan/CRules/master/rules/ADs_merged.mrs"

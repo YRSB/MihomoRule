@@ -110,6 +110,12 @@ proxy-groups:
     type: select
     proxies: [默认,香港,台湾,日本,新加坡,美国,其它地区,全部节点,自动选择,直连]
 
+  - name: Pixiv
+    type: utl-test
+    proxies: [香港,台湾,日本,新加坡]
+    url: "www.pixiv.net"
+    interval: 300
+
   - name: YouTube
     type: select
     proxies: [默认,香港,台湾,日本,新加坡,美国,其它地区,全部节点,自动选择,直连]
@@ -180,6 +186,7 @@ rules:
   - GEOIP,lan,直连,no-resolve
   - GEOSITE,googlefcm,DIRECT
   - GEOSITE,github,Github
+  - GEOSITE,pixiv,Pixiv
   - GEOSITE,twitter,Twitter
   - GEOSITE,youtube,YouTube
   - GEOSITE,google,Google

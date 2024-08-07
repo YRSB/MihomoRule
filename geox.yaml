@@ -211,19 +211,19 @@ rule-providers:
     interval: 86400
     behavior: domain
 
-custom_direct:
-    type: http
-    url: "https://raw.gitmirror.com/YRSB/MihomoRule/master/custom_direct.yaml"
-    format: yaml
-    interval: 86400
-    behavior: classical
-
-custom_proxy:
-    type: http
-    url: "https://raw.gitmirror.com/YRSB/MihomoRule/master/custom_proxy.yaml"
-    format: yaml
-    interval: 86400
-    behavior: classical
+  custom_direct:
+      type: http
+      url: "https://raw.gitmirror.com/YRSB/MihomoRule/master/custom_direct.yaml"
+      format: yaml
+      interval: 86400
+      behavior: classical
+  
+  custom_proxy:
+      type: http
+      url: "https://raw.gitmirror.com/YRSB/MihomoRule/master/custom_proxy.yaml"
+      format: yaml
+      interval: 86400
+      behavior: classical
 
 
   

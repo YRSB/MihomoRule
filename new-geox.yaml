@@ -178,6 +178,7 @@ rules:
   - DOMAIN,nyaa.inari.site,DIRECT
   - DOMAIN-KEYWORD,shadowverse,シャドバ
   - GEOIP,lan,直连,no-resolve
+  - GEOSITE,googlefcm,DIRECT
   - GEOSITE,github,Github
   - GEOSITE,twitter,Twitter
   - GEOSITE,youtube,YouTube

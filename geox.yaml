@@ -136,6 +136,10 @@ proxy-groups:
     type: select
     proxies:  [默认,香港,台湾,日本,新加坡,美国,其它地区,全部节点,自动选择,直连]
 
+  - name: Emby
+    type: select
+    proxies:  [默认,香港,台湾,日本,新加坡,美国,其它地区,全部节点,自动选择,直连]
+
   #分隔,下面是地区分组
   - name: 香港
     type: select
@@ -180,6 +184,7 @@ rules:
   - RULE-SET,AdRules,REJECT
   - RULE-SET,custom_direct,DIRECT
   - RULE-SET,custom_proxy,默认
+  - RULE-SET,emby,Emby
   - DOMAIN,nyaa.inari.site,DIRECT
   - DOMAIN-KEYWORD,shadowverse,シャドバ
   - GEOIP,lan,直连,no-resolve
@@ -224,6 +229,14 @@ rule-providers:
     format: yaml
     interval: 86400
     behavior: classical
+
+  emby: 
+    type: http
+    url: "https://raw.gitmirror.com/Repcz/Tool/X/Surge/Rules/Emby.list"
+    format: text
+    interval: 86400
+    behavior: classical
+  
 
 
   

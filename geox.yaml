@@ -106,12 +106,8 @@ proxy-groups:
     type: select
     proxies: [默认,香港,台湾,日本,新加坡,美国,其它地区,全部节点,自动选择,直连]
 
-  - name: 巴哈姆特
-    type: select
-    proxies: [默认,香港,台湾,日本,新加坡,美国,其它地区,全部节点,自动选择,直连]
-
   - name: Pixiv
-    type: utl-test
+    type: url-test
     proxies: [香港,台湾,日本,新加坡]
     url: "www.pixiv.net"
     interval: 300
@@ -193,7 +189,6 @@ rules:
   - GEOSITE,telegram,Telegram
   - GEOSITE,netflix,NETFLIX
   - GEOSITE,bilibili,哔哩哔哩
-  - GEOSITE,bahamut,巴哈姆特
   - GEOSITE,spotify,Spotify
   - GEOSITE,CN,DIRECT
   - GEOSITE,geolocation-!cn,其他

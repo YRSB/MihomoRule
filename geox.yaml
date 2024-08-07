@@ -219,11 +219,11 @@ rule-providers:
       behavior: classical
   
   custom_proxy:
-      type: http
-      url: "https://raw.gitmirror.com/YRSB/MihomoRule/master/custom_proxy.yaml"
-      format: yaml
-      interval: 86400
-      behavior: classical
+    type: http
+    url: "https://raw.gitmirror.com/YRSB/MihomoRule/master/custom_proxy.yaml"
+    format: yaml
+    interval: 86400
+    behavior: classical
 
 
   

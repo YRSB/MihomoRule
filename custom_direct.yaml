@@ -1,3 +1,4 @@
 payload:
   - GEOSITE,sharepoint
   - GEOSITE,steam@cn
+  - DOMAIN-SUFFIX,inari.site

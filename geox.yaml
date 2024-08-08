@@ -181,11 +181,10 @@ proxy-groups:
     tolerance: 10
 
 rules:
-  - RULE-SET,AdRules,REJECT
   - RULE-SET,custom_direct,DIRECT
   - RULE-SET,custom_proxy,默认
   - RULE-SET,emby,Emby
-  - DOMAIN,nyaa.inari.site,DIRECT
+  - GEOSITE,category-ads,REJECT
   - DOMAIN-KEYWORD,shadowverse,シャドバ
   - GEOIP,lan,直连,no-resolve
   - GEOSITE,googlefcm,DIRECT
@@ -209,13 +208,6 @@ rules:
   - MATCH,其他
 
 rule-providers:
-  AdRules:
-    type: http
-    url: "https://adrules.top/adrules_domainset.txt"
-    format: text
-    interval: 86400
-    behavior: domain
-
   custom_direct:
       type: http
       url: "https://raw.gitmirror.com/YRSB/MihomoRule/master/custom_direct.yaml"

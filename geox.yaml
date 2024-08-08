@@ -183,6 +183,7 @@ rules:
   - RULE-SET,custom_direct,DIRECT
   - RULE-SET,custom_proxy,默认
   - RULE-SET,emby,Emby
+  - RULE-SET,ad,REJECT
   - GEOSITE,category-ads,REJECT
   - DOMAIN-KEYWORD,shadowverse,シャドバ
   - GEOIP,lan,直连,no-resolve
@@ -228,6 +229,12 @@ rule-providers:
     interval: 86400
     behavior: classical
   
+  ad: 
+    type: http
+    url: "https://adrules.top/adrules.list"
+    format: text
+    interval: 3600
+    behavior: classical
 
 
   

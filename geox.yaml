@@ -187,7 +187,6 @@ rules:
   - GEOSITE,geolocation-!cn,其他
 
   - GEOIP,google,Google
-  - GEOIP,spotify,Spotify
   - GEOIP,telegram,Telegram
   - GEOIP,twitter,Twitter
   - GEOIP,CN,DIRECT

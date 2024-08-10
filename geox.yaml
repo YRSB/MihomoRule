@@ -172,6 +172,7 @@ rules:
   - RULE-SET,custom_direct,DIRECT
   - RULE-SET,custom_proxy,默认
   - RULE-SET,ad,REJECT
+  - RULE-SET,jp,日本
   - GEOSITE,category-ads,REJECT
   - DOMAIN-KEYWORD,shadowverse,シャドバ
   - GEOIP,lan,直连,no-resolve
@@ -214,5 +215,11 @@ rule-providers:
     interval: 3600
     behavior: classical
 
+  jp:
+    type: http
+    url: "https://raw.gitmirror.com/YRSB/MihomoRule/master/jp.yaml"
+    format: yaml
+    interval: 86400
+    behavior: classical
 
   

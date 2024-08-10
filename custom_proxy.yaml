@@ -1,2 +1,8 @@
 payload:
   - GEOSITE,bing
+  - GEOSITE,nvidia
+  - GEOSITE,nyaa
+  - GEOSITE,openai
+  - GEOSITE,ea
+  - GEOSITE,kemono
+  - GEOSITE,z-library

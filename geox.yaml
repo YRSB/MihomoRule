@@ -168,9 +168,9 @@ proxy-groups:
     tolerance: 10
 
 rule-providers-anchor: # 锚点 如合并时有重复的项, 则不会去合并; 锚点名不能包含特殊字符
-  rule_domain: &rule_domain {type: http, behavior: domain, format: mrs, proxy: Direct}
-  rule_ipcidr: &rule_ipcidr {type: http, behavior: ipcidr, format: mrs, proxy: Direct}
-  rule_classical: &rule_classical {type: http, behavior: classical, format: yaml, proxy: Direct}
+  rule_domain: &rule_domain {type: http, behavior: domain, format: mrs, proxy: DIRECT}
+  rule_ipcidr: &rule_ipcidr {type: http, behavior: ipcidr, format: mrs, proxy: DIRECT}
+  rule_classical: &rule_classical {type: http, behavior: classical, format: yaml, proxy: DIRECT}
 
 rule-providers:
   custom_direct:
@@ -249,7 +249,6 @@ rules:
   - GEOSITE,google,Google
   - GEOSITE,telegram,Telegram
   - GEOSITE,spotify,Spotify
-  - GEOSITE,proxy,默认
   - GEOSITE,geolocation-!cn,其他
 
   - GEOIP,google,Google

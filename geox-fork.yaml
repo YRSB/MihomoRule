@@ -8,10 +8,10 @@ proxy-providers-anchor: # 锚点 如合并时有重复的项, 则不会去合并
   - override: &override {skip-cert-verify: false, ip-version: 'ipv6-prefer'} # 覆写
 
 proxy-providers: # 支持直接使用 V2rayN 等客户端的普通订阅; 一个合法的远程代理集必须包含 proxies 字段, 远程代理集为空时会以 DIRECT 替代
-  'Provider1':
+  'Provider_1':
     type: http # 必须, provider 类型 http/file
     url: '' # 你的订阅链接
-    path: './proxy_providers/Provider1.yaml' # 配置保存位置
+    path: './proxy_providers/Provider_1.yaml' # 配置保存位置
     <<: [*health_check, *header, *update, *filter_exclude_Ad]
     override:
       <<: *override

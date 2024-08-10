@@ -167,32 +167,10 @@ proxy-groups:
     include-all: true
     tolerance: 10
 
-rules:
-  - RULE-SET,ad,REJECT
-  - GEOSITE,category-ads,REJECT
-  - RULE-SET,custom_direct,DIRECT
-  - RULE-SET,custom_proxy,默认
-  - RULE-SET,jp,日本
-  - DOMAIN-KEYWORD,shadowverse,シャドバ
-  - GEOIP,lan,直连,no-resolve
-  - GEOSITE,googlefcm,DIRECT
-  - GEOSITE,github,Github
-  - GEOSITE,pixiv,Pixiv
-  - GEOSITE,twitter,Twitter
-  - GEOSITE,youtube,YouTube
-  - GEOSITE,google,Google
-  - GEOSITE,telegram,Telegram
-  - GEOSITE,spotify,Spotify
-  - GEOSITE,proxy,默认
-  - GEOSITE,CN,DIRECT
-  - GEOSITE,geolocation-!cn,其他
-
-  - GEOIP,google,Google
-  - GEOIP,telegram,Telegram
-  - GEOIP,twitter,Twitter
-  - GEOIP,CN,DIRECT
-  - GEOIP,jp,日本
-  - MATCH,其他
+rule-providers-anchor: # 锚点 如合并时有重复的项, 则不会去合并; 锚点名不能包含特殊字符
+  rule_domain: &rule_domain {type: http, behavior: domain, format: mrs, proxy: Direct}
+  rule_ipcidr: &rule_ipcidr {type: http, behavior: ipcidr, format: mrs, proxy: Direct}
+  rule_classical: &rule_classical {type: http, behavior: classical, format: yaml, proxy: Direct}
 
 rule-providers:
   custom_direct:
@@ -223,4 +201,49 @@ rule-providers:
     interval: 86400
     behavior: classical
 
+  site_private:
+    <<: *rule_domain
+    path: './rule_providers/domain/private'
+    url: 'https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/private.mrs'
+
+  site_googlefcm:
+    <<: *rule_domain
+    path: './rule_providers/domain/googlefcm'
+    url: 'https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/googlefcm.mrs'
+
+  site_tencent:
+    <<: *rule_domain
+    path: './rule_providers/domain/tencent'
+    url: 'https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/tencent.mrs'
   
+  ip_private:
+    <<: *rule_ipcidr
+    path: './rule_providers/ipcidr/private'
+    url: 'https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geoip/private.mrs'
+
+
+rules:
+  - OR,((RULE-SET,ad),(GEOSITE,category-ads)),REJECT
+  - RULE-SET,custom_direct,DIRECT
+  - RULE-SET,custom_proxy,默认
+  - RULE-SET,jp,日本
+  - DOMAIN-KEYWORD,shadowverse,シャドバ
+  - OR,((RULE-SET,site_private),(RULE-SET,ip_private)),Direct
+  - OR,((RULE-SET,site_cn),(RULE-SET,ip_cn)),Direct
+  - AND,((DST-PORT,5228-5230),(RULE-SET,site_googlefcm)),Direct
+  - OR,((RULE-SET,site_tencent),(IP-ASN,45090),(IP-ASN,132203)),Direct
+  - GEOSITE,github,Github
+  - GEOSITE,pixiv,Pixiv
+  - GEOSITE,twitter,Twitter
+  - GEOSITE,youtube,YouTube
+  - GEOSITE,google,Google
+  - GEOSITE,telegram,Telegram
+  - GEOSITE,spotify,Spotify
+  - GEOSITE,proxy,默认
+  - GEOSITE,geolocation-!cn,其他
+
+  - GEOIP,google,Google
+  - GEOIP,telegram,Telegram
+  - GEOIP,twitter,Twitter
+  - GEOIP,jp,日本
+  - MATCH,其他

@@ -142,7 +142,7 @@ proxy-groups-anchor: # 锚点 如合并时有重复的项, 则不会去合并; �
   - load_balance2: &load_balance2 {type: load-balance, strategy: round-robin, lazy: true, url: 'https://www.tencent.com', expected-status: 204, timeout: 2000, interval: 45, max-failed-times: 3, tolerance: 5}
 
 proxy-groups: # 策略组可以包含多个代理, 或多个远程代理集; 不包含任何代理的策略组, 会被当作为 DIRECT 策略处理; 如策略组代理来自远程代理集时, 则使用该来源的 health-check
-  - {name: 'Proxy', type: select, proxies: [Auto, Fallback, R robin, Direct, Prov¹, Prov², Prov³, Prov⁴], icon: 'https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Final.png'}
+  - {name: 'Proxy', type: select, proxies: [Auto, Fallback, R robin, Direct, Prov¹], icon: 'https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Final.png'}
   - {name: 'Direct', type: select, <<: *url_test2, proxies: [Direct Auto, 以太网 + WLAN, wlan0 + wlan1, data0 + wlan0, data0 + wlan1, data1 + wlan0, data1 + wlan1, data2 + wlan0, data2 + wlan1, data3 + wlan0, data3 + wlan1], icon: 'https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/China_Map.png'}
   - {name: 'Google', type: select, proxies: [Direct, Fallback], icon: 'https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Google_Search.png'}
   - {name: 'Netflix', type: select, <<: *proxies1, icon: 'https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Netflix.png'}

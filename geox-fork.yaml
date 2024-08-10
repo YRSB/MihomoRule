@@ -1,5 +1,12 @@
 #!MANAGED-CONFIG https://gist.githubusercontent.com/x/x/raw/x.yaml
 #################### START ####################
+proxy-providers-anchor: # 锚点 如合并时有重复的项, 则不会去合并; 锚点名不能包含特殊字符
+  - health_check: &health_check {health-check: {enable: true, lazy: true, expected-status: 204, url: 'https://www.google.com', timeout: 3000, interval: 45}} # 延迟检测
+  - header: &header {header: {User-Agent: ['clash.meta', 'meta', 'mihomo', 'clash-verge', 'ClashMetaForAndroid', 'flclash', 'stash', 'ClashforWindows', 'ClashForAndroid', 'clash']}} # UA
+  - update: &update {proxy: Direct, interval: 86400} # 更新 provider 使用的节点/更新 provider 的间隔, 单位 s  Tip: 设置的过于小可能被机场 ban
+  - filter_exclude_Ad: &filter_exclude_Ad {filter: '^(?=.*(.))(?!.*((?i)群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入|(\b(USE|USED|TOTAL|EXPIRE|EMAIL|Panel|Channel|Author)\b|(\d{4}-\d{2}-\d{2}|\d+G)))).*$'} # 引入筛选/排除, 使用筛选可能会在一定程度上增加CPU占用/转发延迟, 尤其是使用较为复杂正则的情况下
+  - override: &override {skip-cert-verify: false, ip-version: 'ipv6-prefer'} # 覆写
+
 proxy-providers: # 支持直接使用 V2rayN 等客户端的普通订阅; 一个合法的远程代理集必须包含 proxies 字段, 远程代理集为空时会以 DIRECT 替代
   'Provider1':
     type: http # 必须, provider 类型 http/file
@@ -119,13 +126,6 @@ proxies: # 出站配置 查看接口命令: netsh interface show interface  Tip:
   - {name: 'rmnet_data1', type: direct, udp: true, interface-name: 'rmnet_data1'}
   - {name: 'rmnet_data2', type: direct, udp: true, interface-name: 'rmnet_data2'}
   - {name: 'rmnet_data3', type: direct, udp: true, interface-name: 'rmnet_data3'}
-
-proxy-providers-anchor: # 锚点 如合并时有重复的项, 则不会去合并; 锚点名不能包含特殊字符
-  - health_check: &health_check {health-check: {enable: true, lazy: true, expected-status: 204, url: 'https://www.google.com', timeout: 3000, interval: 45}} # 延迟检测
-  - header: &header {header: {User-Agent: ['clash.meta', 'meta', 'mihomo', 'clash-verge', 'ClashMetaForAndroid', 'flclash', 'stash', 'ClashforWindows', 'ClashForAndroid', 'clash']}} # UA
-  - update: &update {proxy: Direct, interval: 86400} # 更新 provider 使用的节点/更新 provider 的间隔, 单位 s  Tip: 设置的过于小可能被机场 ban
-  - filter_exclude_Ad: &filter_exclude_Ad {filter: '^(?=.*(.))(?!.*((?i)群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入|(\b(USE|USED|TOTAL|EXPIRE|EMAIL|Panel|Channel|Author)\b|(\d{4}-\d{2}-\d{2}|\d+G)))).*$'} # 引入筛选/排除, 使用筛选可能会在一定程度上增加CPU占用/转发延迟, 尤其是使用较为复杂正则的情况下
-  - override: &override {skip-cert-verify: false, ip-version: 'ipv6-prefer'} # 覆写
 
 proxy-groups-anchor: # 锚点 如合并时有重复的项, 则不会去合并; 锚点名不能包含特殊字符
   - filter_exclude_Back: &filter_exclude_Back {filter: '^(?!.*((?i)回国|校园)).*$'} # 排除回国

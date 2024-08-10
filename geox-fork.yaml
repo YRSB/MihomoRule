@@ -133,8 +133,8 @@ proxy-groups-anchor: # 锚点 如合并时有重复的项, 则不会去合并; �
   - filter_JP: &filter_JP {filter: '^(?=.*((?i)🇯🇵|日本|川日|东京|大阪|泉日|埼玉|(\b(JP|Japan)\b)))(?!.*((?i)回国|校园)).*$'}
   - filter_SG: &filter_SG {filter: '^(?=.*((?i)🇸🇬|新加坡|狮|(\b(SG|Singapore)\b)))(?!.*((?i)回国|校园)).*$'}
   - filter_US: &filter_US {filter: '^(?=.*((?i)🇺🇸|美国|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|(\b(US|United States)\b)))(?!.*((?i)回国|校园)).*$'}
-  - proxies1: &proxies1 {proxies: [Proxy, Direct, Prov¹, Prov², Prov³, Prov⁴]}
-  - proxies2: &proxies2 {proxies: [Direct, Proxy, Prov¹, Prov², Prov³, Prov⁴]}
+  - proxies1: &proxies1 {proxies: [Proxy, Direct, Prov¹]}
+  - proxies2: &proxies2 {proxies: [Direct, Proxy, Prov¹]}
   - url_test1: &url_test1 {type: url-test, lazy: true, expected-status: 204, url: 'https://www.google.com', timeout: 2000, interval: 45, max-failed-times: 3, tolerance: 5}
   - url_test2: &url_test2 {type: url-test, lazy: true, expected-status: 204, url: 'https://www.tencent.com', timeout: 2000, interval: 45, max-failed-times: 3, tolerance: 5}
   - fallback1: &fallback1 {type: fallback, lazy: true, expected-status: 204, url: 'https://www.google.com', timeout: 2000, interval: 45, max-failed-times: 3, tolerance: 5}

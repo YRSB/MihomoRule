@@ -151,9 +151,6 @@ proxy-groups: # 策略组可以包含多个代理, 或多个远程代理集; 不
   - {name: 'Recreation', type: select, <<: *proxies2, icon: 'https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Game.png'}
   - {name: 'QUIC', type: select, proxies: [Pass rules, Reject drop], icon: 'https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Proxy.png'}
   - {name: 'Prov¹', type: select, proxies: [Auto¹, Fallback¹, US Auto¹, US R robin¹, JP Auto¹, JP R robin¹, SG Auto¹, SG R robin¹, HK Auto¹, HK R robin¹], icon: 'https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Direct.png'}
-  - {name: 'Prov²', type: select, proxies: [Auto², Fallback², US Auto², US R robin², JP Auto², JP R robin², SG Auto², SG R robin², HK Auto², HK R robin²], icon: 'https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Direct.png'}
-  - {name: 'Prov³', type: select, proxies: [Auto³, Fallback³, US Auto³, US R robin³, JP Auto³, JP R robin³, SG Auto³, SG R robin³, HK Auto³, HK R robin³], icon: 'https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Direct.png'}
-  - {name: 'Prov⁴', type: select, proxies: [Auto⁴, Fallback⁴, US Auto⁴, US R robin⁴, JP Auto⁴, JP R robin⁴, SG Auto⁴, SG R robin⁴, HK Auto⁴, HK R robin⁴], icon: 'https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Direct.png'}
 
   - {name: 'Auto¹', <<: [*url_test1, *filter_exclude_Back], use: [Provider_1], hidden: true}
   - {name: 'Fallback¹', <<: [*fallback1, *filter_exclude_Back], use: [Provider_1], hidden: true}

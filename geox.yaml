@@ -111,7 +111,6 @@ proxy-groups:
     type: select
     proxies: [默认,香港,台湾,日本,新加坡,美国,其它地区,全部节点,自动选择,直连]
 
-
   - name: Spotify
     type: select
     proxies: [默认,香港,台湾,日本,新加坡,美国,其它地区,全部节点,自动选择,直连]
@@ -169,11 +168,11 @@ proxy-groups:
     tolerance: 10
 
 rules:
+  - RULE-SET,ad,REJECT
+  - GEOSITE,category-ads,REJECT
   - RULE-SET,custom_direct,DIRECT
   - RULE-SET,custom_proxy,默认
-  - RULE-SET,ad,REJECT
   - RULE-SET,jp,日本
-  - GEOSITE,category-ads,REJECT
   - DOMAIN-KEYWORD,shadowverse,シャドバ
   - GEOIP,lan,直连,no-resolve
   - GEOSITE,googlefcm,DIRECT
@@ -192,6 +191,7 @@ rules:
   - GEOIP,telegram,Telegram
   - GEOIP,twitter,Twitter
   - GEOIP,CN,DIRECT
+  - GEOIP,jp,日本
   - MATCH,其他
 
 rule-providers:

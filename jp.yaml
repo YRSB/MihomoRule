@@ -2,4 +2,3 @@ payload:
   - GEOSITE,dlsite
   - GEOSITE,dmm
   - DOMAIN-SUFFIX,moepedia.net
-  - GEOIP,jp

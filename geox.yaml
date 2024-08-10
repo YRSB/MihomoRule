@@ -216,10 +216,20 @@ rule-providers:
     path: './rule_providers/domain/tencent'
     url: 'https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/tencent.mrs'
   
+  site_cn:
+    <<: *rule_domain
+    path: './rule_providers/domain/cn'
+    url: 'https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/cn.mrs'
+  
   ip_private:
     <<: *rule_ipcidr
     path: './rule_providers/ipcidr/private'
     url: 'https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geoip/private.mrs'
+
+  ip_cn:
+    <<: *rule_ipcidr
+    path: './rule_providers/ipcidr/cn'
+    url: 'https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geoip/cn.mrs'
 
 
 rules:
@@ -228,10 +238,10 @@ rules:
   - RULE-SET,custom_proxy,默认
   - RULE-SET,jp,日本
   - DOMAIN-KEYWORD,shadowverse,シャドバ
-  - OR,((RULE-SET,site_private),(RULE-SET,ip_private)),Direct
-  - OR,((RULE-SET,site_cn),(RULE-SET,ip_cn)),Direct
-  - AND,((DST-PORT,5228-5230),(RULE-SET,site_googlefcm)),Direct
-  - OR,((RULE-SET,site_tencent),(IP-ASN,45090),(IP-ASN,132203)),Direct
+  - OR,((RULE-SET,site_private),(RULE-SET,ip_private)),DIRECT
+  - OR,((RULE-SET,site_cn),(RULE-SET,ip_cn)),DIRECT
+  - AND,((DST-PORT,5228-5230),(RULE-SET,site_googlefcm)),DIRECT
+  - OR,((RULE-SET,site_tencent),(IP-ASN,45090),(IP-ASN,132203)),DIRECT
   - GEOSITE,github,Github
   - GEOSITE,pixiv,Pixiv
   - GEOSITE,twitter,Twitter

@@ -98,8 +98,8 @@ proxy-groups:
     proxies: [默认,香港,台湾,日本,新加坡,美国,其它地区,全部节点,自动选择,直连]
 
   - name: Pixiv
-    type: url-test
-    proxies: [香港,台湾,日本,新加坡]
+    type: select
+    proxies: [香港,台湾,日本,新加坡,Pixiv优选]
     url: "www.pixiv.net"
     interval: 300
 
@@ -162,6 +162,13 @@ proxy-groups:
     type: url-test
     include-all: true
     tolerance: 10
+
+  - name: Pixiv优选
+    type: url-test
+    include-all: true
+    filter: "(?:🇭🇰|🇯🇵|🇸🇬|🇨🇳|港|hk|hongkong|台|tw|taiwan|日|jp|japan|新|sg|singapore)"
+    url: "www.pixiv.net"
+    interval: 300
 
 rule-providers-anchor: # 锚点 如合并时有重复的项, 则不会去合并; 锚点名不能包含特殊字符
   rule_domain: &rule_domain {type: http, behavior: domain, format: mrs, proxy: DIRECT}

@@ -4,7 +4,7 @@ proxy-providers:
     url: ""
     type: http
     interval: 86400
-    health-check: {enable: true,url: "http://latency-test.skk.moe/endpoint", interval: 300}
+    health-check: {enable: true,url: "https://latency-test.skk.moe/endpoint", interval: 300}
     override:
       additional-prefix: "[provider1]"
 
@@ -16,12 +16,14 @@ proxies:
 mixed-port: 1193
 ipv6: false
 allow-lan: false
-unified-delay: false
-tcp-concurrent: true
+unified-delay: true
+tcp-concurrent: false
 external-controller: 127.0.0.1:9090
 external-ui: ui
 external-ui-url: "https://github.com/MetaCubeX/metacubexd/archive/refs/heads/gh-pages.zip"
 
+geo-auto-update: true
+geo-update-interval: 12
 geodata-mode: true
 geox-url:
   geoip: "https://mirror.ghproxy.com/https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geoip-lite.dat"
@@ -51,7 +53,8 @@ sniffer:
     - "+.push.apple.com"
 
 tun:
-  enable: false
+  enable: true
+  device: utun0
   stack: mixed
   dns-hijack:
     - "any:53"

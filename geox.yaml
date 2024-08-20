@@ -78,7 +78,7 @@ dns:
     - https://doh.pub/dns-query
     - https://dns.alidns.com/dns-query
   nameserver-policy: # 指定的解析服务, 没匹配到使用 nameserver/fallback 并发查询
-    "RULE-SET:site_private,site_cn":
+    "RULE-SET:site_private,site_cn,custom_direct":
       - https://doh.pub/dns-query
       - https://dns.alidns.com/dns-query
 
@@ -107,10 +107,6 @@ proxy-groups:
     interval: 300
 
   - name: YouTube
-    type: select
-    proxies: [默认,香港,台湾,日本,新加坡,美国,其它地区,全部节点,自动选择,直连]
-
-  - name: Spotify
     type: select
     proxies: [默认,香港,台湾,日本,新加坡,美国,其它地区,全部节点,自动选择,直连]
 
@@ -254,7 +250,6 @@ rules:
   - GEOSITE,youtube,YouTube
   - GEOSITE,google,Google
   - GEOSITE,telegram,Telegram
-  - GEOSITE,spotify,Spotify
   - GEOSITE,geolocation-!cn,其他
 
   - GEOIP,google,Google

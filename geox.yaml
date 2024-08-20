@@ -86,7 +86,16 @@ proxy-groups:
 
   - name: 默认
     type: select
-    proxies: [自动选择,直连,香港,台湾,日本,新加坡,美国,其它地区,全部节点]
+    proxies: [自动选择,Fallback,香港,台湾,日本,新加坡,美国,其它地区,全部节点]
+
+  - name: Fallback
+    type: fallback
+    include-all: true
+    filter: "(?i)(?=.*(?:🇭🇰|🇯🇵|🇸🇬|🇨🇳|港|hk|hongkong|台|tw|taiwan|日|jp|japan|新|sg|singapore)(?!.*(?:家宽|专用)).*)"
+    url: 'https://www.google.com'
+    interval: 300
+    lazy: true
+
 
   - name: Google
     type: select

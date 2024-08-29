@@ -81,7 +81,7 @@ dns:
     "RULE-SET:site_private,site_cn,custom_direct":
         - https://doh.pub/dns-query
         - https://dns.alidns.com/dns-query]
-    '+.msftconnecttest.com':https://doh.pub/dns-query
+    '+.msftconnecttest.com': https://doh.pub/dns-query
 
 proxy-groups:
 
@@ -192,7 +192,7 @@ rule-providers:
       interval: 86400
       behavior: classical
 
-  custom_direct:
+  custom_direct_domain:
       type: http
       url: "https://raw.gitmirror.com/YRSB/MihomoRule/master/custom_direct_domain.yaml"
       format: yaml
@@ -254,6 +254,7 @@ rule-providers:
 rules:
   - OR,((RULE-SET,ad),(GEOSITE,category-ads)),REJECT
   - RULE-SET,custom_direct,DIRECT
+  - RULE-SET,custom_direct_domain,DIRECT
   - RULE-SET,custom_proxy,默认
   - RULE-SET,jp,日本
   - DOMAIN-KEYWORD,shadowverse,シャドバ

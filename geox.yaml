@@ -78,7 +78,9 @@ dns:
     - https://doh.pub/dns-query
     - https://dns.alidns.com/dns-query
   nameserver-policy: # 指定的解析服务, 没匹配到使用 nameserver/fallback 并发查询
-    "RULE-SET:site_private,site_cn,custom_direct":[https://doh.pub/dns-query, https://dns.alidns.com/dns-query]
+    "RULE-SET:site_private,site_cn,custom_direct":
+        - https://doh.pub/dns-query
+        - https://dns.alidns.com/dns-query]
     '+.msftconnecttest.com':https://doh.pub/dns-query
 
 proxy-groups:

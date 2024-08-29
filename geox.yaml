@@ -95,6 +95,11 @@ proxy-groups:
     interval: 300
     lazy: true
 
+  - name: 自动选择
+    type: url-test
+    include-all: true
+    filter: "(?i)(?=.*(?:🇭🇰|🇯🇵|🇸🇬|🇨🇳|🇺🇸|港|hk|hongkong|台|tw|taiwan|日|jp|japan|新|sg|singapore|美|us|unitedstates)(?!.*(?:家宽|专用)).*)"
+    tolerance: 10
 
   - name: Google
     type: select
@@ -125,6 +130,13 @@ proxy-groups:
   - name: 其他
     type: select
     proxies:  [默认,香港,台湾,日本,新加坡,美国,其它地区,全部节点,自动选择,直连]
+
+  - name: Pixiv优选
+    type: url-test
+    include-all: true
+    filter: "(?i)(?=.*(?:🇭🇰|🇯🇵|🇸🇬|🇨🇳|港|hk|hongkong|台|tw|taiwan|日|jp|japan|新|sg|singapore)(?!.*(?:家宽|专用)).*)"
+    url: "www.pixiv.net"
+    interval: 300
     
   - name: シャドバ
     type: select
@@ -165,19 +177,6 @@ proxy-groups:
     type: select
     include-all: true
 
-  - name: 自动选择
-    type: url-test
-    include-all: true
-    filter: "(?i)(?=.*(?:🇭🇰|🇯🇵|🇸🇬|🇨🇳|🇺🇸|港|hk|hongkong|台|tw|taiwan|日|jp|japan|新|sg|singapore|美|us|unitedstates)(?!.*(?:家宽|专用)).*)"
-    tolerance: 10
-
-  - name: Pixiv优选
-    type: url-test
-    include-all: true
-    filter: "(?i)(?=.*(?:🇭🇰|🇯🇵|🇸🇬|🇨🇳|港|hk|hongkong|台|tw|taiwan|日|jp|japan|新|sg|singapore)(?!.*(?:家宽|专用)).*)"
-    url: "www.pixiv.net"
-    interval: 300
-
 rule-providers-anchor: # 锚点 如合并时有重复的项, 则不会去合并; 锚点名不能包含特殊字符
   rule_domain: &rule_domain {type: http, behavior: domain, format: mrs, proxy: DIRECT}
   rule_ipcidr: &rule_ipcidr {type: http, behavior: ipcidr, format: mrs, proxy: DIRECT}
@@ -190,6 +189,13 @@ rule-providers:
       format: yaml
       interval: 86400
       behavior: classical
+
+  custom_direct:
+      type: http
+      url: "https://raw.gitmirror.com/YRSB/MihomoRule/master/custom_direct_domain.yaml"
+      format: yaml
+      interval: 86400
+      behavior: domain
   
   custom_proxy:
     type: http

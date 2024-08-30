@@ -8,13 +8,21 @@ proxy-providers:
     override:
       additional-prefix: "[provider1]"
 
+  provider2:
+    url: ""
+    type: http
+    interval: 86400
+    health-check: {enable: true,url: "https://latency-test.skk.moe/endpoint", interval: 300}
+    override:
+      additional-prefix: "[provider2]"
+
 proxies: 
   - name: "直连"
     type: direct
     udp: true
 
 mixed-port: 1193
-ipv6: false
+ipv6: true
 allow-lan: false
 unified-delay: true
 tcp-concurrent: false
@@ -65,7 +73,7 @@ tun:
 
 dns:
   enable: true
-  ipv6: false
+  ipv6: true
   respect-rules: true
   enhanced-mode: fake-ip
   fake-ip-filter:

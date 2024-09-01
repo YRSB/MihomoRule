@@ -269,7 +269,7 @@ rule-providers:
 
 
 rules:
-  - PROCESS,qbittorrent,DIRECT
+  - PROCESS-NAME,qbittorrent,DIRECT
   - OR,((RULE-SET,ad),(GEOSITE,category-ads)),REJECT
   - RULE-SET,custom_direct,DIRECT
   - RULE-SET,custom_direct_domain,DIRECT

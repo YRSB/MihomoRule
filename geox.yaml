@@ -111,6 +111,10 @@ proxy-groups:
     filter: "(?i)(?=.*(?:🇭🇰|🇯🇵|🇸🇬|🇨🇳|🇺🇸|港|hk|hongkong|台|tw|taiwan|日|jp|japan|新|sg|singapore|美|us|unitedstates)(?!.*(?:家宽|专用)).*)"
     tolerance: 10
 
+  - name: Tracker
+    type: select
+    proxies:  [直连,默认,香港,台湾,日本,新加坡,美国,其它地区,全部节点,自动选择]
+
   - name: Google
     type: select
     proxies: [默认,香港,台湾,日本,新加坡,美国,其它地区,全部节点,自动选择,直连]
@@ -247,6 +251,11 @@ rule-providers:
     <<: *rule_domain
     path: './rule_providers/domain/cn'
     url: 'https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/cn.mrs'
+
+  site_tracker:
+    <<: *rule_domain
+    path: './rule_providers/domain/cn'
+    url: 'https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/tracker.mrs'
   
   ip_private:
     <<: *rule_ipcidr
@@ -266,6 +275,7 @@ rules:
   - RULE-SET,custom_direct_domain,DIRECT
   - RULE-SET,custom_proxy,默认
   - RULE-SET,jp,日本
+  - RULE-SET,site_tracker,Tracker
   - DOMAIN-KEYWORD,shadowverse,シャドバ
   - OR,((RULE-SET,site_private),(RULE-SET,ip_private)),DIRECT
   - OR,((RULE-SET,site_cn),(RULE-SET,ip_cn)),DIRECT

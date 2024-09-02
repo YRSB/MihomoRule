@@ -269,13 +269,13 @@ rule-providers:
 
 
 rules:
-  - PROCESS-NAME,qbittorrent,DIRECT
   - OR,((RULE-SET,ad),(GEOSITE,category-ads)),REJECT
+  - RULE-SET,site_tracker,Tracker
+  - PROCESS-NAME,qbittorrent,DIRECT
+  - RULE-SET,jp,日本
   - RULE-SET,custom_direct,DIRECT
   - RULE-SET,custom_direct_domain,DIRECT
   - RULE-SET,custom_proxy,默认
-  - RULE-SET,jp,日本
-  - RULE-SET,site_tracker,Tracker
   - DOMAIN-KEYWORD,shadowverse,シャドバ
   - OR,((RULE-SET,site_private),(RULE-SET,ip_private)),DIRECT
   - OR,((RULE-SET,site_cn),(RULE-SET,ip_cn)),DIRECT

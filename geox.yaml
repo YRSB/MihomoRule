@@ -264,14 +264,17 @@ rule-providers:
 
 rules:
   - OR,((RULE-SET,ad),(GEOSITE,category-ads)),REJECT
-  - OR,((RULE-SET,site_cn),(RULE-SET,ip_cn)),DIRECT
   - AND,((DST-PORT,5228-5230),(RULE-SET,site_googlefcm)),DIRECT
   - OR,((RULE-SET,site_tencent),(IP-ASN,45090),(IP-ASN,132203)),DIRECT
+  
   - RULE-SET,jp,日本
   - RULE-SET,custom_direct,DIRECT
   - RULE-SET,custom_direct_domain,DIRECT
   - RULE-SET,custom_proxy,默认
   - DOMAIN-KEYWORD,shadowverse,シャドバ
+  
+  - OR,((RULE-SET,site_cn),(RULE-SET,ip_cn)),DIRECT
+
   - RULE-SET,site_tracker,Tracker
   
   - PROCESS-NAME,qbittorrent,DIRECT

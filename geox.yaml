@@ -31,7 +31,7 @@ external-ui: ui
 external-ui-url: "https://github.com/MetaCubeX/metacubexd/archive/refs/heads/gh-pages.zip"
 
 geo-auto-update: true
-geo-update-interval: 12
+geo-update-interval: 24
 geodata-mode: true
 geox-url:
   geoip: "https://mirror.ghproxy.com/https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geoip-lite.dat"
@@ -87,10 +87,10 @@ dns:
     - https://dns.alidns.com/dns-query
   nameserver-policy: # 指定的解析服务, 没匹配到使用 nameserver/fallback 并发查询
     "geosite:github": https://dns.cloudflare.com/dns-query
-    "RULE-SET:site_private,site_cn,custom_direct":
-        - https://doh.pub/dns-query
-        - https://dns.alidns.com/dns-query]
+    "RULE-SET:site_private,site_cn,custom_direct,custom_direct_domain": https://doh.pub/dns-query
     '+.msftconnecttest.com': https://doh.pub/dns-query
+    "geosite,geolocation-!cn": https://dns.cloudflare.com/dns-query
+    "rule-set:custom_proxy": https://dns.cloudflare.com/dns-query
 
 proxy-groups:
 
@@ -102,7 +102,7 @@ proxy-groups:
     type: fallback
     include-all: true
     filter: "(?i)(?=.*(?:🇭🇰|🇯🇵|🇸🇬|🇨🇳|港|hk|hongkong|台|tw|taiwan|日|jp|japan|新|sg|singapore)(?!.*(?:家宽|专用)).*)"
-    url: 'https://www.google.com'
+    url: 'https://www.gstatic.com/generate_204'
     interval: 300
     lazy: true
 
@@ -274,7 +274,7 @@ rule-providers:
 
 rules:
   - OR,((RULE-SET,ad),(GEOSITE,category-ads)),REJECT
-  - OR,((RULE-SET,site_private),(RULE-SET,ip_private)),DIRECT
+  - RULE-SET,site_private,DIRECT
   - OR,((RULE-SET,site_cn),(RULE-SET,ip_cn)),DIRECT
   - AND,((DST-PORT,5228-5230),(RULE-SET,site_googlefcm)),DIRECT
   - OR,((RULE-SET,site_tencent),(IP-ASN,45090),(IP-ASN,132203)),DIRECT
@@ -299,4 +299,5 @@ rules:
   - GEOIP,telegram,Telegram
   - GEOIP,twitter,Twitter
   - GEOIP,jp,日本
+  - RULE-SET,ip_private,DIRECT
   - MATCH,其他

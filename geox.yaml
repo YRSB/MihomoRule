@@ -87,10 +87,10 @@ dns:
     - https://dns.alidns.com/dns-query
   nameserver-policy: # 指定的解析服务, 没匹配到使用 nameserver/fallback 并发查询
     "geosite:github": https://dns.cloudflare.com/dns-query
-    "RULE-SET:site_private,site_cn,custom_direct,custom_direct_domain": https://doh.pub/dns-query
+    "RULE-SET:site_cn,custom_direct,custom_direct_domain,ip_cn,site_tencent": https://doh.pub/dns-query
     '+.msftconnecttest.com': https://doh.pub/dns-query
     "geosite,geolocation-!cn": https://dns.cloudflare.com/dns-query
-    "rule-set:custom_proxy": https://dns.cloudflare.com/dns-query
+    "rule-set:custom_proxy,jp": https://dns.cloudflare.com/dns-query
 
 proxy-groups:
 
@@ -236,11 +236,6 @@ rule-providers:
     interval: 86400
     behavior: classical
 
-  site_private:
-    <<: *rule_domain
-    path: './rule_providers/domain/private'
-    url: 'https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/private.mrs'
-
   site_googlefcm:
     <<: *rule_domain
     path: './rule_providers/domain/googlefcm'
@@ -260,11 +255,6 @@ rule-providers:
     <<: *rule_domain
     path: './rule_providers/domain/cn'
     url: 'https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/tracker.mrs'
-  
-  ip_private:
-    <<: *rule_ipcidr
-    path: './rule_providers/ipcidr/private'
-    url: 'https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geoip/private.mrs'
 
   ip_cn:
     <<: *rule_ipcidr
@@ -274,7 +264,6 @@ rule-providers:
 
 rules:
   - OR,((RULE-SET,ad),(GEOSITE,category-ads)),REJECT
-  - RULE-SET,site_private,DIRECT
   - OR,((RULE-SET,site_cn),(RULE-SET,ip_cn)),DIRECT
   - AND,((DST-PORT,5228-5230),(RULE-SET,site_googlefcm)),DIRECT
   - OR,((RULE-SET,site_tencent),(IP-ASN,45090),(IP-ASN,132203)),DIRECT
@@ -299,5 +288,4 @@ rules:
   - GEOIP,telegram,Telegram
   - GEOIP,twitter,Twitter
   - GEOIP,jp,日本
-  - RULE-SET,ip_private,DIRECT
   - MATCH,其他

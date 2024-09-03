@@ -203,21 +203,21 @@ rule-providers-anchor: # 锚点 如合并时有重复的项, 则不会去合并;
 rule-providers:
   custom_direct:
       type: http
-      url: "https://raw.gitmirror.com/YRSB/MihomoRule/master/custom_direct.yaml"
+      url: "https://raw.githubusercontent.com/YRSB/MihomoRule/master/custom_direct.yaml"
       format: yaml
       interval: 86400
       behavior: classical
 
   custom_direct_domain:
       type: http
-      url: "https://raw.gitmirror.com/YRSB/MihomoRule/master/custom_direct_domain.yaml"
+      url: "https://raw.githubusercontent.com/YRSB/MihomoRule/master/custom_direct_domain.yaml"
       format: yaml
       interval: 86400
       behavior: domain
   
   custom_proxy:
     type: http
-    url: "https://raw.gitmirror.com/YRSB/MihomoRule/master/custom_proxy.yaml"
+    url: "https://raw.githubusercontent.com/YRSB/MihomoRule/master/custom_proxy.yaml"
     format: yaml
     interval: 86400
     behavior: classical
@@ -231,7 +231,7 @@ rule-providers:
 
   jp:
     type: http
-    url: "https://raw.gitmirror.com/YRSB/MihomoRule/master/jp.yaml"
+    url: "https://raw.githubusercontent.com/YRSB/MihomoRule/master/jp.yaml"
     format: yaml
     interval: 86400
     behavior: classical
@@ -239,27 +239,27 @@ rule-providers:
   site_googlefcm:
     <<: *rule_domain
     path: './rule_providers/domain/googlefcm'
-    url: 'https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/googlefcm.mrs'
+    url: 'https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/googlefcm.mrs'
 
   site_tencent:
     <<: *rule_domain
     path: './rule_providers/domain/tencent'
-    url: 'https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/tencent.mrs'
+    url: 'https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/tencent.mrs'
   
   site_cn:
     <<: *rule_domain
     path: './rule_providers/domain/cn'
-    url: 'https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/cn.mrs'
+    url: 'https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/cn.mrs'
 
   site_tracker:
     <<: *rule_domain
     path: './rule_providers/domain/cn'
-    url: 'https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/tracker.mrs'
+    url: 'https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/tracker.mrs'
 
   ip_cn:
     <<: *rule_ipcidr
     path: './rule_providers/ipcidr/cn'
-    url: 'https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geoip/cn.mrs'
+    url: 'https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/cn.mrs'
 
 
 rules:

@@ -87,7 +87,7 @@ dns:
     - https://dns.alidns.com/dns-query
   nameserver-policy: # 指定的解析服务, 没匹配到使用 nameserver/fallback 并发查询
     "geosite:github": https://dns.cloudflare.com/dns-query
-    "RULE-SET:site_cn,custom_direct,custom_direct_domain,ip_cn,site_tencent": https://doh.pub/dns-query
+    "RULE-SET:site_cn,custom_direct,custom_direct_domain,site_tencent": https://doh.pub/dns-query
     '+.msftconnecttest.com': https://doh.pub/dns-query
     "geosite,geolocation-!cn": https://dns.cloudflare.com/dns-query
     "rule-set:custom_proxy,jp": https://dns.cloudflare.com/dns-query

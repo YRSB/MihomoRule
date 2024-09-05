@@ -84,11 +84,11 @@ dns:
   nameserver: # 默认域名解析, 如不配置 fallback/proxy-server-nameserver, 则都由 nameserver 解析
     - tls://1.1.1.1
   nameserver-policy: # 指定的解析服务, 没匹配到使用 nameserver/fallback 并发查询
-    "geosite:github": https://dns.cloudflare.com/dns-query
+    "geosite:github": tls://1.1.1.1
     "RULE-SET:site_cn,custom_direct,custom_direct_domain,site_tencent": https://doh.pub/dns-query
     '+.msftconnecttest.com': https://doh.pub/dns-query
-    "geosite,geolocation-!cn": https://dns.cloudflare.com/dns-query
-    "rule-set:custom_proxy,jp": https://dns.cloudflare.com/dns-query
+    "geosite,geolocation-!cn": tls://1.1.1.1
+    "rule-set:custom_proxy,jp": tls://1.1.1.1
   proxy-server-nameserver: # 用于节点域名解析 如其他 DNS 需过代理查询/nameserver 为国外 DNS 则配置该项以防出现鸡蛋问题
     - https://doh.pub/dns-query
 
@@ -253,7 +253,7 @@ rule-providers:
 
   site_tracker:
     <<: *rule_domain
-    path: './rule_providers/domain/cn'
+    path: './rule_providers/domain/tracker'
     url: 'https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/tracker.mrs'
 
   ip_cn:

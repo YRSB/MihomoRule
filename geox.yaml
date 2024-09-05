@@ -81,10 +81,21 @@ dns:
     - "*"
     - "+.lan"
     - "+.local"
-  default-nameserver:
-    - tls://120.53.53.53
   nameserver: # 默认域名解析, 如不配置 fallback/proxy-server-nameserver, 则都由 nameserver 解析
     - https://dns.cloudflare.com/dns-query
+  fallback:
+    - tls://1.1.1.1
+  fallback-filter:
+    geoip: true
+    geoip-code: CN
+    geosite:
+      - gfw
+    ipcidr:
+      - 240.0.0.0/4
+    domain:
+      - '+.google.com'
+      - '+.facebook.com'
+      - '+.youtube.com'
   proxy-server-nameserver: # 用于节点域名解析 如其他 DNS 需过代理查询/nameserver 为国外 DNS 则配置该项以防出现鸡蛋问题
     - https://doh.pub/dns-query
     - https://dns.alidns.com/dns-query

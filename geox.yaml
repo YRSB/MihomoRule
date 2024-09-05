@@ -226,7 +226,7 @@ rule-providers:
     url: "https://raw.githubusercontent.com/YRSB/MihomoRule/master/custom_proxy_domain.yaml"
     format: yaml
     interval: 86400
-    behavior: classical
+    behavior: domain
   
   ad: 
     type: http

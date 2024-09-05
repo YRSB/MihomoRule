@@ -82,29 +82,15 @@ dns:
     - "+.lan"
     - "+.local"
   nameserver: # 默认域名解析, 如不配置 fallback/proxy-server-nameserver, 则都由 nameserver 解析
-    - https://dns.cloudflare.com/dns-query
-  fallback:
     - tls://1.1.1.1
-  fallback-filter:
-    geoip: true
-    geoip-code: CN
-    geosite:
-      - gfw
-    ipcidr:
-      - 240.0.0.0/4
-    domain:
-      - '+.google.com'
-      - '+.facebook.com'
-      - '+.youtube.com'
-  proxy-server-nameserver: # 用于节点域名解析 如其他 DNS 需过代理查询/nameserver 为国外 DNS 则配置该项以防出现鸡蛋问题
-    - https://doh.pub/dns-query
-    - https://dns.alidns.com/dns-query
   nameserver-policy: # 指定的解析服务, 没匹配到使用 nameserver/fallback 并发查询
     "geosite:github": https://dns.cloudflare.com/dns-query
     "RULE-SET:site_cn,custom_direct,custom_direct_domain,site_tencent": https://doh.pub/dns-query
     '+.msftconnecttest.com': https://doh.pub/dns-query
     "geosite,geolocation-!cn": https://dns.cloudflare.com/dns-query
     "rule-set:custom_proxy,jp": https://dns.cloudflare.com/dns-query
+  proxy-server-nameserver: # 用于节点域名解析 如其他 DNS 需过代理查询/nameserver 为国外 DNS 则配置该项以防出现鸡蛋问题
+    - https://doh.pub/dns-query
 
 proxy-groups:
 

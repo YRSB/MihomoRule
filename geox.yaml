@@ -22,7 +22,7 @@ proxies:
     udp: true
 
 mixed-port: 1193
-ipv6: true
+ipv6: false
 allow-lan: false
 unified-delay: true
 tcp-concurrent: false
@@ -74,7 +74,7 @@ tun:
 
 dns:
   enable: true
-  ipv6: true
+  ipv6: false
   respect-rules: true
   enhanced-mode: fake-ip
   fake-ip-filter:

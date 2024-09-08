@@ -254,37 +254,30 @@ rule-providers:
 
   site_googlefcm:
     <<: *rule_domain
-    path: './rule_providers/domain/googlefcm'
     url: 'https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/googlefcm.mrs'
 
   site_tencent:
     <<: *rule_domain
-    path: './rule_providers/domain/tencent'
     url: 'https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/tencent.mrs'
   
   site_cn:
     <<: *rule_domain
-    path: './rule_providers/domain/cn'
     url: 'https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/cn.mrs'
 
   site_tracker:
     <<: *rule_domain
-    path: './rule_providers/domain/tracker'
     url: 'https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/tracker.mrs'
 
   site_private:
     <<: *rule_domain
-    path: './rule_providers/domain/private'
     url: 'https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/private.mrs'
 
   ip_private:
     <<: *rule_ipcidr
-    path: './rule_providers/ipcidr/private'
     url: 'https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/private.mrs'  
   
   ip_cn:
     <<: *rule_ipcidr
-    path: './rule_providers/ipcidr/cn'
     url: 'https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/cn.mrs'
 
 

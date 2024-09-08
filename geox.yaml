@@ -125,13 +125,13 @@ proxy-groups:
   - name: Pixiv
     type: select
     proxies: [香港,台湾,日本,新加坡,Pixiv优选]
-    url: "https://www.pixiv.net"
+    url: "www.pixiv.net"
     interval: 300
 
   - name: asmr
     type: select
-    proxies: [香港,台湾,日本,新加坡,asmr-auto]
-    url: "https://asmr.one"
+    proxies: [直连,香港,台湾,日本,新加坡,asmr-auto]
+    url: "asmr.one"
     interval: 300
 
   - name: YouTube

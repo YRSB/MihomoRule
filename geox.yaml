@@ -12,23 +12,22 @@ proxies:
     udp: true
 
 mixed-port: 1193
-ipv6: false
+ipv6: enable
 allow-lan: false
 unified-delay: true
 tcp-concurrent: false
 external-controller: 127.0.0.1:9090
 external-ui: ui
 external-ui-url: "https://github.com/MetaCubeX/metacubexd/archive/refs/heads/gh-pages.zip"
-keep-alive-interval: 15
 
 geo-auto-update: true
 geo-update-interval: 24
 geodata-mode: true
 geox-url:
-  geoip: "https://mirror.ghproxy.com/https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geoip-lite.dat"
-  geosite: "https://mirror.ghproxy.com/https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geosite.dat"
-  mmdb: "https://mirror.ghproxy.com/https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/country-lite.mmdb"
-  asn: "https://mirror.ghproxy.com/https://github.com/xishang0128/geoip/releases/download/latest/GeoLite2-ASN.mmdb"
+  geoip: "https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geoip-lite.dat"
+  geosite: "https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geosite.dat"
+  mmdb: "https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/country-lite.mmdb"
+  asn: "https://github.com/xishang0128/geoip/releases/download/latest/GeoLite2-ASN.mmdb"
 
 find-process-mode: strict
 global-client-fingerprint: chrome
@@ -65,7 +64,7 @@ tun:
 
 dns:
   enable: true
-  ipv6: false
+  ipv6: enable
   respect-rules: true
   enhanced-mode: fake-ip
   fake-ip-filter:
@@ -86,14 +85,12 @@ proxy-groups:
 
   - name: 默认
     type: select
-    url: 'https://www.google.com/generate_204'
     proxies: [自动选择,Fallback,香港,台湾,日本,新加坡,美国,其它地区,全部节点]
 
   - name: Fallback
     type: fallback
     include-all: true
     filter: "(?i)(?=.*(?:🇭🇰|🇯🇵|🇸🇬|🇨🇳|港|hk|hongkong|台|tw|taiwan|日|jp|japan|新|sg|singapore)(?!.*(?:家宽|专用)).*)"
-    url: 'https://www.google.com/generate_204'
     interval: 300
     lazy: true
 
@@ -102,7 +99,6 @@ proxy-groups:
     include-all: true
     filter: "(?i)(?=.*(?:🇭🇰|🇯🇵|🇸🇬|🇨🇳|🇺🇸|港|hk|hongkong|台|tw|taiwan|日|jp|japan|新|sg|singapore|美|us|unitedstates)(?!.*(?:家宽|专用)).*)"
     tolerance: 20
-    url: 'https://www.google.com/generate_204'
     interval: 300
     lazy: true
 
@@ -150,7 +146,7 @@ proxy-groups:
     type: url-test
     include-all: true
     filter: "(?i)(?=.*(?:🇭🇰|🇯🇵|🇸🇬|🇨🇳|港|hk|hongkong|台|tw|taiwan|日|jp|japan|新|sg|singapore)(?!.*(?:家宽|专用)).*)"
-    url: "https://www.pixiv.net"
+    url: "www.pixiv.net"
     interval: 300
     lazy: true
 
@@ -158,7 +154,7 @@ proxy-groups:
     type: url-test
     include-all: true
     filter: "(?i)(?=.*(?:🇭🇰|🇯🇵|🇸🇬|🇨🇳|港|hk|hongkong|台|tw|taiwan|日|jp|japan|新|sg|singapore)(?!.*(?:家宽|专用)).*)"
-    url: "https://asmr.one"
+    url: "asmr.one"
     interval: 300
     lazy: true
     

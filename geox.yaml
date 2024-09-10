@@ -300,6 +300,6 @@ rules:
 
   - GEOIP,google,Google
   - GEOIP,telegram,Telegram
-  - GEOIP,twitter,Twitter
+  - GEOIP,twitter,Proxy
   - GEOIP,jp,日本
   - MATCH,Proxy

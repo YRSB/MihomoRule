@@ -81,19 +81,13 @@ dns:
 
 proxy-groups:
 
-  - name: 默认
+  - name: Proxy
     type: select
-    proxies: [自动选择,Fallback,香港,台湾,日本,新加坡,美国,其它地区,全部节点]
-
-  - name: Fallback
-    type: fallback
-    include-all: true
-    filter: "(?i)(?=.*(?:🇭🇰|🇯🇵|🇸🇬|🇨🇳|港|hk|hongkong|台|tw|taiwan|日|jp|japan|新|sg|singapore)(?!.*(?:家宽|专用)).*)"
-    interval: 300
-    lazy: true
+    proxies: [自动选择,香港,台湾,日本,新加坡,美国,其它地区,全部节点]
 
   - name: 自动选择
     type: url-test
+    url: "https://www.gstatic.com/generate_204"
     include-all: true
     filter: "(?i)(?=.*(?:🇭🇰|🇯🇵|🇸🇬|🇨🇳|🇺🇸|港|hk|hongkong|台|tw|taiwan|日|jp|japan|新|sg|singapore|美|us|unitedstates)(?!.*(?:家宽|专用)).*)"
     tolerance: 20
@@ -102,23 +96,19 @@ proxy-groups:
 
   - name: Tracker
     type: select
-    proxies:  [直连,默认,香港,台湾,日本,新加坡,美国,其它地区,自动选择,全部节点]
+    proxies:  [直连,Proxy,香港,台湾,日本,新加坡,美国,其它地区,自动选择,全部节点]
 
   - name: Google
     type: select
-    proxies: [默认,香港,台湾,日本,新加坡,美国,其它地区,全部节点,自动选择,直连]
+    proxies: [Proxy,香港,台湾,日本,新加坡,美国,其它地区,全部节点,自动选择,直连]
 
   - name: Telegram
     type: select
-    proxies: [默认,香港,台湾,日本,新加坡,美国,其它地区,全部节点,自动选择,直连]
-
-  - name: Twitter
-    type: select
-    proxies: [默认,香港,台湾,日本,新加坡,美国,其它地区,全部节点,自动选择,直连]
+    proxies: [Proxy,香港,台湾,日本,新加坡,美国,其它地区,全部节点,自动选择,直连]
 
   - name: Pixiv
     type: select
-    proxies: [香港,台湾,日本,新加坡,Pixiv优选]
+    proxies: [香港,台湾,日本,新加坡,Pixiv-auto]
     url: "www.pixiv.net"
     interval: 300
 
@@ -130,35 +120,36 @@ proxy-groups:
 
   - name: YouTube
     type: select
-    proxies: [默认,香港,台湾,日本,新加坡,美国,其它地区,全部节点,自动选择,直连]
+    url: "https://www.youtube.com"
+    proxies: [Proxy,香港,台湾,日本,新加坡,美国,其它地区,全部节点,自动选择]
 
   - name: Github
     type: select
-    proxies:  [默认,香港,台湾,日本,新加坡,美国,其它地区,全部节点,自动选择,直连]
+    url: "https://www.github.com"
+    proxies:  [Proxy,香港,台湾,日本,新加坡,美国,全部节点,自动选择]
 
-  - name: 其他
-    type: select
-    proxies:  [默认,香港,台湾,日本,新加坡,美国,其它地区,全部节点,自动选择,直连]
-
-  - name: Pixiv优选
+  - name: Pixiv-auto
     type: url-test
     include-all: true
     filter: "(?i)(?=.*(?:🇭🇰|🇯🇵|🇸🇬|🇨🇳|港|hk|hongkong|台|tw|taiwan|日|jp|japan|新|sg|singapore)(?!.*(?:家宽|专用)).*)"
     url: "www.pixiv.net"
     interval: 300
+    tolerance: 30
     lazy: true
 
   - name: asmr-auto
     type: url-test
+    proxies: [直连]
     include-all: true
     filter: "(?i)(?=.*(?:🇭🇰|🇯🇵|🇸🇬|🇨🇳|港|hk|hongkong|台|tw|taiwan|日|jp|japan|新|sg|singapore)(?!.*(?:家宽|专用)).*)"
     url: "asmr.one"
     interval: 300
+    tolerance: 30
     lazy: true
     
   - name: シャドバ
     type: select
-    proxies:  [默认,香港,台湾,日本,新加坡,美国,其它地区,全部节点,自动选择,直连]
+    proxies:  [Proxy,香港,台湾,日本,新加坡,美国,其它地区,全部节点,自动选择,直连]
 
   #分隔,下面是地区分组
   - name: 香港
@@ -289,8 +280,8 @@ rules:
   - RULE-SET,jp,日本
   - RULE-SET,custom_direct,DIRECT
   - RULE-SET,custom_direct_domain,DIRECT
-  - RULE-SET,custom_proxy,默认
-  - RULE-SET,custom_proxy_domain,默认
+  - RULE-SET,custom_proxy,Proxy
+  - RULE-SET,custom_proxy_domain,Proxy
   - DOMAIN-KEYWORD,shadowverse,シャドバ
   
   - OR,((RULE-SET,site_cn),(RULE-SET,ip_cn)),DIRECT
@@ -301,14 +292,14 @@ rules:
   
   - GEOSITE,github,Github
   - GEOSITE,pixiv,Pixiv
-  - GEOSITE,twitter,Twitter
+  - GEOSITE,twitter,Proxy
   - GEOSITE,youtube,YouTube
   - GEOSITE,google,Google
   - GEOSITE,telegram,Telegram
-  - GEOSITE,geolocation-!cn,其他
+  - GEOSITE,geolocation-!cn,Proxy
 
   - GEOIP,google,Google
   - GEOIP,telegram,Telegram
   - GEOIP,twitter,Twitter
   - GEOIP,jp,日本
-  - MATCH,其他
+  - MATCH,Proxy

@@ -71,6 +71,7 @@ dns:
     - "*"
     - "+.lan"
     - "+.local"
+    - "+.msftconnecttest.com"
   default-nameserver:
     - tls://1.12.12.12
     - 119.29.29.29

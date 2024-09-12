@@ -274,8 +274,8 @@ rules:
   
   - RULE-SET,asmr,asmr
   - RULE-SET,jp,日本
-  - OR,((custom_direct),(custom_direct_domain)),DIRECT
-  - OR,((custom_proxy),(custom_proxy_domain)),Proxy
+  - OR,((RULE-SET,custom_direct),(RULE-SET,custom_direct_domain)),DIRECT
+  - OR,((RULE-SET,custom_proxy),(RULE-SET,custom_proxy_domain)),Proxy
 
   - DOMAIN-KEYWORD,shadowverse,シャドバ
   - RULE-SET,site_tracker,Tracker
@@ -284,5 +284,5 @@ rules:
   - RULE-SET,site_pixiv,Pixiv
   - RULE-SET,site_geolocation_non_cn,Proxy
   - RULE-SET,ip_jp,日本
-  
+
   - MATCH,Proxy

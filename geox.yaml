@@ -220,9 +220,9 @@ rule-providers:
     interval: 86400
     behavior: classical
 
-  site_category_ads:
+  site_category_ads_all:
     <<: *rule_domain
-    url: 'https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/category-ads.mrs'
+    url: 'https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/category-ads-all.mrs'
 
   site_googlefcm:
     <<: *rule_domain
@@ -266,7 +266,7 @@ rule-providers:
 
 
 rules:
-  - OR,((RULE-SET,ad),(RULE-SET,site_category_ads)),REJECT
+  - OR,((RULE-SET,ad),(RULE-SET,site_category_ads_all)),REJECT
   - OR,((RULE-SET,site_private),(RULE-SET,ip_private)),DIRECT
   - OR,((RULE-SET,site_cn),(RULE-SET,ip_cn)),DIRECT
   - AND,((DST-PORT,5228-5230),(RULE-SET,site_googlefcm)),DIRECT

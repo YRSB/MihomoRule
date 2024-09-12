@@ -166,9 +166,9 @@ proxy-groups:
     include-all: true
 
 rule-providers-anchor: # 锚点 如合并时有重复的项, 则不会去合并; 锚点名不能包含特殊字符
-  rule_domain: &rule_domain {type: http, behavior: domain, format: mrs, proxy: DIRECT}
-  rule_ipcidr: &rule_ipcidr {type: http, behavior: ipcidr, format: mrs, proxy: DIRECT}
-  rule_classical: &rule_classical {type: http, behavior: classical, format: yaml, proxy: DIRECT}
+  rule_domain: &rule_domain {type: http, behavior: domain, format: mrs}
+  rule_ipcidr: &rule_ipcidr {type: http, behavior: ipcidr, format: mrs}
+  rule_classical: &rule_classical {type: http, behavior: classical, format: yaml}
 
 rule-providers:
   custom_direct:

@@ -62,6 +62,8 @@ dns:
     - "*"
     - "+.lan"
     - "+.local"
+    - "dns.msftncsi.com"
+    - "www.msftncsi.com"
     - "+.msftconnecttest.com"
   default-nameserver:
     - 'tls://1.12.12.12'

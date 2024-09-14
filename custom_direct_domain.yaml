@@ -1,5 +1,6 @@
 payload:
   - "+.msftconnecttest.com"
+  - "+.msftncsi.com"
   - "+.cloudapp.net"
   - "+.cloudapp.azure.com"
   - "+.kfpromax.com"

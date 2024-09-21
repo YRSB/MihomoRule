@@ -264,6 +264,10 @@ rule-providers:
     <<: *rule_ipcidr
     url: 'https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/jp.mrs'
 
+  ip_cloudflare:
+    <<: *rule_ipcidr
+    url: 'https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/cloudflare.mrs'
+
 
 rules:
   - OR,((RULE-SET,ad),(RULE-SET,site_category_ads_all)),REJECT
@@ -281,6 +285,7 @@ rules:
   - RULE-SET,asmr,asmr
   - RULE-SET,jp,日本
   - OR,((RULE-SET,custom_proxy),(RULE-SET,custom_proxy_domain)),Proxy
+  - RULE-SET,ip_cloudflare,Proxy
   - RULE-SET,site_geolocation_non_cn,Proxy
   - RULE-SET,ip_jp,日本
 

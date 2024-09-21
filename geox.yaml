@@ -271,21 +271,20 @@ rule-providers:
 
 rules:
   - OR,((RULE-SET,ad),(RULE-SET,site_category_ads_all)),REJECT
+  - OR,((RULE-SET,custom_direct),(RULE-SET,custom_direct_domain)),DIRECT
   - OR,((RULE-SET,site_private),(RULE-SET,ip_private)),DIRECT
   - OR,((RULE-SET,site_cn),(RULE-SET,ip_cn)),DIRECT
   - AND,((DST-PORT,5228-5230),(RULE-SET,site_googlefcm)),DIRECT
   - OR,((RULE-SET,site_tencent),(IP-ASN,45090),(IP-ASN,132203)),DIRECT
-  
-  - RULE-SET,asmr,asmr
-  - RULE-SET,jp,日本
-  - OR,((RULE-SET,custom_direct),(RULE-SET,custom_direct_domain)),DIRECT
-  - OR,((RULE-SET,custom_proxy),(RULE-SET,custom_proxy_domain)),Proxy
 
   - DOMAIN-KEYWORD,shadowverse,シャドバ
   - RULE-SET,site_tracker,Tracker
   - PROCESS-NAME,qbittorrent,DIRECT
  
   - RULE-SET,site_pixiv,Pixiv
+  - RULE-SET,asmr,asmr
+  - RULE-SET,jp,日本
+  - OR,((RULE-SET,custom_proxy),(RULE-SET,custom_proxy_domain)),Proxy
   - RULE-SET,site_geolocation_non_cn,Proxy
   - RULE-SET,ip_jp,日本
 

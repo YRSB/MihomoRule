@@ -70,7 +70,7 @@ dns:
     - '119.29.29.29'
   nameserver: # 默认域名解析, 如不配置 fallback/proxy-server-nameserver, 则都由 nameserver 解析
     - 'tls://1.1.1.1'
-    - 'https://1.1.1.1/dns-query#h3=true'
+    - 'https://one.one.one.one/dns-query#h3=true'
   nameserver-policy: # 指定的解析服务, 没匹配到使用 nameserver/fallback 并发查询
     "RULE-SET:site_cn,site_tencent,site_private,custom_direct,custom_direct_domain": 
       - 'https://223.5.5.5/dns-query#h3=true'
@@ -252,6 +252,10 @@ rule-providers:
     <<: *rule_domain
     url: 'https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/geolocation-!cn.mrs'
 
+  site_cloudflare:
+    <<: *rule_domain
+    url: 'https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/cloudflare.mrs'
+
   ip_private:
     <<: *rule_ipcidr
     url: 'https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/private.mrs'  
@@ -285,7 +289,7 @@ rules:
   - RULE-SET,asmr,asmr
   - RULE-SET,jp,日本
   - OR,((RULE-SET,custom_proxy),(RULE-SET,custom_proxy_domain)),Proxy
-  - RULE-SET,ip_cloudflare,Proxy
+  - OR,((RULE-SET,site_cloudflare),(RULE-SET,ip_cloudflare)),Proxy
   - RULE-SET,site_geolocation_non_cn,Proxy
   - RULE-SET,ip_jp,日本
 

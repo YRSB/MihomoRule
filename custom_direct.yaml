@@ -1,10 +1,6 @@
 payload:
   - GEOSITE,sharepoint
   - GEOSITE,steam@cn
-  - DOMAIN-SUFFIX,inari.site
-  - DOMAIN-SUFFIX,mistakey.top
   - GEOSITE,nvidia@cn
-  - DOMAIN,ero.plumz.me
-  - DOMAIN-SUFFIX,socpk.com
   - GEOSITE,xbox
   - GEOSITE,xbox@cn

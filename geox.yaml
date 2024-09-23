@@ -70,6 +70,8 @@ dns:
     - "*"
     - "+.lan"
     - "+.local"
+    - "+.msftconnecttest.com"
+    - "GEOSITE,xbox@cn"
   default-nameserver:
     - 'tls://1.12.12.12'
     - '119.29.29.29'

@@ -119,6 +119,12 @@ proxy-groups:
     url: "asmr.one"
     interval: 300
 
+  - name: Youtube
+    type: select
+    proxies: [香港,台湾,日本,新加坡,美国,Youtube-auto]
+    url: "asmr.one"
+    interval: 300
+
   - name: Pixiv-auto
     type: url-test
     include-all: true
@@ -135,6 +141,15 @@ proxy-groups:
     url: "asmr.one"
     interval: 300
     tolerance: 30
+    lazy: true
+
+  - name: Youtube-auto
+    type: url-test
+    url: "https://www.youtube.com"
+    include-all: true
+    filter: "(?i)(?=.*(?:🇭🇰|🇯🇵|🇸🇬|🇨🇳|🇺🇸|港|hk|hongkong|台|tw|taiwan|日|jp|japan|新|sg|singapore|美|us|unitedstates)(?!.*(?:家宽|专用)).*)"
+    tolerance: 20
+    interval: 300
     lazy: true
     
   - name: シャドバ
@@ -259,6 +274,10 @@ rule-providers:
     <<: *rule_domain
     url: 'https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/pixiv.mrs'
 
+  site_youtube:
+    <<: *rule_domain
+    url: 'https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/youtube.mrs'
+
   site_geolocation_non_cn:
     <<: *rule_domain
     url: 'https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/geolocation-!cn.mrs'
@@ -295,7 +314,7 @@ rules:
   - RULE-SET,site_pixiv,Pixiv
   - RULE-SET,asmr,asmr
   - RULE-SET,jp,日本
-
+  - RULE-SET,site_youtube,Youtube
   - RULE-SET,site_geolocation_non_cn,Proxy
   - RULE-SET,ip_cloudflare,Proxy
   - RULE-SET,ip_jp,日本

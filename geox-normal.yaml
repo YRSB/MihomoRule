@@ -1,0 +1,333 @@
+# url 里填写自己的订阅,名称不能重复
+proxy-providers:
+  provider1:
+    url: ""
+    type: http
+    interval: 86400
+    health-check: {enable: true,url: "https://www.gstatic.com/generate_204", interval: 300}
+    override: 
+      additional-prefix: "[provider1]"
+
+  provider2:
+    url: ""
+    type: http
+    interval: 86400
+    health-check: {enable: true,url: "https://www.gstatic.com/generate_204", interval: 300}
+    override: 
+      additional-prefix: "[provider2]"
+      
+proxies: 
+  - name: "直连"
+    type: direct
+    udp: true
+
+mixed-port: 31193
+ipv6: false
+allow-lan: false
+unified-delay: true
+tcp-concurrent: false
+external-controller: 127.0.0.1:41193
+external-ui: ui
+external-ui-url: "https://github.com/MetaCubeX/metacubexd/archive/refs/heads/gh-pages.zip"
+geox-url:
+  geoip: "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/geoip.dat"
+  geosite: "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/geosite.dat"
+  mmdb: "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/country.mmdb"
+  asn: "https://github.com/xishang0128/geoip/releases/download/latest/GeoLite2-ASN.mmdb"
+geo-auto-update: true
+geo-update-interval: 24
+geodata-mode: true
+
+find-process-mode: strict
+global-client-fingerprint: chrome
+
+profile:
+  store-selected: true
+  store-fake-ip: true
+
+sniffer:
+  enable: true
+  sniff:
+    HTTP:
+      ports: [80, 8080-8880]
+      override-destination: true
+    TLS:
+      ports: [443, 8443]
+    QUIC:
+      ports: [443, 8443]
+  skip-domain:
+    - "Mijia Cloud"
+    - "+.push.apple.com"
+
+tun:
+  enable: true
+  device: TsuinoSora
+  stack: mixed
+  dns-hijack:
+    - "any:53"
+    - "tcp://any:53"
+  strict-route: true
+  auto-route: true
+  auto-redirect: true
+  auto-detect-interface: true
+
+dns:
+  enable: true
+  ipv6: false
+  respect-rules: true
+  enhanced-mode: fake-ip
+  fake-ip-filter:
+    - "*"
+    - "+.lan"
+    - "+.local"
+    - "+.msftconnecttest.com"
+  default-nameserver:
+    - 'tls://1.12.12.12'
+    - '119.29.29.29'
+  nameserver: # 默认域名解析, 如不配置 fallback/proxy-server-nameserver, 则都由 nameserver 解析
+    - 'tls://1.1.1.1'
+    - 'https://dns.google/dns-query'
+  nameserver-policy: # 指定的解析服务, 没匹配到使用 nameserver/fallback 并发查询
+    "RULE-SET:site_cn,site_tencent,site_private,custom_direct,custom_direct_domain": 
+      - 'https://223.5.5.5/dns-query#h3=true'
+    "+.glados-config.com":
+      - 'https://223.5.5.5/dns-query#h3=true'
+    "+.acaisbest.com":
+      - 'https://223.5.5.5/dns-query#h3=true'
+  proxy-server-nameserver: # 用于节点域名解析 如其他 DNS 需过代理查询/nameserver 为国外 DNS 则配置该项以防出现鸡蛋问题
+    - 'https://223.5.5.5/dns-query#h3=true'
+    - 'https://doh.pub/dns-query'
+
+proxy-groups:
+
+  - name: Proxy
+    type: select
+    proxies: [自动选择,香港,台湾,日本,新加坡,美国,其它地区,全部节点]
+
+  - name: 自动选择
+    type: url-test
+    url: "https://www.gstatic.com/generate_204"
+    include-all: true
+    filter: "(?i)(?=.*(?:🇭🇰|🇯🇵|🇸🇬|🇨🇳|🇺🇸|港|hk|hongkong|台|tw|taiwan|日|jp|japan|新|sg|singapore|美|us|unitedstates)(?!.*(?:家宽|专用)).*)"
+    tolerance: 20
+    interval: 300
+    lazy: true
+
+  - name: Tracker
+    type: select
+    proxies:  [直连,Proxy,香港,台湾,日本,新加坡,美国,其它地区,自动选择,全部节点]
+
+  - name: Pixiv
+    type: select
+    proxies: [香港,台湾,日本,新加坡,Pixiv-auto]
+    url: "www.pixiv.net"
+    interval: 300
+
+  - name: asmr
+    type: select
+    proxies: [直连,香港,台湾,日本,新加坡,asmr-auto]
+    url: "asmr.one"
+    interval: 300
+
+  - name: Youtube
+    type: select
+    proxies: [香港,台湾,日本,新加坡,美国,Youtube-auto]
+    url: "asmr.one"
+    interval: 300
+
+  - name: Pixiv-auto
+    type: url-test
+    include-all: true
+    filter: "(?i)(?=.*(?:🇭🇰|🇯🇵|🇸🇬|🇨🇳|港|hk|hongkong|台|tw|taiwan|日|jp|japan|新|sg|singapore)(?!.*(?:家宽|专用)).*)"
+    url: "www.pixiv.net"
+    interval: 300
+    tolerance: 30
+    lazy: true
+
+  - name: asmr-auto
+    type: url-test
+    include-all: true
+    filter: "(?i)(?=.*(?:🇭🇰|🇯🇵|🇸🇬|🇨🇳|港|hk|hongkong|台|tw|taiwan|日|jp|japan|新|sg|singapore)(?!.*(?:家宽|专用)).*)"
+    url: "asmr.one"
+    interval: 300
+    tolerance: 30
+    lazy: true
+
+  - name: Youtube-auto
+    type: url-test
+    url: "https://www.youtube.com"
+    include-all: true
+    filter: "(?i)(?=.*(?:🇭🇰|🇯🇵|🇸🇬|🇨🇳|🇺🇸|港|hk|hongkong|台|tw|taiwan|日|jp|japan|新|sg|singapore|美|us|unitedstates|D1)(?!.*(?:家宽|专用)).*)"
+    tolerance: 20
+    interval: 300
+    lazy: true
+    
+  - name: シャドバ
+    type: select
+    proxies:  [Proxy,香港,台湾,日本,新加坡,美国,其它地区,全部节点,自动选择,直连]
+
+  #分隔,下面是地区分组
+  - name: 香港
+    type: select
+    include-all: true
+    filter: "(?i)港|hk|hongkong|hong kong"
+
+  - name: 台湾
+    type: select
+    include-all: true
+    filter: "(?i)台|tw|taiwan"
+
+  - name: 日本
+    type: select
+    include-all: true
+    filter: "(?i)日|jp|japan"
+
+  - name: 美国
+    type: select
+    include-all: true
+    filter: "(?i)美|us|unitedstates|united states"
+
+  - name: 新加坡
+    type: select
+    include-all: true
+    filter: "(?i)(新|sg|singapore)"
+
+  - name: 其它地区
+    type: select
+    include-all: true
+    filter: "(?i)^(?!.*(?:🇭🇰|🇯🇵|🇺🇸|🇸🇬|🇨🇳|港|hk|hongkong|台|tw|taiwan|日|jp|japan|新|sg|singapore|美|us|unitedstates)).*"
+
+  - name: 全部节点
+    type: select
+    include-all: true
+
+rule-providers-anchor: # 锚点 如合并时有重复的项, 则不会去合并; 锚点名不能包含特殊字符
+  rule_domain: &rule_domain {type: http, behavior: domain, format: mrs}
+  rule_ipcidr: &rule_ipcidr {type: http, behavior: ipcidr, format: mrs}
+  rule_classical: &rule_classical {type: http, behavior: classical, format: yaml}
+
+rule-providers:
+  custom_direct:
+      type: http
+      url: "https://raw.githubusercontent.com/YRSB/MihomoRule/master/custom_direct.yaml"
+      format: yaml
+      interval: 86400
+      behavior: classical
+
+  custom_direct_domain:
+      type: http
+      url: "https://raw.githubusercontent.com/YRSB/MihomoRule/master/custom_direct_domain.yaml"
+      format: yaml
+      interval: 86400
+      behavior: domain
+  
+  custom_proxy:
+    type: http
+    url: "https://raw.githubusercontent.com/YRSB/MihomoRule/master/custom_proxy.yaml"
+    format: yaml
+    interval: 86400
+    behavior: classical
+
+  custom_proxy_domain:
+    type: http
+    url: "https://raw.githubusercontent.com/YRSB/MihomoRule/master/custom_proxy_domain.yaml"
+    format: yaml
+    interval: 86400
+    behavior: domain
+
+  asmr:
+    type: http
+    url: "https://raw.githubusercontent.com/YRSB/MihomoRule/master/asmr.yaml"
+    format: yaml
+    interval: 86400
+    behavior: domain
+  
+  ad: 
+    type: http
+    url: "https://adrules.top/adrules.list"
+    format: text
+    interval: 3600
+    behavior: classical
+
+  jp:
+    type: http
+    url: "https://raw.githubusercontent.com/YRSB/MihomoRule/master/jp.yaml"
+    format: yaml
+    interval: 86400
+    behavior: classical
+
+  site_category_ads_all:
+    <<: *rule_domain
+    url: 'https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/category-ads-all.mrs'
+
+  site_googlefcm:
+    <<: *rule_domain
+    url: 'https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/googlefcm.mrs'
+
+  site_tencent:
+    <<: *rule_domain
+    url: 'https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/tencent.mrs'
+  
+  site_cn:
+    <<: *rule_domain
+    url: 'https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/cn.mrs'
+
+  site_tracker:
+    <<: *rule_domain
+    url: 'https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/tracker.mrs'
+
+  site_private:
+    <<: *rule_domain
+    url: 'https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/private.mrs'
+
+  site_pixiv:
+    <<: *rule_domain
+    url: 'https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/pixiv.mrs'
+
+  site_youtube:
+    <<: *rule_domain
+    url: 'https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/youtube.mrs'
+
+  site_geolocation_non_cn:
+    <<: *rule_domain
+    url: 'https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/geolocation-!cn.mrs'
+
+  ip_private:
+    <<: *rule_ipcidr
+    url: 'https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/private.mrs'  
+  
+  ip_cn:
+    <<: *rule_ipcidr
+    url: 'https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/cn.mrs'
+
+  ip_jp:
+    <<: *rule_ipcidr
+    url: 'https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/jp.mrs'
+
+  ip_cloudflare:
+    <<: *rule_ipcidr
+    url: 'https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/cloudflare.mrs'
+
+
+rules:
+  - OR,((RULE-SET,ad),(RULE-SET,site_category_ads_all)),REJECT
+  - OR,((RULE-SET,custom_proxy),(RULE-SET,custom_proxy_domain)),Proxy
+  - OR,((RULE-SET,custom_direct),(RULE-SET,custom_direct_domain)),DIRECT
+  - RULE-SET,site_private,DIRECT
+  - RULE-SET,site_cn,DIRECT
+  - AND,((DST-PORT,5228-5230),(RULE-SET,site_googlefcm)),DIRECT
+
+  - DOMAIN-KEYWORD,shadowverse,シャドバ
+  - RULE-SET,site_tracker,Tracker
+  - PROCESS-NAME,qbittorrent,DIRECT
+ 
+  - RULE-SET,site_pixiv,Pixiv
+  - RULE-SET,asmr,asmr
+  - RULE-SET,jp,日本
+  - RULE-SET,site_youtube,Youtube
+  - RULE-SET,site_geolocation_non_cn,Proxy
+  - RULE-SET,ip_cloudflare,Proxy
+  - RULE-SET,ip_jp,日本
+  - RULE-SET,ip_private,DIRECT,no-resolve
+  - RULE-SET,ip_cn,DIRECT,no-resolve
+  - MATCH,Proxy

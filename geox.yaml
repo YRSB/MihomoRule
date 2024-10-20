@@ -102,7 +102,7 @@ proxy-groups:
 
   - name: Proxy
     type: select
-    proxies: [自动选择,香港,台湾,日本,新加坡,美国,其它地区,全部节点]
+    proxies: [自动选择,全部节点,香港-Auto,台湾-Auto,日本-Auto,新加坡-Auto,美国-Auto,其它地区]
 
   - name: 自动选择
     type: url-test
@@ -113,25 +113,21 @@ proxy-groups:
     interval: 300
     lazy: true
 
-  - name: Tracker
-    type: select
-    proxies:  [直连,Proxy,香港,台湾,日本,新加坡,美国,其它地区,自动选择,全部节点]
-
   - name: Pixiv
     type: select
-    proxies: [香港,台湾,日本,新加坡,Pixiv-auto]
+    proxies: [Pixiv-auto,Proxy,全部节点]
     url: "https://www.pixiv.net"
     interval: 300
 
   - name: asmr
     type: select
-    proxies: [直连,香港,台湾,日本,新加坡,asmr-auto]
+    proxies: [直连,asmr-auto,Proxy,全部节点]
     url: "https://asmr.one"
     interval: 300
 
   - name: Youtube
     type: select
-    proxies: [香港,台湾,日本,新加坡,美国,Youtube-auto]
+    proxies: [Youtube-auto,Proxy,全部节点]
     url: "https://www.youtube.com"
     interval: 300
 
@@ -164,33 +160,43 @@ proxy-groups:
     
   - name: シャドバ
     type: select
-    proxies:  [Proxy,香港,台湾,日本,新加坡,美国,其它地区,全部节点,自动选择,直连]
+    proxies:  [Proxy,全部节点]
 
   #分隔,下面是地区分组
-  - name: 香港
-    type: select
+  - name: 香港-Auto
+    type: url-test
     include-all: true
     filter: "(?i)港|hk|hongkong|hong kong"
+    interval: 300
+    tolerance: 30
 
-  - name: 台湾
-    type: select
+  - name: 台湾-Auto
+    type: url-test
     include-all: true
     filter: "(?i)台|tw|taiwan"
+    interval: 300
+    tolerance: 30
 
-  - name: 日本
-    type: select
+  - name: 日本-Auto
+    type: url-test
     include-all: true
     filter: "(?i)日|jp|japan"
+    interval: 300
+    tolerance: 30
 
-  - name: 美国
-    type: select
+  - name: 美国-Auto
+    type: url-test
     include-all: true
     filter: "(?i)美|us|unitedstates|united states"
+    interval: 300
+    tolerance: 30
 
-  - name: 新加坡
-    type: select
+  - name: 新加坡-Auto
+    type: url-test
     include-all: true
     filter: "(?i)(新|sg|singapore)"
+    interval: 300
+    tolerance: 30
 
   - name: 其它地区
     type: select
@@ -272,10 +278,6 @@ rule-providers:
     <<: *rule_domain
     url: 'https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/cn.mrs'
 
-  site_tracker:
-    <<: *rule_domain
-    url: 'https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/tracker.mrs'
-
   site_private:
     <<: *rule_domain
     url: 'https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/private.mrs'
@@ -318,8 +320,6 @@ rules:
   - AND,((DST-PORT,5228-5230),(RULE-SET,site_googlefcm)),DIRECT
 
   - DOMAIN-KEYWORD,shadowverse,シャドバ
-  - RULE-SET,site_tracker,Tracker
-  - PROCESS-NAME,qbittorrent,DIRECT
  
   - RULE-SET,site_pixiv,Pixiv
   - RULE-SET,asmr,asmr

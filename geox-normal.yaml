@@ -124,26 +124,26 @@ proxy-groups:
   - name: Pixiv
     type: select
     proxies: [香港,台湾,日本,新加坡,Pixiv-auto]
-    url: "www.pixiv.net"
+    url: "https://www.pixiv.net"
     interval: 300
 
   - name: asmr
     type: select
     proxies: [直连,香港,台湾,日本,新加坡,asmr-auto]
-    url: "asmr.one"
+    url: "https://asmr.one"
     interval: 300
 
   - name: Youtube
     type: select
     proxies: [香港,台湾,日本,新加坡,美国,Youtube-auto]
-    url: "asmr.one"
+    url: "https://www.youtube.com"
     interval: 300
 
   - name: Pixiv-auto
     type: url-test
     include-all: true
     filter: "(?i)(?=.*(?:🇭🇰|🇯🇵|🇸🇬|🇨🇳|港|hk|hongkong|台|tw|taiwan|日|jp|japan|新|sg|singapore)(?!.*(?:家宽|专用)).*)"
-    url: "www.pixiv.net"
+    url: "https://www.pixiv.net"
     interval: 300
     tolerance: 30
     lazy: true
@@ -152,7 +152,7 @@ proxy-groups:
     type: url-test
     include-all: true
     filter: "(?i)(?=.*(?:🇭🇰|🇯🇵|🇸🇬|🇨🇳|港|hk|hongkong|台|tw|taiwan|日|jp|japan|新|sg|singapore)(?!.*(?:家宽|专用)).*)"
-    url: "asmr.one"
+    url: "https://asmr.one"
     interval: 300
     tolerance: 30
     lazy: true

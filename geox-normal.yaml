@@ -202,6 +202,11 @@ proxy-groups:
     interval: 300
     tolerance: 30
 
+  - name: 日本
+    type: select
+    include-all: true
+    filter: "(?i)日|jp|japan"
+
   - name: 其它地区
     type: select
     include-all: true

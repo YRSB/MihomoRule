@@ -335,4 +335,5 @@ rules:
   - RULE-SET,ip_jp,日本
   - RULE-SET,ip_private,DIRECT,no-resolve
   - RULE-SET,ip_cn,DIRECT,no-resolve
+  - IP-CIDR,95.161.76.100/31,REJECT,no-resolve
   - MATCH,Proxy

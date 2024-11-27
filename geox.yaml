@@ -213,9 +213,9 @@ proxy-groups:
     include-all: true
 
 rule-providers-anchor: # 锚点 如合并时有重复的项, 则不会去合并; 锚点名不能包含特殊字符
-  rule_domain: &rule_domain {type: http, behavior: domain, format: mrs}
-  rule_ipcidr: &rule_ipcidr {type: http, behavior: ipcidr, format: mrs}
-  rule_classical: &rule_classical {type: http, behavior: classical, format: yaml}
+  rule_domain: &rule_domain {type: http, behavior: domain, format: mrs, interval: 86400}
+  rule_ipcidr: &rule_ipcidr {type: http, behavior: ipcidr, format: mrs, interval: 86400}
+  rule_classical: &rule_classical {type: http, behavior: classical, format: yaml, interval: 86400}
 
 rule-providers:
   custom_direct:
@@ -267,6 +267,13 @@ rule-providers:
     interval: 86400
     behavior: classical
 
+  awavenue_ads_rule :
+    type: http
+    behavior: domain
+    format: yaml
+    interval: 86400
+    url: 'https://raw.githubusercontent.com/TG-Twilight/AWAvenue-Ads-Rule/main/Filters/AWAvenue-Ads-Rule-Clash.yaml'
+
   site_category_ads_all:
     <<: *rule_domain
     url: 'https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/category-ads-all.mrs'
@@ -317,7 +324,9 @@ rule-providers:
 
 
 rules:
-  - OR,((RULE-SET,ad),(RULE-SET,site_category_ads_all)),REJECT
+  - RULE-SET,site_category_ads_all,REJECT
+  - RULE-SET,awavenue_ads_rule,REJECT
+  - RULE-SET,ad,REJECT
   - OR,((RULE-SET,custom_proxy),(RULE-SET,custom_proxy_domain)),Proxy
   - OR,((RULE-SET,custom_direct),(RULE-SET,custom_direct_domain)),DIRECT
   - RULE-SET,site_private,DIRECT

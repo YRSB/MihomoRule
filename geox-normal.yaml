@@ -123,9 +123,9 @@ proxy-groups:
     url: "https://www.pixiv.net"
     interval: 300
 
-  - name: asmr
+  - name: ASMR
     type: select
-    proxies: [直连,asmr-auto,Proxy,全部节点]
+    proxies: [ASMR-auto,Proxy,全部节点,直连]
     url: "https://asmr.one"
     interval: 300
 
@@ -144,7 +144,7 @@ proxy-groups:
     tolerance: 30
     lazy: true
 
-  - name: asmr-auto
+  - name: ASMR-auto
     type: url-test
     include-all: true
     filter: "(?i)(?=.*(?:🇭🇰|🇯🇵|🇸🇬|🇨🇳|港|hk|hongkong|台|tw|taiwan|日|jp|japan|新|sg|singapore)(?!.*(?:家宽|专用)).*)"
@@ -331,6 +331,8 @@ rules:
   - RULE-SET,site_category_ads_all,REJECT
   - RULE-SET,awavenue_ads_rule,REJECT
   - RULE-SET,ad,REJECT
+  - RULE-SET,asmr,ASMR
+  - RULE-SET,jp,日本
   - OR,((RULE-SET,custom_proxy),(RULE-SET,custom_proxy_domain)),Proxy
   - OR,((RULE-SET,custom_direct),(RULE-SET,custom_direct_domain)),DIRECT
   - RULE-SET,site_private,DIRECT
@@ -340,8 +342,6 @@ rules:
   - DOMAIN-KEYWORD,shadowverse,シャドバ
  
   - RULE-SET,site_pixiv,Pixiv
-  - RULE-SET,asmr,asmr
-  - RULE-SET,jp,日本
   - RULE-SET,site_youtube,Youtube
   - RULE-SET,site_geolocation_non_cn,Proxy
   - RULE-SET,ip_cloudflare,Proxy

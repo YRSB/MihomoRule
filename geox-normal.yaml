@@ -5,16 +5,6 @@ proxy-providers:
     type: http
     interval: 86400
     health-check: {enable: true,url: "https://www.gstatic.com/generate_204", interval: 300}
-    override: 
-      additional-prefix: "[provider1]"
-
-  provider2:
-    url: ""
-    type: http
-    interval: 86400
-    health-check: {enable: true,url: "https://www.gstatic.com/generate_204", interval: 300}
-    override: 
-      additional-prefix: "[provider2]"
       
 proxies: 
   - name: "直连"
@@ -108,6 +98,10 @@ proxy-groups:
     type: select
     proxies: [自动选择,全部节点,香港-Auto,台湾-Auto,日本-Auto,新加坡-Auto,美国-Auto,其它地区]
 
+  - name: 全部节点
+    type: select
+    include-all: true
+
   - name: 自动选择
     type: url-test
     url: "https://www.gstatic.com/generate_204"
@@ -116,6 +110,10 @@ proxy-groups:
     tolerance: 20
     interval: 300
     lazy: true
+
+  - name: AD
+    type: select
+    proxies: [REJECT,Proxy,DIRECT]
 
   - name: Pixiv
     type: select
@@ -212,6 +210,7 @@ proxy-groups:
 
   - name: 日本
     type: select
+    proxies: [日本-Auto]
     include-all: true
     filter: "(?i)日|jp|japan"
 
@@ -219,10 +218,6 @@ proxy-groups:
     type: select
     include-all: true
     filter: "(?i)^(?!.*(?:🇭🇰|🇯🇵|🇺🇸|🇸🇬|🇨🇳|港|hk|hongkong|台|tw|taiwan|日|jp|japan|新|sg|singapore|美|us|unitedstates)).*"
-
-  - name: 全部节点
-    type: select
-    include-all: true
 
 rule-providers-anchor: # 锚点 如合并时有重复的项, 则不会去合并; 锚点名不能包含特殊字符
   rule_domain: &rule_domain {type: http, behavior: domain, format: mrs, interval: 86400}
@@ -336,9 +331,9 @@ rule-providers:
 
 
 rules:
-  - RULE-SET,site_category_ads_all,REJECT
-  - RULE-SET,awavenue_ads_rule,REJECT
-  - RULE-SET,ad,REJECT
+  - RULE-SET,site_category_ads_all,AD
+  - RULE-SET,awavenue_ads_rule,AD
+  - RULE-SET,ad,AD
   - RULE-SET,asmr,ASMR
   - RULE-SET,jp,日本
   - OR,((RULE-SET,custom_proxy),(RULE-SET,custom_proxy_domain)),Proxy

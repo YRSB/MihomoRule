@@ -113,7 +113,7 @@ proxy-groups:
 
   - name: Pixiv
     type: select
-    proxies: [Pixiv-auto,Proxy,全部节点]
+    proxies: [Pixiv-auto,日本,Proxy,全部节点]
     url: "https://www.pixiv.net"
     interval: 300
 

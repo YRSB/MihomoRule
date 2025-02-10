@@ -101,12 +101,14 @@ proxy-groups:
   - name: 全部节点
     type: select
     include-all: true
+    exclude-type: direct
 
   - name: 自动选择
     type: url-test
     url: "https://www.gstatic.com/generate_204"
     include-all: true
     filter: "(?i)(?=.*(?:🇭🇰|🇯🇵|🇸🇬|🇨🇳|🇺🇸|港|hk|hongkong|台|tw|taiwan|日|jp|japan|新|sg|singapore|美|us|unitedstates)(?!.*(?:家宽|专用)).*)"
+    exclude-filter: "订阅|官网|售后"
     tolerance: 20
     interval: 300
     lazy: true

@@ -102,6 +102,7 @@ proxy-groups:
     type: select
     include-all: true
     exclude-type: direct
+    exclude-filter: "订阅|官网|售后"
 
   - name: 自动选择
     type: url-test
@@ -174,6 +175,7 @@ proxy-groups:
     type: url-test
     include-all: true
     filter: "(?i)港|hk|hongkong|hong kong"
+    exclude-filter: "订阅|官网|售后"
     interval: 300
     hidden: true
     tolerance: 30
@@ -182,6 +184,7 @@ proxy-groups:
     type: url-test
     include-all: true
     filter: "(?i)台|tw|taiwan"
+    exclude-filter: "订阅|官网|售后"
     interval: 300
     hidden: true
     tolerance: 30
@@ -190,6 +193,7 @@ proxy-groups:
     type: url-test
     include-all: true
     filter: "(?i)日|jp|japan"
+    exclude-filter: "订阅|官网|售后"
     interval: 300
     hidden: true
     tolerance: 30
@@ -198,6 +202,7 @@ proxy-groups:
     type: url-test
     include-all: true
     filter: "(?i)美|us|unitedstates|united states"
+    exclude-filter: "订阅|官网|售后"
     interval: 300
     hidden: true
     tolerance: 30
@@ -206,6 +211,7 @@ proxy-groups:
     type: url-test
     include-all: true
     filter: "(?i)(新|sg|singapore)"
+    exclude-filter: "订阅|官网|售后"
     interval: 300
     hidden: true
     tolerance: 30
@@ -220,6 +226,7 @@ proxy-groups:
     type: select
     include-all: true
     filter: "(?i)^(?!.*(?:🇭🇰|🇯🇵|🇺🇸|🇸🇬|🇨🇳|港|hk|hongkong|台|tw|taiwan|日|jp|japan|新|sg|singapore|美|us|unitedstates)).*"
+    exclude-filter: "订阅|官网|售后"
 
 rule-providers-anchor: # 锚点 如合并时有重复的项, 则不会去合并; 锚点名不能包含特殊字符
   rule_domain: &rule_domain {type: http, behavior: domain, format: mrs, interval: 86400}

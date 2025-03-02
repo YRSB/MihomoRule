@@ -74,17 +74,17 @@ dns:
   default-nameserver:
     - 'tls://1.12.12.12'
     - '119.29.29.29'
-  nameserver: # 默认域名解析, 如不配置 fallback/proxy-server-nameserver, 则都由 nameserver 解析
+  nameserver: 
     - 'tls://1.1.1.1'
     - 'https://dns.google/dns-query'
-  nameserver-policy: # 指定的解析服务, 没匹配到使用 nameserver/fallback 并发查询
+  nameserver-policy: 
     "RULE-SET:site_cn,site_tencent,site_private,custom_direct,custom_direct_domain": 
       - 'https://223.5.5.5/dns-query#h3=true'
     "+.glados-config.com":
       - 'https://223.5.5.5/dns-query#h3=true'
-    "+.acaisbest.com":
+    "+.stga.cn":
       - 'https://223.5.5.5/dns-query#h3=true'
-  proxy-server-nameserver: # 用于节点域名解析 如其他 DNS 需过代理查询/nameserver 为国外 DNS 则配置该项以防出现鸡蛋问题
+  proxy-server-nameserver: 
     - 'https://223.5.5.5/dns-query#h3=true'
     - 'https://doh.pub/dns-query'
 
@@ -97,12 +97,15 @@ proxy-groups:
   - name: 全部节点
     type: select
     include-all: true
+    exclude-type: direct
+    exclude-filter: "订阅|官网|售后"
 
   - name: 自动选择
     type: url-test
     url: "https://www.gstatic.com/generate_204"
     include-all: true
     filter: "(?i)(?=.*(?:🇭🇰|🇯🇵|🇸🇬|🇨🇳|🇺🇸|港|hk|hongkong|台|tw|taiwan|日|jp|japan|新|sg|singapore|美|us|unitedstates)(?!.*(?:家宽|专用)).*)"
+    exclude-filter: "订阅|官网|售后"
     tolerance: 20
     interval: 300
     lazy: true
@@ -168,6 +171,7 @@ proxy-groups:
     type: url-test
     include-all: true
     filter: "(?i)港|hk|hongkong|hong kong"
+    exclude-filter: "订阅|官网|售后"
     interval: 300
     hidden: true
     tolerance: 30
@@ -176,6 +180,7 @@ proxy-groups:
     type: url-test
     include-all: true
     filter: "(?i)台|tw|taiwan"
+    exclude-filter: "订阅|官网|售后"
     interval: 300
     hidden: true
     tolerance: 30
@@ -184,6 +189,7 @@ proxy-groups:
     type: url-test
     include-all: true
     filter: "(?i)日|jp|japan"
+    exclude-filter: "订阅|官网|售后"
     interval: 300
     hidden: true
     tolerance: 30
@@ -192,6 +198,7 @@ proxy-groups:
     type: url-test
     include-all: true
     filter: "(?i)美|us|unitedstates|united states"
+    exclude-filter: "订阅|官网|售后"
     interval: 300
     hidden: true
     tolerance: 30
@@ -200,6 +207,7 @@ proxy-groups:
     type: url-test
     include-all: true
     filter: "(?i)(新|sg|singapore)"
+    exclude-filter: "订阅|官网|售后"
     interval: 300
     hidden: true
     tolerance: 30
@@ -214,6 +222,7 @@ proxy-groups:
     type: select
     include-all: true
     filter: "(?i)^(?!.*(?:🇭🇰|🇯🇵|🇺🇸|🇸🇬|🇨🇳|港|hk|hongkong|台|tw|taiwan|日|jp|japan|新|sg|singapore|美|us|unitedstates)).*"
+    exclude-filter: "订阅|官网|售后"
 
 rule-providers-anchor: # 锚点 如合并时有重复的项, 则不会去合并; 锚点名不能包含特殊字符
   rule_domain: &rule_domain {type: http, behavior: domain, format: mrs, interval: 86400}

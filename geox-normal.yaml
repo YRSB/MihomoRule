@@ -14,7 +14,7 @@ proxies:
 mixed-port: 31193
 ipv6: false
 allow-lan: false
-unified-delay: true
+unified-delay: false
 tcp-concurrent: false
 external-controller: 127.0.0.1:41193
 external-ui: ui
@@ -64,7 +64,6 @@ tun:
 dns:
   enable: true
   ipv6: false
-  respect-rules: true
   enhanced-mode: fake-ip
   fake-ip-filter:
     - "*"

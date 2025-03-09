@@ -52,7 +52,7 @@ sniffer:
 tun:
   enable: true
   device: TsuinoSora
-  stack: system
+  stack: mixed
   dns-hijack:
     - "any:53"
     - "tcp://any:53"

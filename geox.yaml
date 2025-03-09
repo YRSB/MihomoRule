@@ -72,8 +72,8 @@ dns:
     - "+.local"
     - "+.msftconnecttest.com"
   default-nameserver:
-    - 'tls://1.12.12.12'
-    - '119.29.29.29'
+    - tls://223.5.5.5
+    - tls://223.6.6.6
   nameserver: 
     - 'tls://1.1.1.1'
     - 'https://dns.google/dns-query'
@@ -353,7 +353,7 @@ rules:
   - RULE-SET,site_youtube,Youtube
   - RULE-SET,site_geolocation_non_cn,Proxy
   - RULE-SET,ip_cloudflare,Proxy
-  - RULE-SET,ip_jp,日本
+  - RULE-SET,ip_jp,日本,no-resolve
   - RULE-SET,ip_private,DIRECT,no-resolve
   - RULE-SET,ip_cn,DIRECT,no-resolve
   - IP-CIDR,95.161.76.100/31,REJECT,no-resolve

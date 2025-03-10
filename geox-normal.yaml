@@ -429,7 +429,7 @@ rules:
 
   - RULE-SET,jp,日本
   - RULE-SET,custom_proxy,Proxy
-  - RULE-SET,custom_direct,,DIRECT
+  - RULE-SET,custom_direct,DIRECT
   - RULE-SET,asmr,ASMR
   - RULE-SET,site_pixiv,Pixiv
   - RULE-SET,site_youtube,Youtube

@@ -444,9 +444,9 @@ rules:
   - RULE-SET,telegram_ip,Proxy,no-resolve
   - RULE-SET,reject_ip,REJECT,no-resolve
   
-  - RULE-SET,domestic_ip,DIRECT,no-resolve
-  - RULE-SET,lan_ip,DIRECT,no-resolve
-  - RULE-SET,china_ip,DIRECT,no-resolve
+  - RULE-SET,domestic_ip,DIRECT
+  - RULE-SET,lan_ip,DIRECT
+  - RULE-SET,china_ip,DIRECT
   - MATCH,Proxy
 
 

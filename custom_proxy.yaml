@@ -1,10 +1,8 @@
 payload:
-  - GEOSITE,bing
-  - GEOSITE,nvidia
-  - GEOSITE,nyaa
-  - GEOSITE,openai
-  - GEOSITE,ea
-  - GEOSITE,kemono
-  - GEOSITE,z-library
   - DOMAIN-SUFFIX,icekylin.online
   - DOMAIN-KEYWORD,freemdict
+  - DOMAIN-SUFFIX,exhobby.net
+  - DOMAIN-SUFFIX,south-plus.net
+  - DOMAIN-SUFFIX,services.googleapis.cn
+  - DOMAIN-SUFFIX,xn--ngstr-lra8j.com
+  - DOMAIN-KEYWORD,2dfan

@@ -215,51 +215,37 @@ proxy-groups:
     exclude-filter: "订阅|官网|售后"
 
 rule-providers-anchor: # 锚点 如合并时有重复的项, 则不会去合并; 锚点名不能包含特殊字符
-  rule_domain: &rule_domain {type: http, behavior: domain, format: mrs, interval: 86400}
-  rule_ipcidr: &rule_ipcidr {type: http, behavior: ipcidr, format: mrs, interval: 86400}
-  rule_classical: &rule_classical {type: http, behavior: classical, format: yaml, interval: 86400}
+  rule_domain: &rule_domain {type: http, behavior: domain, format: mrs, interval: 43200}
+  rule_ipcidr: &rule_ipcidr {type: http, behavior: ipcidr, format: mrs, interval: 43200}
+  rule_classical: &rule_classical {type: http, behavior: classical, format: yaml, interval: 43200}
 
 rule-providers:
   custom_direct:
       type: http
       url: "https://raw.githubusercontent.com/YRSB/MihomoRule/master/custom_direct.yaml"
       format: yaml
-      interval: 86400
+      interval: 43200
       behavior: classical
-
-  custom_direct_domain:
-      type: http
-      url: "https://raw.githubusercontent.com/YRSB/MihomoRule/master/custom_direct_domain.yaml"
-      format: yaml
-      interval: 86400
-      behavior: domain
   
   custom_proxy:
     type: http
     url: "https://raw.githubusercontent.com/YRSB/MihomoRule/master/custom_proxy.yaml"
     format: yaml
-    interval: 86400
+    interval: 43200
     behavior: classical
-
-  custom_proxy_domain:
-    type: http
-    url: "https://raw.githubusercontent.com/YRSB/MihomoRule/master/custom_proxy_domain.yaml"
-    format: yaml
-    interval: 86400
-    behavior: domain
 
   asmr:
     type: http
     url: "https://raw.githubusercontent.com/YRSB/MihomoRule/master/asmr.yaml"
     format: yaml
-    interval: 86400
+    interval: 43200
     behavior: domain
 
   jp:
     type: http
     url: "https://raw.githubusercontent.com/YRSB/MihomoRule/master/jp.yaml"
     format: yaml
-    interval: 86400
+    interval: 43200
     behavior: classical
 
   # site_googlefcm:
@@ -442,8 +428,8 @@ rules:
   - RULE-SET,reject_non_ip_no_drop,REJECT
 
   - RULE-SET,jp,日本
-  - OR,((RULE-SET,custom_proxy),(RULE-SET,custom_proxy_domain)),Proxy
-  - OR,((RULE-SET,custom_direct),(RULE-SET,custom_direct_domain)),DIRECT
+  - RULE-SET,custom_proxy,Proxy
+  - RULE-SET,custom_direct,,DIRECT
   - RULE-SET,asmr,ASMR
   - RULE-SET,site_pixiv,Pixiv
   - RULE-SET,site_youtube,Youtube

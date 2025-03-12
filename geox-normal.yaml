@@ -158,6 +158,11 @@ proxy-groups:
     type: select
     proxies:  [DIRECT,Proxy]
 
+  - name: Match
+    type: select
+    proxies:  [DIRECT,Proxy]
+
+
   #分隔,下面是地区分组
   - name: 香港-Auto
     type: url-test
@@ -472,7 +477,7 @@ rules:
   - RULE-SET,domestic_ip,DIRECT
   - RULE-SET,lan_ip,DIRECT
   - RULE-SET,china_ip,DIRECT
-  - MATCH,Proxy
+  - MATCH,Match
 
 
 

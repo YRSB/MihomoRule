@@ -250,9 +250,9 @@ rule-providers:
     interval: 43200
     behavior: classical
 
-  # site_googlefcm:
-  #   <<: *rule_domain
-  #   url: 'https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/googlefcm.mrs'
+  site_googlefcm:
+    <<: *rule_domain
+    url: 'https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/googlefcm.mrs'
 
   # site_tencent:
   #   <<: *rule_domain

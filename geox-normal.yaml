@@ -274,9 +274,9 @@ rule-providers:
     <<: *rule_domain
     url: 'https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/youtube.mrs'
 
-  # site_geolocation_non_cn:
-  #   <<: *rule_domain
-  #   url: 'https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/geolocation-!cn.mrs'
+  site_geolocation_non_cn:
+    <<: *rule_domain
+    url: 'https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/geolocation-!cn.mrs'
 
   # ip_private:
   #   <<: *rule_ipcidr
@@ -465,9 +465,10 @@ rules:
   - RULE-SET,download_non_ip,Download
   - RULE-SET,microsoft_non_ip,Proxy
   - RULE-SET,global_non_ip,Proxy
+  - RULE-SET,site_geolocation_non_cn,Proxy
   
-  - RULE-SET,telegram_ip,Proxy,no-resolve
-  - RULE-SET,reject_ip,REJECT,no-resolve
+  - RULE-SET,telegram_ip,Proxy
+  - RULE-SET,reject_ip,REJECT
   
   - RULE-SET,domestic_ip,DIRECT
   - RULE-SET,lan_ip,DIRECT

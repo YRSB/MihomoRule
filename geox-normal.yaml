@@ -73,6 +73,8 @@ dns:
     # - system://
     - https://doh.pub/dns-query
     - https://dns.alidns.com/dns-query
+  nameserver-policy: # 局域网域名不应使用公共DNS进行解析
+    'rule-set:lan_non_ip': system://
 
 proxy-groups:
 

@@ -12,3 +12,4 @@ payload:
   - DOMAIN,asmrconnecting.xyz
   - DOMAIN-KEYWORD,trustfar
   - DOMAIN-KEYWORD,foxmail
+  - DOMAIN-SUFFIX,msftncsi.com

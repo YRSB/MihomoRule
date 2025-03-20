@@ -227,6 +227,13 @@ rule-providers-anchor: # 锚点 如合并时有重复的项, 则不会去合并;
   rule_classical: &rule_classical {type: http, behavior: classical, format: yaml, interval: 43200}
 
 rule-providers:
+  pcdn:
+    type: http
+    url: "https://raw.githubusercontent.com/uselibrary/PCDN/refs/heads/main/pcdn.list"
+    format: text
+    interval: 43200
+    behavior: classical
+
   custom_direct:
       type: http
       url: "https://raw.githubusercontent.com/YRSB/MihomoRule/master/custom_direct.yaml"
@@ -449,6 +456,7 @@ rules:
   - RULE-SET,reject_domainset,REJECT
   - RULE-SET,reject_non_ip_drop,REJECT-DROP
   - RULE-SET,reject_non_ip_no_drop,REJECT
+  - RULE-SET,pcdn,REJECT
 
   - RULE-SET,jp,日本
   - RULE-SET,custom_proxy,Proxy

@@ -1,4 +1,5 @@
 # url 里填写自己的订阅,名称不能重复
+log-level: warning
 proxy-providers:
   provider1:
     url: ""

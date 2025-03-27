@@ -267,18 +267,6 @@ rule-providers:
     <<: *rule_domain
     url: 'https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/googlefcm.mrs'
 
-  # site_tencent:
-  #   <<: *rule_domain
-  #   url: 'https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/tencent.mrs'
-  
-  # site_cn:
-  #   <<: *rule_domain
-  #   url: 'https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/cn.mrs'
-
-  # site_private:
-  #   <<: *rule_domain
-  #   url: 'https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/private.mrs'
-
   site_pixiv:
     <<: *rule_domain
     url: 'https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/pixiv.mrs'
@@ -290,23 +278,6 @@ rule-providers:
   site_geolocation_non_cn:
     <<: *rule_domain
     url: 'https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/geolocation-!cn.mrs'
-
-  # ip_private:
-  #   <<: *rule_ipcidr
-  #   url: 'https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/private.mrs'  
-  
-  # ip_cn:
-  #   <<: *rule_ipcidr
-  #   url: 'https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/cn.mrs'
-
-  # ip_jp:
-  #   <<: *rule_ipcidr
-  #   url: 'https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/jp.mrs'
-
-  # ip_cloudflare:
-  #   <<: *rule_ipcidr
-  #   url: 'https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/cloudflare.mrs'
-
 
   reject_non_ip_no_drop:
     type: http
@@ -488,17 +459,3 @@ rules:
   - RULE-SET,lan_ip,DIRECT
   - RULE-SET,china_ip,DIRECT
   - MATCH,Match
-
-
-
-  # - RULE-SET,site_private,DIRECT
-  # - RULE-SET,site_cn,DIRECT
-  # - AND,((DST-PORT,5228-5230),(RULE-SET,site_googlefcm)),DIRECT
- 
-
-  # - RULE-SET,site_geolocation_non_cn,Proxy
-  # - RULE-SET,ip_cloudflare,Proxy
-  # - RULE-SET,ip_jp,日本,no-resolve
-  # - RULE-SET,ip_private,DIRECT,no-resolve
-  # - RULE-SET,ip_cn,DIRECT,no-resolve
-  # - MATCH,Proxy

@@ -11,3 +11,5 @@ payload:
   - DOMAIN-SUFFIX,f1calendar.com
   - DOMAIN-SUFFIX,momozhen.com
   - DOMAIN-SUFFIX,guguzhen.com
+  # hanime1.me
+  - DOMAIN,vdownload.hembed.com

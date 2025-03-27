@@ -59,6 +59,7 @@ tun:
 
 dns:
   enable: true
+  cache-algorithm: arc
   ipv6: false
   enhanced-mode: fake-ip
   fake-ip-filter:

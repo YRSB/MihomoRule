@@ -68,6 +68,7 @@ dns:
     - "+.local"
     - "+.market.xiaomi.com"
     - "+.msftconnecttest.com"
+    - "+.msftncsi.com"
   default-nameserver:
     - tls://223.5.5.5
     - tls://223.6.6.6

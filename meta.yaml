@@ -101,10 +101,6 @@ proxy-groups:
     interval: 300
     lazy: true
 
-  - name: AD
-    type: select
-    proxies: [REJECT,Proxy,DIRECT]
-
   - name: Pixiv
     type: select
     proxies: [Pixiv-auto,日本,Proxy,全部节点]

@@ -11,3 +11,4 @@ payload:
   - DOMAIN-KEYWORD,trustfar
   - DOMAIN-KEYWORD,foxmail
   - DOMAIN-SUFFIX,msftncsi.com
+  - DOMAIN,lmgx-my.sharepoint.com

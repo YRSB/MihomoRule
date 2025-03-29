@@ -1,7 +1,9 @@
 payload:
   - DOMAIN-SUFFIX,icekylin.online
   - DOMAIN-KEYWORD,freemdict
+  # exhobby 
   - DOMAIN-SUFFIX,exhobby.net
+  - DOMAIN,res.e39x.com
   - DOMAIN-SUFFIX,south-plus.net
   - DOMAIN-SUFFIX,services.googleapis.cn
   - DOMAIN-SUFFIX,xn--ngstr-lra8j.com

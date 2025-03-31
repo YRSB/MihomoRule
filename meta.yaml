@@ -188,7 +188,7 @@ proxy-groups:
   - name: 日本-Auto
     type: url-test
     include-all: true
-    filter: "(?i)日|jp|japan"
+    filter: "(?i)日本|jp|japan"
     exclude-filter: "订阅|官网|售后"
     interval: 300
     hidden: true

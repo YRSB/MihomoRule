@@ -216,7 +216,7 @@ proxy-groups:
     type: select
     proxies: [日本-Auto]
     include-all: true
-    filter: "(?i)日|jp|japan"
+    filter: "(?i)日本|jp|japan"
 
   - name: 其它地区
     type: select

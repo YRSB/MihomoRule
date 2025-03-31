@@ -101,6 +101,10 @@ proxy-groups:
     interval: 300
     lazy: true
 
+  - name: Block
+    type: select
+    proxies: [REJECT,Proxy,DIRECT]
+
   - name: Pixiv
     type: select
     proxies: [Pixiv-auto,日本,Proxy,全部节点]
@@ -438,11 +442,11 @@ rule-providers:
     path: ./sukkaw_ruleset/cdn_non_ip.txt
 
 rules:
-  - RULE-SET,reject_non_ip,REJECT
-  - RULE-SET,reject_domainset,REJECT
+  - RULE-SET,reject_non_ip,Block
+  - RULE-SET,reject_domainset,Block
   - RULE-SET,reject_non_ip_drop,REJECT-DROP
-  - RULE-SET,reject_non_ip_no_drop,REJECT
-  - RULE-SET,pcdn,REJECT
+  - RULE-SET,reject_non_ip_no_drop,Block
+  - RULE-SET,pcdn,Block
 
   - RULE-SET,jp,日本
   - RULE-SET,custom_proxy,Proxy

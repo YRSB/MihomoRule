@@ -6,6 +6,12 @@ proxy-providers:
     type: http
     interval: 86400
     health-check: {enable: true,url: "https://www.gstatic.com/generate_204", interval: 300}
+  
+  provider2:
+    url: ""
+    type: http
+    interval: 86400
+    health-check: {enable: true,url: "https://www.gstatic.com/generate_204", interval: 300}
 
 mixed-port: 31193
 ipv6: false

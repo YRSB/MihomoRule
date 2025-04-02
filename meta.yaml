@@ -21,14 +21,7 @@ tcp-concurrent: false
 external-controller: 127.0.0.1:41193
 external-ui: ui
 external-ui-url: "https://github.com/Zephyruso/zashboard/releases/latest/download/dist.zip"
-geox-url:
-  geoip: "https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/geoip.dat"
-  geosite: "https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/geosite.dat"
-  mmdb: "https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/country.mmdb"
-  asn: "https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/GeoLite2-ASN.mmdb"
-geo-auto-update: true
-geo-update-interval: 24
-geodata-mode: true
+
 
 find-process-mode: strict
 global-client-fingerprint: chrome
@@ -279,6 +272,14 @@ rule-providers:
   site_pixiv:
     <<: *rule_domain
     url: 'https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/pixiv.mrs'
+  
+  site_dmm:
+    <<: *rule_domain
+    url: 'https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/dmm.mrs'
+
+  site_dlsite:
+    <<: *rule_domain
+    url: 'https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/dlsite.mrs'
 
   site_youtube:
     <<: *rule_domain
@@ -456,6 +457,8 @@ rules:
   - RULE-SET,pcdn,Block
 
   - RULE-SET,jp,日本
+  - RULE-SET,site_dmm,日本
+  - RULE-SET,site_dlsite,日本
   - RULE-SET,custom_proxy,Proxy
   - RULE-SET,custom_direct,DIRECT
   - AND,((DST-PORT,5228-5230),(RULE-SET,site_googlefcm)),DIRECT

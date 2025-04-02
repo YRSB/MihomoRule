@@ -1,6 +1,4 @@
 payload:
-  - GEOSITE,dlsite
-  - GEOSITE,dmm
   - DOMAIN-SUFFIX,moepedia.net
   - DOMAIN-SUFFIX,prestige-av.com
   - DOMAIN-SUFFIX,syosetu.org

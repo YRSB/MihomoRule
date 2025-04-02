@@ -127,6 +127,7 @@ proxy-groups:
     type: url-test
     include-all: true
     filter: "(?i)(?=.*(?:🇭🇰|🇯🇵|🇸🇬|🇨🇳|港|hk|hongkong|台|tw|taiwan|日|jp|japan|新|sg|singapore)(?!.*(?:家宽|专用)).*)"
+    exclude-filter: "订阅|官网|售后"
     url: "https://www.pixiv.net"
     interval: 300
     tolerance: 30
@@ -137,6 +138,7 @@ proxy-groups:
     type: url-test
     include-all: true
     filter: "(?i)(?=.*(?:🇭🇰|🇯🇵|🇸🇬|🇨🇳|港|hk|hongkong|台|tw|taiwan|日|jp|japan|新|sg|singapore)(?!.*(?:家宽|专用)).*)"
+    exclude-filter: "订阅|官网|售后"
     url: "https://asmr.one"
     interval: 300
     tolerance: 30
@@ -148,6 +150,7 @@ proxy-groups:
     url: "https://www.youtube.com"
     include-all: true
     filter: "(?i)(?=.*(?:🇭🇰|🇯🇵|🇸🇬|🇨🇳|🇺🇸|港|hk|hongkong|台|tw|taiwan|日|jp|japan|新|sg|singapore|美|us|unitedstates|D1)(?!.*(?:家宽|专用)).*)"
+    exclude-filter: "订阅|官网|售后"
     tolerance: 20
     interval: 300
     hidden: true

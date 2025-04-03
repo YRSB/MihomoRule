@@ -5,12 +5,14 @@ proxy-providers:
     url: ""
     type: http
     interval: 86400
+    proxy: DIRECT
     health-check: {enable: true,url: "https://www.gstatic.com/generate_204", interval: 300}
   
   provider2:
     url: ""
     type: http
     interval: 86400
+    proxy: DIRECT
     health-check: {enable: true,url: "https://www.gstatic.com/generate_204", interval: 300}
 
 mixed-port: 31193
@@ -239,6 +241,7 @@ rule-providers:
     format: text
     interval: 43200
     behavior: classical
+    proxy: Proxy
 
   custom_direct:
       type: http
@@ -246,6 +249,7 @@ rule-providers:
       format: yaml
       interval: 43200
       behavior: classical
+      proxy: Proxy
   
   custom_proxy:
     type: http
@@ -253,6 +257,7 @@ rule-providers:
     format: yaml
     interval: 43200
     behavior: classical
+    proxy: Proxy
 
   asmr:
     type: http
@@ -260,6 +265,7 @@ rule-providers:
     format: yaml
     interval: 43200
     behavior: domain
+    proxy: Proxy
 
   jp:
     type: http
@@ -267,30 +273,37 @@ rule-providers:
     format: yaml
     interval: 43200
     behavior: classical
+    proxy: Proxy
 
   site_googlefcm:
     <<: *rule_domain
     url: 'https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/googlefcm.mrs'
+    proxy: Proxy
 
   site_pixiv:
     <<: *rule_domain
     url: 'https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/pixiv.mrs'
+    proxy: Proxy
   
   site_dmm:
     <<: *rule_domain
     url: 'https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/dmm.mrs'
+    proxy: Proxy
 
   site_dlsite:
     <<: *rule_domain
     url: 'https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/dlsite.mrs'
+    proxy: Proxy
 
   site_youtube:
     <<: *rule_domain
     url: 'https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/youtube.mrs'
+    proxy: Proxy
 
   site_geolocation_non_cn:
     <<: *rule_domain
     url: 'https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/geolocation-!cn.mrs'
+    proxy: Proxy
 
   reject_non_ip_no_drop:
     type: http
@@ -299,6 +312,7 @@ rule-providers:
     interval: 43200
     url: https://ruleset.skk.moe/Clash/non_ip/reject-no-drop.txt
     path: ./sukkaw_ruleset/reject_non_ip_no_drop.txt
+    proxy: Proxy
 
   reject_non_ip_drop:
     type: http
@@ -307,6 +321,7 @@ rule-providers:
     interval: 43200
     url: https://ruleset.skk.moe/Clash/non_ip/reject-drop.txt
     path: ./sukkaw_ruleset/reject_non_ip_drop.txt
+    proxy: Proxy
 
   reject_non_ip:
     type: http
@@ -315,6 +330,7 @@ rule-providers:
     interval: 43200
     url: https://ruleset.skk.moe/Clash/non_ip/reject.txt
     path: ./sukkaw_ruleset/reject_non_ip.txt
+    proxy: Proxy
 
   reject_domainset:
     type: http
@@ -323,6 +339,7 @@ rule-providers:
     interval: 43200
     url: https://ruleset.skk.moe/Clash/domainset/reject.txt
     path: ./sukkaw_ruleset/reject_domainset.txt
+    proxy: Proxy
 
   reject_ip:
     type: http
@@ -331,6 +348,7 @@ rule-providers:
     interval: 43200
     url: https://ruleset.skk.moe/Clash/ip/reject.txt
     path: ./sukkaw_ruleset/reject_ip.txt
+    proxy: Proxy
 
   ai_non_ip:
     type: http
@@ -339,6 +357,7 @@ rule-providers:
     interval: 43200
     url: https://ruleset.skk.moe/Clash/non_ip/ai.txt
     path: ./sukkaw_ruleset/ai_non_ip.txt
+    proxy: Proxy
 
   telegram_ip:
     type: http
@@ -347,6 +366,7 @@ rule-providers:
     interval: 43200
     url: https://ruleset.skk.moe/Clash/ip/telegram.txt
     path: ./sukkaw_ruleset/telegram_ip.txt
+    proxy: Proxy
 
   microsoft_cdn_non_ip:
     type: http
@@ -355,6 +375,7 @@ rule-providers:
     interval: 43200
     url: https://ruleset.skk.moe/Clash/non_ip/microsoft_cdn.txt
     path: ./sukkaw_ruleset/microsoft_cdn_non_ip.txt
+    proxy: Proxy
 
   microsoft_non_ip:
     type: http
@@ -363,6 +384,7 @@ rule-providers:
     interval: 43200
     url: https://ruleset.skk.moe/Clash/non_ip/microsoft.txt
     path: ./sukkaw_ruleset/microsoft_non_ip.txt
+    proxy: Proxy
 
   lan_non_ip:
     type: http
@@ -371,6 +393,7 @@ rule-providers:
     interval: 43200
     url: https://ruleset.skk.moe/Clash/non_ip/lan.txt
     path: ./sukkaw_ruleset/lan_non_ip.txt
+    proxy: Proxy
 
   lan_ip:
     type: http
@@ -379,6 +402,7 @@ rule-providers:
     interval: 43200
     url: https://ruleset.skk.moe/Clash/ip/lan.txt
     path: ./sukkaw_ruleset/lan_ip.txt
+    proxy: Proxy
 
   domestic_non_ip:
     type: http
@@ -387,6 +411,7 @@ rule-providers:
     interval: 43200
     url: https://ruleset.skk.moe/Clash/non_ip/domestic.txt
     path: ./sukkaw_ruleset/domestic_non_ip.txt
+    proxy: Proxy
 
   direct_non_ip:
     type: http
@@ -395,6 +420,7 @@ rule-providers:
     interval: 43200
     url: https://ruleset.skk.moe/Clash/non_ip/direct.txt
     path: ./sukkaw_ruleset/direct_non_ip.txt
+    proxy: Proxy
 
   global_non_ip:
     type: http
@@ -403,6 +429,7 @@ rule-providers:
     interval: 43200
     url: https://ruleset.skk.moe/Clash/non_ip/global.txt
     path: ./sukkaw_ruleset/global_non_ip.txt
+    proxy: Proxy
 
   domestic_ip:
     type: http
@@ -411,6 +438,7 @@ rule-providers:
     interval: 43200
     url: https://ruleset.skk.moe/Clash/ip/domestic.txt
     path: ./sukkaw_ruleset/domestic_ip.txt
+    proxy: Proxy
 
   china_ip:
     type: http
@@ -419,6 +447,7 @@ rule-providers:
     interval: 43200
     url: https://ruleset.skk.moe/Clash/ip/china_ip.txt
     path: ./sukkaw_ruleset/china_ip.txt
+    proxy: Proxy
 
   download_domainset:
     type: http
@@ -427,6 +456,7 @@ rule-providers:
     interval: 43200
     url: https://ruleset.skk.moe/Clash/domainset/download.txt
     path: ./sukkaw_ruleset/download_domainset.txt
+    proxy: Proxy
 
   download_non_ip:
     type: http
@@ -435,6 +465,7 @@ rule-providers:
     interval: 43200
     url: https://ruleset.skk.moe/Clash/non_ip/download.txt
     path: ./sukkaw_ruleset/download_non_ip.txt
+    proxy: Proxy
 
   cdn_domainset:
     type: http
@@ -443,6 +474,7 @@ rule-providers:
     interval: 43200
     url: https://ruleset.skk.moe/Clash/domainset/cdn.txt
     path: ./sukkaw_ruleset/cdn_domainset.txt
+    proxy: Proxy
 
   cdn_non_ip:
     type: http
@@ -451,6 +483,7 @@ rule-providers:
     interval: 43200
     url: https://ruleset.skk.moe/Clash/non_ip/cdn.txt
     path: ./sukkaw_ruleset/cdn_non_ip.txt
+    proxy: Proxy
 
 rules:
   - RULE-SET,reject_non_ip,Block

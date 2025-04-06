@@ -250,6 +250,7 @@ rule-providers:
       interval: 43200
       behavior: classical
       proxy: Proxy
+      path: ./ruleset/custom_direct.yaml
   
   custom_proxy:
     type: http
@@ -258,6 +259,7 @@ rule-providers:
     interval: 43200
     behavior: classical
     proxy: Proxy
+    path: ./ruleset/custom_proxy.yaml
 
   asmr:
     type: http
@@ -266,6 +268,7 @@ rule-providers:
     interval: 43200
     behavior: domain
     proxy: Proxy
+    path: ./ruleset/asmr.yaml
 
   jp:
     type: http
@@ -274,6 +277,7 @@ rule-providers:
     interval: 43200
     behavior: classical
     proxy: Proxy
+    path: ./ruleset/jp.yaml
 
   site_googlefcm:
     <<: *rule_domain

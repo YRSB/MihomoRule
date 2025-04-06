@@ -245,7 +245,7 @@ rule-providers:
 
   custom_direct:
       type: http
-      url: "https://raw.githubusercontent.com/YRSB/MihomoRule/master/custom_direct.yaml"
+      url: "https://raw.githubusercontent.com/YRSB/MihomoRule/refs/heads/master/custom_direct.yaml"
       format: yaml
       interval: 43200
       behavior: classical
@@ -253,7 +253,7 @@ rule-providers:
   
   custom_proxy:
     type: http
-    url: "https://raw.githubusercontent.com/YRSB/MihomoRule/master/custom_proxy.yaml"
+    url: "https://raw.githubusercontent.com/YRSB/MihomoRule/refs/heads/master/custom_proxy.yaml"
     format: yaml
     interval: 43200
     behavior: classical
@@ -261,7 +261,7 @@ rule-providers:
 
   asmr:
     type: http
-    url: "https://raw.githubusercontent.com/YRSB/MihomoRule/master/asmr.yaml"
+    url: "https://raw.githubusercontent.com/YRSB/MihomoRule/refs/heads/master/asmr.yaml"
     format: yaml
     interval: 43200
     behavior: domain
@@ -269,7 +269,7 @@ rule-providers:
 
   jp:
     type: http
-    url: "https://raw.githubusercontent.com/YRSB/MihomoRule/master/jp.yaml"
+    url: "https://raw.githubusercontent.com/YRSB/MihomoRule/refs/heads/master/jp.yaml"
     format: yaml
     interval: 43200
     behavior: classical

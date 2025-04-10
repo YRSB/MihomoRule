@@ -18,7 +18,7 @@ proxy-providers:
 mixed-port: 31193
 ipv6: false
 allow-lan: false
-unified-delay: false
+unified-delay: true
 tcp-concurrent: false
 external-controller: 127.0.0.1:41193
 external-ui: ui
@@ -75,7 +75,7 @@ dns:
     - quic://223.5.5.5
     - quic://223.6.6.6
   nameserver: # 默认域名解析, 如不配置 fallback/proxy-server-nameserver, 则都由 nameserver 解析
-    # - system://
+    - system://
     - quic://223.5.5.5
     - quic://223.6.6.6
   nameserver-policy: # 局域网域名不应使用公共DNS进行解析

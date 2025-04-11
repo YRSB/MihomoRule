@@ -166,8 +166,7 @@ proxy-groups:
     type: select
     proxies:  [DIRECT,Proxy]
     include-all: true
-    filter: "(?i)(?=.*(?:🇭🇰|🇯🇵|🇸🇬|🇨🇳|🇺🇸|港|hk|hongkong|台|tw|taiwan|日|jp|japan|新|sg|singapore|美|us|unitedstates)(?!.*(?:家宽|专用)).*)"
-    exclude-filter: "订阅|官网|售后"
+    exclude-filter: "订阅|官网|售后|家宽|专用"
 
   - name: Match
     type: select
@@ -179,7 +178,7 @@ proxy-groups:
     type: url-test
     include-all: true
     filter: "(?i)港|hk|hongkong|hong kong"
-    exclude-filter: "订阅|官网|售后"
+    exclude-filter: "订阅|官网|售后|家宽|专用"
     interval: 300
     hidden: true
     tolerance: 30
@@ -513,8 +512,8 @@ rules:
   - RULE-SET,microsoft_cdn_non_ip,DIRECT
   
   - RULE-SET,lan_non_ip,DIRECT
-  - RULE-SET,cdn_domainset,Download
-  - RULE-SET,cdn_non_ip,Download
+  - RULE-SET,cdn_domainset,Proxy
+  - RULE-SET,cdn_non_ip,Proxy
 
   - RULE-SET,domestic_non_ip,DIRECT
   - RULE-SET,direct_non_ip,DIRECT

@@ -12,3 +12,5 @@ payload:
   - DOMAIN-KEYWORD,foxmail
   - DOMAIN-SUFFIX,msftncsi.com
   - DOMAIN,lmgx-my.sharepoint.com
+  # 广东体育
+  - DOMAIN,recordtx.shangzhibo.tv

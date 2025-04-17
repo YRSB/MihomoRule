@@ -71,6 +71,7 @@ dns:
     - "+.msftconnecttest.com"
     - "+.msftncsi.com"
     - "drop.fydeos.com"
+    - "rule-set:fake_ip_filter"
   default-nameserver:
     - quic://223.5.5.5
     - quic://223.6.6.6
@@ -489,6 +490,15 @@ rule-providers:
     interval: 43200
     url: https://ruleset.skk.moe/Clash/non_ip/cdn.txt
     path: ./sukkaw_ruleset/cdn_non_ip.txt
+    proxy: Proxy
+
+  fake_ip_filter:
+    type: http
+    behavior: domain
+    format: text
+    interval: 43200
+    url: https://ruleset.skk.moe/Clash/domainset/clash_fake_ip_filter.txt
+    path: ./sukkaw_ruleset/clash_fake_ip_filter.txt
     proxy: Proxy
 
 rules:

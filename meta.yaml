@@ -161,11 +161,14 @@ proxy-groups:
     
   - name: AI
     type: select
-    proxies:  [美国-Auto,Proxy]
+    proxies:  [美国-Auto]
+    include-all: true
+    exclude-type: direct
+    exclude-filter: "订阅|官网|售后"
 
   - name: Download
     type: select
-    proxies:  [DIRECT,Proxy]
+    proxies:  [Proxy,DIRECT]
     include-all: true
     exclude-filter: "订阅|官网|售后|家宽|专用"
 

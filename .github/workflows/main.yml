@@ -1,0 +1,97 @@
+name: Config Update
+
+on:
+  push:
+    branches: [ master ]
+  workflow_dispatch:
+  
+  schedule:
+    - cron: '0 12 * * *'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: "Setup mihomo"
+      env:
+        MIHOMO_DEB_URL: "https://github.com/MetaCubeX/mihomo/releases/download/v1.19.5/mihomo-linux-amd64-v1.19.5.deb"
+      run: |
+          set -Eeuo pipefail
+          wget -O mihomo.deb $SING_BOX_DEB_URL
+          sudo dpkg -i mihomo.deb
+          mkdir -p rule
+        
+        
+    - name: Download content1
+      run: |
+        URL="https://ruleset.skk.moe/Clash/domainset/reject.txt"
+        OUTPUT_FILE="./rule/reject_domainset.txt"
+        curl -L $URL -o $OUTPUT_FILE
+        if [ -f "$OUTPUT_FILE" ]; then
+          echo "Download successful: $OUTPUT_FILE"
+        else
+          echo "Download failed."
+          exit 1
+        fi
+
+    - name: Download content2
+      run: |
+        URL="https://ruleset.skk.moe/Clash/ip/china_ip.txt"
+        OUTPUT_FILE="./rule/china_ip.txt"
+        curl -L $URL -o $OUTPUT_FILE
+        if [ -f "$OUTPUT_FILE" ]; then
+          echo "Download successful: $OUTPUT_FILE"
+        else
+          echo "Download failed."
+          exit 1
+        fi
+
+    - name: Download content3
+      run: |
+        URL="https://ruleset.skk.moe/Clash/domainset/download.txt"
+        OUTPUT_FILE="./rule/download_domainset.txt"
+        curl -L $URL -o $OUTPUT_FILE
+        if [ -f "$OUTPUT_FILE" ]; then
+          echo "Download successful: $OUTPUT_FILE"
+        else
+          echo "Download failed."
+          exit 1
+        fi
+
+    - name: Download content4
+      run: |
+        URL="https://ruleset.skk.moe/Clash/domainset/cdn.txt"
+        OUTPUT_FILE="./rule/cdn_domainset.txt"
+        curl -L $URL -o $OUTPUT_FILE
+        if [ -f "$OUTPUT_FILE" ]; then
+          echo "Download successful: $OUTPUT_FILE"
+        else
+          echo "Download failed."
+          exit 1
+        fi
+        
+    - name: Convert to mihomo mrs
+      working-directory: ./rule/
+      run: |
+        mihomo convert-ruleset ipcidr text china_ip.txt china_ip.mrs
+        mihomo convert-ruleset domain text reject_domainset.txt reject_domainset.mrs
+        mihomo convert-ruleset domain text download_domainset.txt download_domainset.mrs
+        mihomo convert-ruleset domain text cdn_domainset.txt cdn_domainset.mrs
+
+    - name: Commit and push config.json
+      run: |
+        git config --global user.email "action@github.com"
+        git config --global user.name "GitHub Action"
+        git add ./rule/*.mrs
+        git add ./rule/*.txt
+
+        # 检查是否有文件被修改
+        if git diff --staged --quiet; then
+          echo "No changes to commit"
+          exit 0
+        else
+          git commit -m "Update rules"
+          git push
+        fi

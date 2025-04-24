@@ -345,10 +345,10 @@ rule-providers:
   reject_domainset:
     type: http
     behavior: domain
-    format: text
+    format: mrs
     interval: 43200
-    url: https://ruleset.skk.moe/Clash/domainset/reject.txt
-    path: ./sukkaw_ruleset/reject_domainset.txt
+    url: https://github.com/YRSB/MihomoRule/raw/refs/heads/master/rule/reject_domainset.mrs
+    path: ./sukkaw_ruleset/reject_domainset.mrs
     proxy: Proxy
 
   reject_ip:
@@ -453,19 +453,19 @@ rule-providers:
   china_ip:
     type: http
     behavior: ipcidr
-    format: text
+    format: mrs
     interval: 43200
-    url: https://ruleset.skk.moe/Clash/ip/china_ip.txt
-    path: ./sukkaw_ruleset/china_ip.txt
+    url: https://github.com/YRSB/MihomoRule/raw/refs/heads/master/rule/china_ip.mrs
+    path: ./sukkaw_ruleset/china_ip.mrs
     proxy: Proxy
 
   download_domainset:
     type: http
     behavior: domain
-    format: text
+    format: mrs
     interval: 43200
-    url: https://ruleset.skk.moe/Clash/domainset/download.txt
-    path: ./sukkaw_ruleset/download_domainset.txt
+    url: https://github.com/YRSB/MihomoRule/raw/refs/heads/master/rule/download_domainset.mrs
+    path: ./sukkaw_ruleset/download_domainset.mrs
     proxy: Proxy
 
   download_non_ip:
@@ -480,10 +480,10 @@ rule-providers:
   cdn_domainset:
     type: http
     behavior: domain
-    format: text
+    format: mrs
     interval: 43200
-    url: https://ruleset.skk.moe/Clash/domainset/cdn.txt
-    path: ./sukkaw_ruleset/cdn_domainset.txt
+    url: 'https://github.com/YRSB/MihomoRule/raw/refs/heads/master/rule/cdn_domainset.mrs'
+    path: ./sukkaw_ruleset/cdn_domainset.mrs
     proxy: Proxy
 
   cdn_non_ip:

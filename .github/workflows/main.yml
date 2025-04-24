@@ -18,7 +18,6 @@ jobs:
       env:
         MIHOMO_DEB_URL: "https://github.com/MetaCubeX/mihomo/releases/download/v1.19.5/mihomo-linux-amd64-v1.19.5.deb"
       run: |
-          set -Eeuo pipefail
           wget -O mihomo.deb $SING_BOX_DEB_URL
           sudo dpkg -i mihomo.deb
           mkdir -p rule

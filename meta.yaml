@@ -455,7 +455,7 @@ rule-providers:
     behavior: ipcidr
     format: mrs
     interval: 43200
-    url: https://github.com/YRSB/MihomoRule/raw/refs/heads/master/rule/china_ip.mrs
+    url: 'https://github.com/YRSB/MihomoRule/raw/refs/heads/master/rule/china_ip.mrs'
     path: ./sukkaw_ruleset/china_ip.mrs
     proxy: Proxy
 
@@ -464,7 +464,7 @@ rule-providers:
     behavior: domain
     format: mrs
     interval: 43200
-    url: https://github.com/YRSB/MihomoRule/raw/refs/heads/master/rule/download_domainset.mrs
+    url: 'https://github.com/YRSB/MihomoRule/raw/refs/heads/master/rule/download_domainset.mrs'
     path: ./sukkaw_ruleset/download_domainset.mrs
     proxy: Proxy
 
@@ -473,7 +473,7 @@ rule-providers:
     behavior: classical
     format: text
     interval: 43200
-    url: https://ruleset.skk.moe/Clash/non_ip/download.txt
+    url: 'https://ruleset.skk.moe/Clash/non_ip/download.txt'
     path: ./sukkaw_ruleset/download_non_ip.txt
     proxy: Proxy
 
@@ -491,7 +491,7 @@ rule-providers:
     behavior: classical
     format: text
     interval: 43200
-    url: https://ruleset.skk.moe/Clash/non_ip/cdn.txt
+    url: 'https://ruleset.skk.moe/Clash/non_ip/cdn.txt'
     path: ./sukkaw_ruleset/cdn_non_ip.txt
     proxy: Proxy
 
@@ -500,8 +500,17 @@ rule-providers:
     behavior: domain
     format: text
     interval: 43200
-    url: https://ruleset.skk.moe/Clash/domainset/clash_fake_ip_filter.txt
+    url: 'https://ruleset.skk.moe/Clash/domainset/clash_fake_ip_filter.txt'
     path: ./sukkaw_ruleset/clash_fake_ip_filter.txt
+    proxy: Proxy
+  
+  reject_awavenue_ads_rule:
+    type: http
+    behavior: domain
+    format: mrs
+    interval: 43200
+    url: 'https://github.com/YRSB/MihomoRule/raw/refs/heads/master/rule/awavenue_ads_rule_clash.mrs'
+    path: ./sukkaw_ruleset/awavenue_ads_rule_clash.mrs
     proxy: Proxy
 
 rules:
@@ -509,6 +518,7 @@ rules:
   - RULE-SET,reject_domainset,Block
   - RULE-SET,reject_non_ip_drop,REJECT-DROP
   - RULE-SET,reject_non_ip_no_drop,Block
+  - RULE-SET,reject_awavenue_ads_rule,Block
   - RULE-SET,pcdn,Block
 
   - RULE-SET,jp,日本

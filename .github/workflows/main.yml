@@ -70,16 +70,29 @@ jobs:
           echo "Download failed."
           exit 1
         fi
+
+    - name: Download content5
+      run: |
+        URL="https://raw.githubusercontent.com/TG-Twilight/AWAvenue-Ads-Rule/main/Filters/AWAvenue-Ads-Rule-Clash.yaml"
+        OUTPUT_FILE="./rule/awavenue_ads_rule_clash.yaml"
+        curl -L $URL -o $OUTPUT_FILE
+        if [ -f "$OUTPUT_FILE" ]; then
+          echo "Download successful: $OUTPUT_FILE"
+        else
+          echo "Download failed."
+          exit 1
+        fi 
         
-    - name: Convert to mihomo mrs
+    - name: Convert to mrs
       working-directory: ./rule/
       run: |
         mihomo convert-ruleset ipcidr text china_ip.txt china_ip.mrs
         mihomo convert-ruleset domain text reject_domainset.txt reject_domainset.mrs
         mihomo convert-ruleset domain text download_domainset.txt download_domainset.mrs
         mihomo convert-ruleset domain text cdn_domainset.txt cdn_domainset.mrs
+        mihomo convert-ruleset domain text awavenue_ads_rule_clash.yaml awavenue_ads_rule_clash.mrs
 
-    - name: Commit and push config.json
+    - name: Commit and push
       run: |
         git config --global user.email "action@github.com"
         git config --global user.name "GitHub Action"

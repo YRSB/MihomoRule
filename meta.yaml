@@ -267,6 +267,15 @@ rule-providers:
     proxy: Proxy
     path: ./ruleset/custom_proxy.yaml
 
+  custom_ai:
+    type: http
+    url: "https://raw.githubusercontent.com/YRSB/MihomoRule/refs/heads/master/custom_ai.yaml"
+    format: yaml
+    interval: 43200
+    behavior: domain
+    proxy: Proxy
+    path: ./ruleset/custom_ai.yaml
+
   asmr:
     type: http
     url: "https://raw.githubusercontent.com/YRSB/MihomoRule/refs/heads/master/asmr.yaml"
@@ -526,6 +535,7 @@ rules:
   - RULE-SET,site_dlsite,日本
   - RULE-SET,custom_proxy,Proxy
   - RULE-SET,custom_direct,DIRECT
+  - RULE-SET,custom_ai,AI
   - AND,((DST-PORT,5228-5230),(RULE-SET,site_googlefcm)),DIRECT
   - RULE-SET,asmr,ASMR
   - RULE-SET,site_pixiv,Pixiv

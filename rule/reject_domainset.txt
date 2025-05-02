@@ -1,7 +1,7 @@
 #########################################
 # Sukka's Ruleset - Reject Base
-# Last Updated: 2025-05-01T11:59:41.202Z
-# Size: 72162
+# Last Updated: 2025-05-01T17:16:47.070Z
+# Size: 72193
 # License: AGPL 3.0
 # Homepage: https://ruleset.skk.moe
 # GitHub: https://github.com/SukkaW/Surge
@@ -305,6 +305,7 @@ this_ruleset_is_made_by_sukkaw.ruleset.skk.moe
 +.shwfxrbsrifhx.online
 +.rdfeesvsxhsyn.online
 +.qxozluyvvyabw.online
++.qqsfafvkgsyto.online
 +.plorvexmoon13.online
 +.pajbmenfaridd.online
 +.paihfzqlznxdn.online
@@ -653,6 +654,7 @@ this_ruleset_is_made_by_sukkaw.ruleset.skk.moe
 +.load.analytics.airback.store
 +.rejco2.store
 +.a.mysalo.store
++.mayads.store
 +.partner.forkys.store
 +.obblewha.agglet.store
 +.a8.shizq.store
@@ -1533,6 +1535,7 @@ bad.third-party.site
 +.acetylsbrocht.shop
 +.acamarjinchao.shop
 +.yarranpyrope.shop
++.widthsteeler.shop
 +.weightypikas.shop
 +.verdiiceless.shop
 +.vastymeropic.shop
@@ -2387,6 +2390,7 @@ nmbr.info
 +.zbmzkxmensplm.club
 +.xdrlthfhikvgm.club
 +.track.viewitquickly.club
++.uwnytpkxxpueh.club
 +.ucgfvdrdbqajh.club
 +.skdjppgwnfune.club
 +.shbqitjfwhhge.club
@@ -3477,6 +3481,7 @@ grs.dbankcloud.asia
 +.zambiandirexit.top
 +.yeastedbushpig.top
 +.whammedknavess.top
++.waukingmuriate.top
 +.warrandoutrake.top
 +.wanhornuntaint.top
 +.vesuvinaqueity.top
@@ -3794,6 +3799,7 @@ grs.dbankcloud.asia
 +.lalabaos1020.top
 +.kloshambaris.top
 +.kaphsfruiter.top
++.jowyylklbvmz.top
 +.jivedwahabit.top
 +.jewbushpisay.top
 +.jaygeeceibas.top
@@ -4448,6 +4454,7 @@ grs.dbankcloud.asia
 +.hsylieu.top
 +.hrtlisu.top
 +.houbliu.top
++.hnwucnu.top
 +.hnwuamu.top
 +.hjimtyu.top
 +.hfjsliu.top
@@ -7051,6 +7058,7 @@ samsungotn.net
 +.raikijausa.net
 +.pushprofit.net
 +.purpleflag.net
++.ptuceeroaw.net
 +.ptoulraiph.net
 +.ptootutseh.net
 +.ptelsudsew.net
@@ -11465,6 +11473,7 @@ sashimi.royli.dev
 +.secure.startyourfashionbusiness.com
 +.staggeredravehospitality.com
 +.go.squirtingorgasmshortcuts.com
++.snuff-brownsprintcountry.com
 +.simmeringsuitableunwoven.com
 +.info.sherriffhealthcaresearch.com
 +.sarcasticnotarycontrived.com
@@ -15741,6 +15750,7 @@ fkp.samsungcloudsolution.com
 +.eac0823ca94e3c07.com
 +.jygslk.dynamiteclothing.com
 +.dunderaffiliates.com
++.dstoppedtotalkto.com
 +.drsmediaexchange.com
 +.paxtrz.dreamplacehotels.com
 +.downloadfreemium.com
@@ -17965,6 +17975,7 @@ charlestownwyllie.oaklawnnonantum.com
 +.propertyofnews.com
 +.propellerclick.com
 +.static.pronivydigital.com
++.progenyaimless.com
 +.profusesupport.com
 +.ofawjl.profitablenews.com
 +.profitablegate.com
@@ -22330,6 +22341,7 @@ js.partnerstack.com
 +.omshedinjaor.com
 +.omnjpeakvwwo.com
 +.omarcheopson.com
++.olxapgciwffu.com
 +.olkcihpavrky.com
 +.evupmg.olehenriksen.com
 +.a8.okamotogroup.com
@@ -23496,6 +23508,7 @@ a.dounanhuahui.com
 +.target.champssports.com
 +.sanl.champssports.com
 +.chaipoodrort.com
++.cesarebientt.com
 +.ceryldelaine.com
 +.analytics.certifriedit.com
 +.cerillairfan.com
@@ -23794,6 +23807,7 @@ a.dounanhuahui.com
 +.ardawhwhylur.com
 +.cdn.arcstudiopro.com
 +.aqcwzaossxti.com
++.apptdinsteps.com
 +.appserver-cp.com
 +.appserver-ap.com
 +.appollo-plus.com
@@ -23896,6 +23910,7 @@ a.dounanhuahui.com
 +.affiliate-wg.com
 +.stape.aetherclinic.com
 +.aerodynomach.com
++.aeinkailrupe.com
 +.adviralmedia.com
 +.t7baxp1xmw00.boxoffice.adventuretix.com
 +.1eusy6.boxoffice.adventuretix.com
@@ -24024,6 +24039,7 @@ a.dounanhuahui.com
 +.ss.zavattishop.com
 +.zatloudredr.com
 +.zapotasmoot.com
++.zalwlraoazu.com
 +.uat1-dc.zalesoutlet.com
 +.metrics.zalesoutlet.com
 +.dc.zalesoutlet.com
@@ -25107,6 +25123,7 @@ visitors.thingiverse.com
 +.oldgyhogola.com
 +.okueroskynt.com
 +.oktranhfyfa.com
++.okpl05011ai.com
 +.okpl05010ai.com
 +.okpl04301ai.com
 +.okjkidtajoh.com
@@ -25247,6 +25264,7 @@ visitors.thingiverse.com
 +.myroledance.com
 +.u652.myplainview.com
 +.axp.mypanhandle.com
++.mob2.mymusic2025.com
 +.ddooll.mykindkorea.com
 +.srepdata.mydestinate.com
 +.track.myclipstone.com
@@ -25429,6 +25447,7 @@ visitors.thingiverse.com
 +.twn36gx4109r.loveisblank.com
 +.lousefodgel.com
 +.loozubaitoa.com
++.loopflavour.com
 +.a8.looop-denki.com
 +.loomdeviate.com
 +.loobyfleyed.com
@@ -25557,6 +25576,7 @@ visitors.thingiverse.com
 +.piranha.jsmobiledev.com
 +.jpaolbtfyoh.com
 +.jpalmowraat.com
++.joorqfiyzti.com
 +.jollyspring.com
 +.jolecyclist.com
 +.xrnyhc.jokwangilbo.com
@@ -25648,6 +25668,7 @@ visitors.thingiverse.com
 +.jbezdi.ilsole24ore.com
 +.ctrkd.ilsole24ore.com
 +.ileumoctant.com
++.ikxwupdcidp.com
 +.my.iheartradio.com
 +.images.share.iheartmedia.com
 +.join.ifsecglobal.com
@@ -26837,6 +26858,7 @@ stats.adityathebe.com
 +.sgtm.yesinglese.com
 +.metrics.yellowbook.com
 +.info.yankeehome.com
++.yaltchoaiz.com
 +.xygliwhawu.com
 +.xxxx96xxxx.com
 +.xxxx88xxxx.com
@@ -28143,6 +28165,7 @@ httpdns.push.oppomobile.com
 +.track.mtraq127sa.com
 +.track.mtraq121ps.com
 +.mtgglobals.com
++.mtdzxyfhzn.com
 +.app.msubobcats.com
 +.t.msubobcats.com
 +.data.dttp-test.msccruises.com
@@ -30075,7 +30098,7 @@ simple.cloudsmith.com
 +.a9684972c2.com
 +.1ca6e3e357.a8ca394de0.com
 +.0eab70c429.a567dda4c2.com
-+.2f7cae6ec9.a41ffeba4a.com
++.a41ffeba4a.com
 +.c92a8a2de1.a0d3dd0c89.com
 +.a0b5779711.com
 +.a07ccac956.com
@@ -30232,6 +30255,7 @@ simple.cloudsmith.com
 +.marketing.1edisource.com
 +.1c7cf19baa.com
 +.1c0c3fde9d.com
++.1be953d1cc.com
 +.198636861c.com
 +.171c856581.com
 +.17180d187e.com
@@ -31140,6 +31164,7 @@ static.m.sjzhushou.com
 +.data.news.riyadhair.com
 +.rixengine.com
 +.beacon.riskified.com
++.ripeorder.com
 +.xml-eu-v4.ripamatic.com
 +.xml-v4.ripamatic.com
 +.filter.ripamatic.com
@@ -46202,6 +46227,7 @@ ads.95516.com
 +.g.3lian.com
 ad.360in.com
 +.m1.27com.com
++.264dy.com
 +.cdn93d99x0e.23bei.com
 +.f-g-l-j.22yy6.com
 +.21wiz.com
@@ -58554,6 +58580,7 @@ ad.yixin.im
 +.engage.3mmagyarorszag.hu
 +.landing.wolterskluwer.hu
 +.rum.marquardmedia.hu
++.adat.ingatlanbazar.hu
 +.s.gyorgyteabolt.hu
 +.partner.eshop-gyorsan.hu
 +.my.11team-sports.hu
@@ -58632,6 +58659,7 @@ ad.yixin.im
 +.fpghll.rossmann.hu
 +.analytics.pipelife.hu
 +.ad.netmedia.hu
++.adat.metropol.hu
 +.load.gtm.manucafe.hu
 +.sstats.libresse.hu
 +.adat.koponyeg.hu
@@ -58715,11 +58743,13 @@ ad.yixin.im
 +.stats.tork.hu
 +.konv.tasz.hu
 +.lalqoc.lyke.hu
++.adat.she.life.hu
 +.bwmetrics.jegy.hu
 +.illuzio.jegy.hu
 +.ldugvf.bolf.hu
 +.metrics.one.hu
 +.ot.obi.hu
++.kib.hu
 +.email-cm.jll.hu
 +.email-am.jll.hu
 +.cookies.jll.hu
@@ -68270,6 +68300,7 @@ collector.wasu.cn
 +.tpkv.cn
 +.tpjw.cn
 ad.thsi.cn
++.svnf.cn
 +.svjj.cn
 +.7011.stia.cn
 +.spoh.cn

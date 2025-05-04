@@ -1,7 +1,7 @@
 #########################################
 # Sukka's Ruleset - CDN Domains
-# Last Updated: 2025-05-03T12:17:04.031Z
-# Size: 3535
+# Last Updated: 2025-05-03T14:55:02.022Z
+# Size: 3537
 # License: AGPL 3.0
 # Homepage: https://ruleset.skk.moe
 # GitHub: https://github.com/SukkaW/Surge
@@ -2864,6 +2864,8 @@ static-landing.probiplacehold.cot.com
 lightning.cnn.com
 media.cnn.com
 cdn.cnn.com
+webobjects2.cdw.com
+dc-cdn.cdw.com
 gn-web-assets.api.bbc.com
 static2.avg.com
 cdn.designsystem.arm.com

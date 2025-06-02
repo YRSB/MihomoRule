@@ -1,6 +1,6 @@
 #########################################
 # Sukka's Ruleset - Mainland China IPv4 CIDR
-# Last Updated: 2025-06-01T12:42:45.836Z
+# Last Updated: 2025-06-01T16:44:43.919Z
 # Size: 4172
 # License: CC BY-SA 2.0
 # Homepage: https://ruleset.skk.moe

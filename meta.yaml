@@ -61,10 +61,8 @@ dns:
     - "+.lan"
     - "+.local"
     - "+.market.xiaomi.com"
-    - "+.msftconnecttest.com"
-    - "+.msftncsi.com"
-    - "drop.fydeos.com"
     - "rule-set:fake_ip_filter"
+    - "rule-set:always_real_ip"
   nameserver: 
     - 'https://101.34.254.32/ihtw'
   direct-nameserver: 
@@ -229,13 +227,14 @@ rule-providers-anchor: # 锚点 如合并时有重复的项, 则不会去合并;
   rule_classical: &rule_classical {type: http, behavior: classical, format: yaml, interval: 43200}
 
 rule-providers:
-  pcdn:
-    type: http
-    url: "https://raw.githubusercontent.com/uselibrary/PCDN/refs/heads/main/pcdn.list"
-    format: text
-    interval: 43200
-    behavior: classical
-    proxy: Proxy
+  always_real_ip:
+      type: http
+      url: "https://raw.githubusercontent.com/YRSB/MihomoRule/refs/heads/master/always_real_ip.yaml"
+      format: yaml
+      interval: 43200
+      behavior: classical
+      proxy: Proxy
+      path: ./ruleset/always_real_ip.yaml
 
   custom_direct:
       type: http

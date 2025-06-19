@@ -7,13 +7,6 @@ proxy-providers:
     interval: 86400
     proxy: DIRECT
     health-check: {enable: true,url: "https://www.gstatic.com/generate_204", interval: 300}
-  
-  provider2:
-    url: ""
-    type: http
-    interval: 86400
-    proxy: DIRECT
-    health-check: {enable: true,url: "https://www.gstatic.com/generate_204", interval: 300}
 
 mixed-port: 31193
 ipv6: false
@@ -48,7 +41,7 @@ sniffer:
 
 tun:
   enable: true
-  device: TsuinoSora
+  device: utun0
   stack: mixed
   dns-hijack:
     - "any:53"
@@ -72,15 +65,10 @@ dns:
     - "+.msftncsi.com"
     - "drop.fydeos.com"
     - "rule-set:fake_ip_filter"
-  default-nameserver:
-    - quic://223.5.5.5
-    - quic://223.6.6.6
-  nameserver: # 默认域名解析, 如不配置 fallback/proxy-server-nameserver, 则都由 nameserver 解析
-    - system://
-    - quic://223.5.5.5
-    - quic://223.6.6.6
-  nameserver-policy: # 局域网域名不应使用公共DNS进行解析
-    'rule-set:lan_non_ip': system://
+  nameserver: 
+    - 'https://101.34.254.32/ihtw'
+  direct-nameserver: 
+    - system
 
 proxy-groups:
 

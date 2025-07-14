@@ -532,7 +532,7 @@ rules:
   - RULE-SET,custom_proxy,Proxy
   - RULE-SET,custom_direct,DIRECT
   - RULE-SET,custom_ai,AI
-  - AND,((DST-PORT,5228-5230),(RULE-SET,site_googlefcm)),DIRECT
+  - RULE-SET,site_googlefcm,Proxy
   - RULE-SET,asmr,ASMR
   - RULE-SET,site_pixiv,Pixiv
   - RULE-SET,site_youtube,Youtube

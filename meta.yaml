@@ -39,6 +39,9 @@ sniffer:
     - "Mijia Cloud"
     - "+.push.apple.com"
 
+hosts:
+  newthink.lenovo.com.cn: 43.255.227.188
+
 tun:
   enable: true
   device: utun0
@@ -56,6 +59,7 @@ dns:
   cache-algorithm: arc
   ipv6: false
   enhanced-mode: fake-ip
+  use-hosts: true
   fake-ip-filter:
     - "*"
     - "+.lan"

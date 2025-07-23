@@ -118,6 +118,12 @@ proxy-groups:
     url: "https://www.youtube.com"
     interval: 300
 
+  - name: SearXNG
+    type: select
+    include-all: true
+    exclude-filter: "订阅|官网|售后|BEUP"
+    interval: 300
+
   - name: Pixiv-auto
     type: url-test
     include-all: true
@@ -294,6 +300,15 @@ rule-providers:
     behavior: classical
     proxy: Proxy
     path: ./ruleset/jp.yaml
+
+  searxng:
+      type: http
+      url: "https://raw.githubusercontent.com/YRSB/MihomoRule/refs/heads/master/searxng.yaml"
+      format: yaml
+      interval: 43200
+      behavior: classical
+      proxy: Proxy
+      path: ./ruleset/searxng.yaml
 
   site_googlefcm:
     <<: *rule_domain
@@ -541,6 +556,7 @@ rules:
   - RULE-SET,asmr,ASMR
   - RULE-SET,site_pixiv,Pixiv
   - RULE-SET,site_youtube,Youtube
+  - RULE-SET,searxng,SearXNG
 
   - RULE-SET,ai_non_ip,AI
   - RULE-SET,microsoft_cdn_non_ip,DIRECT

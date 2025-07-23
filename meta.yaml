@@ -90,7 +90,7 @@ proxy-groups:
     type: url-test
     url: "https://www.gstatic.com/generate_204"
     include-all: true
-    filter: "(?i)(?=.*(?:🇭🇰|🇯🇵|🇸🇬|🇨🇳|🇺🇸|港|hk|hongkong|台|tw|taiwan|日|jp|japan|新|sg|singapore|美|us|unitedstates)(?!.*(?:家宽|专用)).*)"
+    filter: "(?i)(?=.*(?:🇭🇰|🇯🇵|🇸🇬|🇨🇳|🇺🇸|香港|hk|hongkong|台湾|tw|taiwan|日本|jp|japan|新加坡|sg|singapore|美国|us|unitedstates)(?!.*(?:家宽|专用)).*)"
     exclude-filter: "订阅|官网|售后|BEUP"
     tolerance: 20
     interval: 300
@@ -127,7 +127,7 @@ proxy-groups:
   - name: Pixiv-auto
     type: url-test
     include-all: true
-    filter: "(?i)(?=.*(?:🇭🇰|🇯🇵|🇸🇬|🇨🇳|港|hk|hongkong|台|tw|taiwan|日|jp|japan|新|sg|singapore)(?!.*(?:家宽|专用)).*)"
+    filter: "(?i)(?=.*(?:🇭🇰|🇯🇵|🇸🇬|🇨🇳|🇺🇸|香港|hk|hongkong|台湾|tw|taiwan|日本|jp|japan|新加坡|sg|singapore|美国|us|unitedstates)(?!.*(?:家宽|专用)).*)"
     exclude-filter: "订阅|官网|售后|BEUP"
     url: "https://www.pixiv.net"
     interval: 300
@@ -138,7 +138,7 @@ proxy-groups:
   - name: ASMR-auto
     type: url-test
     include-all: true
-    filter: "(?i)(?=.*(?:🇭🇰|🇯🇵|🇸🇬|🇨🇳|港|hk|hongkong|台|tw|taiwan|日|jp|japan|新|sg|singapore)(?!.*(?:家宽|专用)).*)"
+    filter: "(?i)(?=.*(?:🇭🇰|🇯🇵|🇸🇬|🇨🇳|🇺🇸|香港|hk|hongkong|台湾|tw|taiwan|日本|jp|japan|新加坡|sg|singapore|美国|us|unitedstates)(?!.*(?:家宽|专用)).*)"
     exclude-filter: "订阅|官网|售后|BEUP"
     url: "https://asmr.one"
     interval: 300
@@ -150,7 +150,7 @@ proxy-groups:
     type: url-test
     url: "https://www.youtube.com"
     include-all: true
-    filter: "(?i)(?=.*(?:🇭🇰|🇯🇵|🇸🇬|🇨🇳|🇺🇸|港|hk|hongkong|台|tw|taiwan|日|jp|japan|新|sg|singapore|美|us|unitedstates|D1)(?!.*(?:家宽|专用)).*)"
+    filter: "(?i)(?=.*(?:🇭🇰|🇯🇵|🇸🇬|🇨🇳|🇺🇸|香港|hk|hongkong|台湾|tw|taiwan|日本|jp|japan|新加坡|sg|singapore|美国|us|unitedstates)(?!.*(?:家宽|专用)).*)"
     exclude-filter: "订阅|官网|售后|BEUP"
     tolerance: 20
     interval: 300
@@ -230,7 +230,7 @@ proxy-groups:
   - name: 其它地区
     type: select
     include-all: true
-    filter: "(?i)^(?!.*(?:🇭🇰|🇯🇵|🇺🇸|🇸🇬|🇨🇳|港|hk|hongkong|台|tw|taiwan|日|jp|japan|新|sg|singapore|美|us|unitedstates)).*"
+    filter: "(?i)^(?!.*(?:🇭🇰|🇯🇵|🇺🇸|🇸🇬|🇨🇳|香港|hk|hongkong|台湾|tw|taiwan|日本|jp|japan|新加坡|sg|singapore|美国|us|unitedstates)).*"
     exclude-filter: "订阅|官网|售后|BEUP"
 
 rule-providers-anchor: # 锚点 如合并时有重复的项, 则不会去合并; 锚点名不能包含特殊字符

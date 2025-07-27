@@ -1,7 +1,7 @@
 #########################################
 # Sukka's Ruleset - CDN Domains
-# Last Updated: 2025-07-26T11:26:48.982Z
-# Size: 3707
+# Last Updated: 2025-07-27T11:53:31.501Z
+# Size: 3712
 # License: AGPL 3.0
 # Homepage: https://ruleset.skk.moe
 # GitHub: https://github.com/SukkaW/Surge
@@ -48,6 +48,8 @@ pics.javhd.today
 +.eth.sucks
 vanilla-extract.style
 eslint.style
++.shoppulse88.store
++.surrit.store
 cdn.one.store
 +.pstorage.space
 cdn.hiive.space
@@ -404,6 +406,7 @@ oct8neproxy.azurewebsites.net
 d4.alternativeto.net
 +.vusercontent.net
 +.vscode-unpkg.net
+cdn.tokyo-motion.net
 blacklist.tampermonkey.net
 static.edge.microsoftapp.net
 +.f.hubspotemail.net
@@ -1404,7 +1407,6 @@ images1.cmp.optimizely.com
 +.cdn.optimizely.com
 static-www.onlyoffice.com
 +.nincontent.com
-+.netdna-ssl.com
 cdn.nerdschalk.com
 cdn.app.neononepay.com
 media.nbcnewyork.com
@@ -2279,6 +2281,7 @@ static.hubspot.com
 +.js.hubspot.com
 perf-na1.hsforms.com
 perf.hsforms.com
+static.hosting.com
 +.hgimg00.com
 static.heavy-r.com
 public.hare200.com
@@ -2664,6 +2667,7 @@ static-redesign.cnbcfm.com
 image.cnbcfm.com
 sf-flow-web-cdn.ciciai.com
 +.cdnjhd.com
++.cdnjav.com
 signalcloud.cdnbye.com
 opensignal.cdnbye.com
 signal.cdnbye.com
@@ -3671,6 +3675,7 @@ resize-image.vocus.cc
 ti2.knews.cc
 ti1.knews.cc
 +.ungh.cc
+cdn.road.cc
 t4.picb.cc
 t3.picb.cc
 t2.picb.cc

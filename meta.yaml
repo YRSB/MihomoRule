@@ -41,6 +41,7 @@ sniffer:
 
 hosts:
   newthink.lenovo.com.cn: 43.255.227.188
+  think.lenovo.com.cn: 43.255.227.188
 
 tun:
   enable: true

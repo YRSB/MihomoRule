@@ -126,6 +126,12 @@ proxy-groups:
     exclude-filter: "订阅|官网|售后|BEUP"
     interval: 300
 
+  - name: Reddit
+    type: select
+    include-all: true
+    exclude-filter: "订阅|官网|售后|BEUP"
+    interval: 300
+
   - name: Pixiv-auto
     type: url-test
     include-all: true
@@ -340,6 +346,11 @@ rule-providers:
   site_geolocation_non_cn:
     <<: *rule_domain
     url: 'https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/geolocation-!cn.mrs'
+    proxy: Proxy
+
+  site_reddit:
+    <<: *rule_domain
+    url: 'https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/reddit.mrs'
     proxy: Proxy
 
   reject_non_ip_no_drop:
@@ -559,6 +570,7 @@ rules:
   - RULE-SET,site_pixiv,Pixiv
   - RULE-SET,site_youtube,Youtube
   - RULE-SET,searxng,SearXNG
+  - RULE-SET,site_reddit,Reddit
 
   - RULE-SET,ai_non_ip,AI
   - RULE-SET,microsoft_cdn_non_ip,DIRECT

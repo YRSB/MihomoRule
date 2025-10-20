@@ -13,7 +13,7 @@ mixed-port: 31193
 ipv6: false
 allow-lan: false
 unified-delay: true
-tcp-concurrent: false
+tcp-concurrent: true
 external-controller: 127.0.0.1:41193
 external-ui: ui
 external-ui-url: "https://github.com/Zephyruso/zashboard/releases/latest/download/dist.zip"
@@ -594,3 +594,4 @@ rules:
   - RULE-SET,lan_ip,DIRECT
   - RULE-SET,china_ip,DIRECT
   - MATCH,Match
+

@@ -180,7 +180,7 @@ proxy-groups:
 
   - name: Match
     type: select
-    proxies:  [DIRECT,Proxy]
+    proxies:  [Proxy,DIRECT]
 
 
   #分隔,下面是地区分组

@@ -86,14 +86,13 @@ proxy-groups:
     type: select
     include-all: true
     exclude-type: direct
-    exclude-filter: "订阅|官网|售后"
+    exclude-filter: "订阅|官网|售后|BEUP"
 
   - name: 自动选择
     type: url-test
     url: "http://connectivitycheck.platform.hicloud.com/generate_204"
     include-all: true
     filter: "(?i)(?=.*(?:🇭🇰|🇯🇵|🇸🇬|🇨🇳|🇺🇸|香港|hk|hongkong|台湾|tw|taiwan|日本|jp|japan|新加坡|sg|singapore|美国|us|unitedstates)(?!.*(?:家宽|专用)).*)"
-    exclude-filter: "订阅|官网|售后|BEUP"
     tolerance: 20
     interval: 300
     lazy: true
@@ -128,6 +127,7 @@ proxy-groups:
 
   - name: Reddit
     type: select
+    proxies: [美国-Auto]
     include-all: true
     exclude-filter: "订阅|官网|售后|BEUP"
     interval: 300
@@ -135,8 +135,7 @@ proxy-groups:
   - name: Pixiv-auto
     type: url-test
     include-all: true
-    filter: "(?i)(?=.*(?:🇭🇰|🇯🇵|🇸🇬|🇨🇳|🇺🇸|香港|hk|hongkong|台湾|tw|taiwan|日本|jp|japan|新加坡|sg|singapore|美国|us|unitedstates)(?!.*(?:家宽|专用)).*)"
-    exclude-filter: "订阅|官网|售后|BEUP"
+    filter: "(?i)(?=.*(?:🇭🇰|🇯🇵|🇸🇬|🇨🇳|香港|hk|hongkong|台湾|tw|taiwan|日本|jp|japan|新加坡|sg|singapore)(?!.*(?:家宽|专用)).*)"
     url: "https://www.pixiv.net"
     interval: 300
     tolerance: 30
@@ -147,7 +146,6 @@ proxy-groups:
     type: url-test
     include-all: true
     filter: "(?i)(?=.*(?:🇭🇰|🇯🇵|🇸🇬|🇨🇳|🇺🇸|香港|hk|hongkong|台湾|tw|taiwan|日本|jp|japan|新加坡|sg|singapore|美国|us|unitedstates)(?!.*(?:家宽|专用)).*)"
-    exclude-filter: "订阅|官网|售后|BEUP"
     url: "https://asmr.one"
     interval: 300
     tolerance: 30
@@ -159,7 +157,6 @@ proxy-groups:
     url: "https://www.youtube.com"
     include-all: true
     filter: "(?i)(?=.*(?:🇭🇰|🇯🇵|🇸🇬|🇨🇳|🇺🇸|香港|hk|hongkong|台湾|tw|taiwan|日本|jp|japan|新加坡|sg|singapore|美国|us|unitedstates)(?!.*(?:家宽|专用)).*)"
-    exclude-filter: "订阅|官网|售后|BEUP"
     tolerance: 20
     interval: 300
     hidden: true
@@ -187,8 +184,7 @@ proxy-groups:
   - name: 香港-Auto
     type: url-test
     include-all: true
-    filter: "(?i)港|hk|hongkong|hong kong"
-    exclude-filter: "订阅|官网|售后|家宽|专用|BEUP"
+    filter: '(?i)\b(?:hk|hkg|hong\s*kong|s(?:pecial)?\s*a(?:dministrative)?\s*r(?:egion)?\s+hong\s*kong)\b|香港'
     interval: 300
     hidden: true
     tolerance: 30
@@ -196,8 +192,7 @@ proxy-groups:
   - name: 台湾-Auto
     type: url-test
     include-all: true
-    filter: "(?i)台|tw|taiwan"
-    exclude-filter: "订阅|官网|售后|BEUP"
+    filter: '(?i)\btaiwan\b(?:\s+area|\s+region)?|台湾(?:地区|省)?'
     interval: 300
     hidden: true
     tolerance: 30
@@ -205,8 +200,7 @@ proxy-groups:
   - name: 日本-Auto
     type: url-test
     include-all: true
-    filter: "(?i)日本|jp|japan"
-    exclude-filter: "订阅|官网|售后|BEUP"
+    filter: '(?i)\b(?:jp|jpn|japan|nippon)\b|日本'
     interval: 300
     hidden: true
     tolerance: 30
@@ -214,8 +208,7 @@ proxy-groups:
   - name: 美国-Auto
     type: url-test
     include-all: true
-    filter: "(?i)美|us|unitedstates|united states"
-    exclude-filter: "订阅|官网|售后|BEUP"
+    filter: '(?i)\b(?:us|usa|u\.s\.a?|united\s*(?:states|america))\b|美国'
     interval: 300
     hidden: true
     tolerance: 30
@@ -223,8 +216,7 @@ proxy-groups:
   - name: 新加坡-Auto
     type: url-test
     include-all: true
-    filter: "(?i)(新|sg|singapore)"
-    exclude-filter: "订阅|官网|售后|BEUP"
+    filter: '(?i)\b(?:sg|sgp|sing(?:a|apore)?)\b|新加坡|狮城'
     interval: 300
     hidden: true
     tolerance: 30
@@ -233,7 +225,7 @@ proxy-groups:
     type: select
     proxies: [日本-Auto]
     include-all: true
-    filter: "(?i)日本|jp|japan"
+    filter: '(?i)\b(?:jp|jpn|japan|nippon)\b|日本'
 
   - name: 其它地区
     type: select

@@ -416,6 +416,15 @@ rule-providers:
     path: ./sukkaw_ruleset/telegram_ip.txt
     proxy: Proxy
 
+  telegram_non_ip:
+    type: http
+    behavior: classical
+    format: text
+    interval: 43200
+    url: https://ruleset.skk.moe/Clash/non_ip/telegram.txt
+    path: ./sukkaw_ruleset/telegram_non_ip.txt
+    proxy: Proxy
+
   microsoft_cdn_non_ip:
     type: http
     behavior: classical
@@ -573,6 +582,7 @@ rules:
   - RULE-SET,site_reddit,Reddit
 
   - RULE-SET,ai_non_ip,AI
+  - RULE-SET,telegram_non_ip,Proxy
   - RULE-SET,microsoft_cdn_non_ip,DIRECT
   
   - RULE-SET,lan_non_ip,DIRECT

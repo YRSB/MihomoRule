@@ -301,6 +301,22 @@ rule-providers:
     proxy: Proxy
     path: ./ruleset/jp.yaml
 
+  stream_jp_non_ip:
+    type: http
+    behavior: classical
+    format: text
+    interval: 43200
+    url: https://ruleset.skk.moe/Clash/non_ip/stream_jp.txt
+    path: ./sukkaw_ruleset/stream_jp_non_ip.txt
+    
+  stream_jp_ip:
+    type: http
+    behavior: classical
+    format: text
+    interval: 43200
+    url: https://ruleset.skk.moe/Clash/ip/stream_jp.txt
+    path: ./sukkaw_ruleset/stream_jp_ip.txt
+
   searxng:
       type: http
       url: "https://raw.githubusercontent.com/YRSB/MihomoRule/refs/heads/master/searxng.yaml"
@@ -563,6 +579,7 @@ rules:
   - RULE-SET,searxng,SearXNG
   - RULE-SET,site_reddit,Reddit
 
+  - RULE-SET,stream_jp_non_ip,日本
   - RULE-SET,ai_non_ip,AI
   - RULE-SET,telegram_non_ip,Proxy
   - RULE-SET,microsoft_cdn_non_ip,DIRECT

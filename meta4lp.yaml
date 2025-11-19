@@ -353,23 +353,23 @@ rule-providers:
     url: 'https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/reddit.mrs'
     proxy: Proxy
 
-  # reject_non_ip_no_drop:
-  #   type: http
-  #   behavior: classical
-  #   format: text
-  #   interval: 43200
-  #   url: https://ruleset.skk.moe/Clash/non_ip/reject-no-drop.txt
-  #   path: ./sukkaw_ruleset/reject_non_ip_no_drop.txt
-  #   proxy: Proxy
+  reject_non_ip_no_drop:
+    type: http
+    behavior: classical
+    format: text
+    interval: 43200
+    url: https://ruleset.skk.moe/Clash/non_ip/reject-no-drop.txt
+    path: ./sukkaw_ruleset/reject_non_ip_no_drop.txt
+    proxy: Proxy
 
-  # reject_non_ip_drop:
-  #   type: http
-  #   behavior: classical
-  #   format: text
-  #   interval: 43200
-  #   url: https://ruleset.skk.moe/Clash/non_ip/reject-drop.txt
-  #   path: ./sukkaw_ruleset/reject_non_ip_drop.txt
-  #   proxy: Proxy
+  reject_non_ip_drop:
+    type: http
+    behavior: classical
+    format: text
+    interval: 43200
+    url: https://ruleset.skk.moe/Clash/non_ip/reject-drop.txt
+    path: ./sukkaw_ruleset/reject_non_ip_drop.txt
+    proxy: Proxy
 
   # reject_non_ip:
   #   type: http
@@ -389,14 +389,14 @@ rule-providers:
   #   path: ./sukkaw_ruleset/reject_domainset.mrs
   #   proxy: Proxy
 
-  # reject_ip:
-  #   type: http
-  #   behavior: classical
-  #   format: text
-  #   interval: 43200
-  #   url: https://ruleset.skk.moe/Clash/ip/reject.txt
-  #   path: ./sukkaw_ruleset/reject_ip.txt
-  #   proxy: Proxy
+  reject_ip:
+    type: http
+    behavior: classical
+    format: text
+    interval: 43200
+    url: https://ruleset.skk.moe/Clash/ip/reject.txt
+    path: ./sukkaw_ruleset/reject_ip.txt
+    proxy: Proxy
 
   ai_non_ip:
     type: http
@@ -414,6 +414,15 @@ rule-providers:
     interval: 43200
     url: https://ruleset.skk.moe/Clash/ip/telegram.txt
     path: ./sukkaw_ruleset/telegram_ip.txt
+    proxy: Proxy
+
+  telegram_non_ip:
+    type: http
+    behavior: classical
+    format: text
+    interval: 43200
+    url: https://ruleset.skk.moe/Clash/non_ip/telegram.txt
+    path: ./sukkaw_ruleset/telegram_non_ip.txt
     proxy: Proxy
 
   microsoft_cdn_non_ip:
@@ -554,8 +563,8 @@ rule-providers:
 rules:
   # - RULE-SET,reject_non_ip,Block
   # - RULE-SET,reject_domainset,Block
-  # - RULE-SET,reject_non_ip_drop,REJECT-DROP
-  # - RULE-SET,reject_non_ip_no_drop,Block
+  - RULE-SET,reject_non_ip_drop,REJECT-DROP
+  - RULE-SET,reject_non_ip_no_drop,Block
   # - RULE-SET,reject_awavenue_ads_rule,Block
   - RULE-SET,pcdn,Block
 
@@ -573,6 +582,7 @@ rules:
   - RULE-SET,site_reddit,Reddit
 
   - RULE-SET,ai_non_ip,AI
+  - RULE-SET,telegram_non_ip,Proxy
   - RULE-SET,microsoft_cdn_non_ip,DIRECT
   
   - RULE-SET,lan_non_ip,DIRECT
@@ -588,7 +598,7 @@ rules:
   - RULE-SET,site_geolocation_non_cn,Proxy
   
   - RULE-SET,telegram_ip,Proxy
-  # - RULE-SET,reject_ip,REJECT
+  - RULE-SET,reject_ip,REJECT
   
   - RULE-SET,domestic_ip,DIRECT
   - RULE-SET,lan_ip,DIRECT

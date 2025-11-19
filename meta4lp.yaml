@@ -6,7 +6,7 @@ proxy-providers:
     type: http
     interval: 86400
     proxy: DIRECT
-    health-check: {enable: true,url: "https://www.gstatic.com/generate_204", interval: 300}
+    health-check: {enable: true,url: "http://connectivitycheck.platform.hicloud.com/generate_204", interval: 300}
     exclude-filter: "Game"
 
 mixed-port: 31193
@@ -90,7 +90,7 @@ proxy-groups:
 
   - name: 自动选择
     type: url-test
-    url: "https://www.gstatic.com/generate_204"
+    url: "http://connectivitycheck.platform.hicloud.com/generate_204"
     include-all: true
     filter: "(?i)(?=.*(?:🇭🇰|🇯🇵|🇸🇬|🇨🇳|🇺🇸|香港|hk|hongkong|台湾|tw|taiwan|日本|jp|japan|新加坡|sg|singapore|美国|us|unitedstates)(?!.*(?:家宽|专用)).*)"
     exclude-filter: "订阅|官网|售后|BEUP"

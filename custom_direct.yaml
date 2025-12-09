@@ -14,5 +14,3 @@ payload:
   - DOMAIN,lmgx-my.sharepoint.com
   - DOMAIN-SUFFIX,shangzhibo.tv
   - DOMAIN-SUFFIX,grtsports.com
-  # 卡巴斯基
-  - DOMAIN-SUFFIX,kaspersky-labs.com

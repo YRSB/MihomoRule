@@ -1,4 +1,5 @@
 payload:
   - "aida.googleapis.com"
   # Google IP 和 Gemini IP 一致才能使用 Gemini
-  - "+.google.com"
+  - "www.google.com"
+

@@ -4,6 +4,7 @@ payload:
   # exhobby 
   - DOMAIN-SUFFIX,exhobby.net
   - DOMAIN,res.e39x.com
+  
   - DOMAIN-SUFFIX,south-plus.net
   - DOMAIN-SUFFIX,services.googleapis.cn
   - DOMAIN-SUFFIX,xn--ngstr-lra8j.com
@@ -11,11 +12,16 @@ payload:
   - DOMAIN-SUFFIX,miaola.work
   - DOMAIN-SUFFIX,erogame.space
   - DOMAIN-SUFFIX,f1calendar.com
+  # new kfol
   - DOMAIN-SUFFIX,momozhen.com
   - DOMAIN-SUFFIX,guguzhen.com
   # hanime1.me
   - DOMAIN,vdownload.hembed.com
   - DOMAIN-SUFFIX,racefans.net
   - DOMAIN-SUFFIX,hacg.me
+  # fcitx5 for android updater
   - DOMAIN-KEYWORD,jenkins
+  # mamuwiki
   - DOMAIN-SUFFIX,namu.wiki
+  # hsguru
+  - DOMAIN-SUFFIX,hsguru.com

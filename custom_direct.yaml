@@ -14,3 +14,5 @@ payload:
   - DOMAIN,lmgx-my.sharepoint.com
   - DOMAIN-SUFFIX,shangzhibo.tv
   - DOMAIN-SUFFIX,grtsports.com
+  # LTW
+  - DOMAIN,signalrp2-relayhub-prod-as01-3.service.signalr.net

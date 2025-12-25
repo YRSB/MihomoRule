@@ -25,3 +25,4 @@ payload:
   - DOMAIN-SUFFIX,namu.wiki
   # hsguru
   - DOMAIN-SUFFIX,hsguru.com
+  - DOMAIN,st.stga.cn

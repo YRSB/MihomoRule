@@ -69,6 +69,8 @@ dns:
     - "+.market.xiaomi.com"
     - "rule-set:fake_ip_filter"
     - "rule-set:always_real_ip"
+  proxy-server-nameserver:
+    - tls://223.5.5.5
   nameserver: 
     # 运营商DNS
     - 210.21.196.6 # 联通

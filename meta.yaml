@@ -69,6 +69,7 @@ dns:
     - "+.market.xiaomi.com"
     - "rule-set:fake_ip_filter"
     - "rule-set:always_real_ip"
+    - "rule-set:site_googlefcm"
   proxy-server-nameserver:
     - tls://223.5.5.5
   nameserver: 
@@ -584,7 +585,7 @@ rules:
   - RULE-SET,custom_proxy,Proxy
   - RULE-SET,custom_direct,DIRECT
   - RULE-SET,custom_ai,AI
-  - RULE-SET,site_googlefcm,Proxy
+  - RULE-SET,site_googlefcm,DIRECT
   - RULE-SET,asmr,ASMR
   - RULE-SET,site_pixiv,Pixiv
   - RULE-SET,site_youtube,Youtube

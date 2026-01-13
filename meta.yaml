@@ -74,10 +74,11 @@ dns:
     - tls://223.5.5.5
   nameserver: 
     # 运营商DNS
-    - 210.21.196.6 # 联通
-    - 202.96.128.86 # 电信
-    - 211.136.192.6 # 移动
+    # - 210.21.196.6 # 联通
+    # - 202.96.128.86 # 电信
+    # - 211.136.192.6 # 移动
     - 223.5.5.5
+    - system
 
 proxy-groups:
 
@@ -616,4 +617,5 @@ rules:
   - RULE-SET,lan_ip,DIRECT
   - RULE-SET,china_ip,DIRECT
   - MATCH,Match
+
 

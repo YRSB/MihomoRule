@@ -16,3 +16,4 @@ payload:
   - DOMAIN-SUFFIX,grtsports.com
   # LTW
   - DOMAIN,signalrp2-relayhub-prod-as01-3.service.signalr.net
+  - DOMAIN-SUFFIX,kotobank.jp

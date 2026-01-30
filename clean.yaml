@@ -17,7 +17,7 @@ tcp-concurrent: true
 external-controller: 127.0.0.1:41193
 external-ui: ui
 external-ui-url: "https://github.com/Zephyruso/zashboard/releases/latest/download/dist.zip"
-secret: "tsuinosora"
+secret: ""
 
 
 find-process-mode: strict
@@ -122,6 +122,12 @@ proxy-groups:
     interval: 300
 
   - name: Reddit
+    type: select
+    proxies: [美国-Auto]
+    include-all: true
+    interval: 300
+
+  - name: Google
     type: select
     proxies: [美国-Auto]
     include-all: true
@@ -343,6 +349,11 @@ rule-providers:
   site_reddit:
     <<: *rule_domain
     url: 'https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/reddit.mrs'
+    proxy: Proxy
+
+  site_google:
+    <<: *rule_domain
+    url: 'https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/google.mrs'
     proxy: Proxy
 
   reject_non_ip_no_drop:
@@ -572,6 +583,7 @@ rules:
   - RULE-SET,site_youtube,Youtube
   - RULE-SET,searxng,SearXNG
   - RULE-SET,site_reddit,Reddit
+  - RULE-SET,site_google,Google
 
   - RULE-SET,stream_jp_non_ip,日本
   - RULE-SET,ai_non_ip,AI
@@ -588,7 +600,6 @@ rules:
   - RULE-SET,download_non_ip,Download
   - RULE-SET,microsoft_non_ip,Proxy
   - RULE-SET,global_non_ip,Proxy
-  # - RULE-SET,site_geolocation_non_cn,Proxy
   
   - RULE-SET,telegram_ip,Proxy
   - RULE-SET,reject_ip,REJECT

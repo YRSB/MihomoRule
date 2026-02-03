@@ -570,6 +570,7 @@ rules:
   - RULE-SET,reject_non_ip_no_drop,Block
   - RULE-SET,reject_awavenue_ads_rule,Block
   - RULE-SET,pcdn,Block
+  - PROCESS-NAME-WILDCARD,*bittorrent*,DIRECT
 
   - RULE-SET,jp,日本
   - RULE-SET,site_dmm,日本

@@ -101,19 +101,19 @@ proxy-groups:
   - name: Pixiv
     type: select
     proxies: [Pixiv-auto,日本,Proxy,全部节点]
-    url: "https://www.pixiv.net"
+    url: "https://www.qualcomm.cn/generate_204"
     interval: 300
 
   - name: ASMR
     type: select
     proxies: [ASMR-auto,Proxy,全部节点,DIRECT]
-    url: "https://asmr.one"
+    url: "https://www.qualcomm.cn/generate_204"
     interval: 300
 
   - name: Youtube
     type: select
     proxies: [Youtube-auto,Proxy,全部节点]
-    url: "https://www.youtube.com"
+    url: "https://www.qualcomm.cn/generate_204"
     interval: 300
 
   - name: SearXNG
@@ -136,7 +136,7 @@ proxy-groups:
   - name: Pixiv-auto
     type: url-test
     include-all: true
-    url: "https://www.pixiv.net"
+    url: "https://www.qualcomm.cn/generate_204"
     interval: 300
     tolerance: 30
     hidden: true
@@ -145,7 +145,7 @@ proxy-groups:
   - name: ASMR-auto
     type: url-test
     include-all: true
-    url: "https://asmr.one"
+    url: "https://www.qualcomm.cn/generate_204"
     interval: 300
     tolerance: 30
     hidden: true
@@ -153,7 +153,7 @@ proxy-groups:
 
   - name: Youtube-auto
     type: url-test
-    url: "https://www.youtube.com"
+    url: "https://www.qualcomm.cn/generate_204"
     include-all: true
     tolerance: 20
     interval: 300

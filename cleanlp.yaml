@@ -219,7 +219,7 @@ proxy-groups:
 
   - name: 日本
     type: select
-    proxies: [日本-Auto]
+    proxies: [日本-Auto,Proxy]
     include-all: true
     filter: 'JP'
 

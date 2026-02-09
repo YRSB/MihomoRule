@@ -554,21 +554,12 @@ rule-providers:
     path: ./sukkaw_ruleset/clash_fake_ip_filter.txt
     proxy: Proxy
   
-  reject_awavenue_ads_rule:
-    type: http
-    behavior: domain
-    format: mrs
-    interval: 43200
-    url: 'https://github.com/YRSB/MihomoRule/raw/refs/heads/master/rule/awavenue_ads_rule_clash.mrs'
-    path: ./sukkaw_ruleset/awavenue_ads_rule_clash.mrs
-    proxy: Proxy
 
 rules:
   - RULE-SET,reject_non_ip_drop,REJECT-DROP
   - RULE-SET,reject_domainset,Block
   - RULE-SET,reject_non_ip,Block
   - RULE-SET,reject_non_ip_no_drop,Block
-  - RULE-SET,reject_awavenue_ads_rule,Block
   - RULE-SET,pcdn,Block
   - PROCESS-NAME-WILDCARD,*bittorrent*,DIRECT
 

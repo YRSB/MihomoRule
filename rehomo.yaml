@@ -78,6 +78,20 @@ dns:
 
 
 proxy-groups:
+  - name: Proxy
+    type: "select"
+    use: 
+      - provider1
+    proxies: ["Auto"]
+
+  - name: Auto
+    type: "fallback"
+    url: "https://www.qualcomm.cn/generate_204"
+    interval: 300
+    proxies:
+        - Auto-Fast
+        - Auto-Edge
+        - Auto-Failover
 
   - name: Block
     type: select
@@ -120,21 +134,6 @@ proxy-groups:
         - Auto-Fast
         - Auto-Failover
         
-  - name: Auto
-    type: "fallback"
-    url: "https://www.qualcomm.cn/generate_204"
-    interval: 300
-    proxies:
-        - Auto-Fast
-        - Auto-Edge
-        - Auto-Failover
-        
-  - name: Proxy
-    type: "select"
-    use: 
-      - provider1
-    proxies: ["Auto"]
-        
   - name: Video
     type: "select"
     interval: 900
@@ -170,8 +169,6 @@ proxy-groups:
     filter: "D1"
     proxies: [Auto-Edge,DIRECT]
     
-    
-    
   - name: Pixiv
     type: select
     use: 
@@ -194,12 +191,6 @@ proxy-groups:
     type: select
     include-all: true
     interval: 300
-    
-  - name: AI
-    type: select
-    proxies:  [美国]
-    include-all: true
-    exclude-type: direct
 
   - name: Match
     type: select

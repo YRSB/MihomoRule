@@ -12,7 +12,8 @@ payload:
   - DOMAIN-SUFFIX,miaola.work
   - DOMAIN-SUFFIX,erogame.space
   - DOMAIN-SUFFIX,f1calendar.com
-  # new kfol
+  # kf
+  - DOMAIN-SUFFIX,kfpromax.com
   - DOMAIN-SUFFIX,momozhen.com
   - DOMAIN-SUFFIX,guguzhen.com
   # hanime1.me

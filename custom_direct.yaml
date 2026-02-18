@@ -2,7 +2,6 @@ payload:
   - DOMAIN-SUFFIX,msftconnecttest.com
   - DOMAIN-SUFFIX,cloudapp.net
   - DOMAIN-SUFFIX,cloudapp.azure.com
-  - DOMAIN-SUFFIX,kfpromax.com
   - DOMAIN,ero.plumz.me
   - DOMAIN-SUFFIX,inari.site
   - DOMAIN-SUFFIX,mistakey.top

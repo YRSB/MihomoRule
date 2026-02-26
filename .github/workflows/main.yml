@@ -73,15 +73,15 @@ jobs:
 
     - name: Download content5
       run: |
-        URL="https://raw.githubusercontent.com/TG-Twilight/AWAvenue-Ads-Rule/main/Filters/AWAvenue-Ads-Rule-Clash.yaml"
-        OUTPUT_FILE="./rule/awavenue_ads_rule_clash.yaml"
+        URL="https://ruleset.skk.moe/Clash/ip/china_ip_ipv6.txt"
+        OUTPUT_FILE="./rule/china_ip_ipv6.txt"
         curl -L $URL -o $OUTPUT_FILE
         if [ -f "$OUTPUT_FILE" ]; then
           echo "Download successful: $OUTPUT_FILE"
         else
           echo "Download failed."
           exit 1
-        fi 
+        fi
         
     - name: Convert to mrs
       working-directory: ./rule/
@@ -90,7 +90,7 @@ jobs:
         mihomo convert-ruleset domain text reject_domainset.txt reject_domainset.mrs
         mihomo convert-ruleset domain text download_domainset.txt download_domainset.mrs
         mihomo convert-ruleset domain text cdn_domainset.txt cdn_domainset.mrs
-        mihomo convert-ruleset domain text awavenue_ads_rule_clash.yaml awavenue_ads_rule_clash.mrs
+        mihomo convert-ruleset ipcidr text china_ip_ipv6.txt china_ip_ipv6.mrs
 
     - name: Commit and push
       run: |

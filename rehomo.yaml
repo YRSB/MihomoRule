@@ -500,7 +500,7 @@ rule-providers:
   china_ip_ipv6:
     type: http
     behavior: ipcidr
-    format: text
+    format: mrs
     interval: 43200
     url: https://github.com/YRSB/MihomoRule/raw/refs/heads/master/rule/china_ip_ipv6.mrs
     path: ./sukkaw_ruleset/china_ipv6.mrs

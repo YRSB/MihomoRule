@@ -27,7 +27,9 @@ payload:
   # hsguru
   - DOMAIN-SUFFIX,hsguru.com
   - DOMAIN-SUFFIX,redgifs.com
-
+  # blhx
   - DOMAIN-SUFFIX,yo-star.com
   - DOMAIN-SUFFIX,yostarplat.com
   - DOMAIN-SUFFIX,azurlane.jp
+  # figmemo
+  - DOMAIN-SUFFIX,fig-memo-r18.site

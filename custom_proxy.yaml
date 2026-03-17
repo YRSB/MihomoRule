@@ -7,7 +7,7 @@ payload:
   
   - DOMAIN-SUFFIX,south-plus.net
   - DOMAIN-SUFFIX,services.googleapis.cn
-  - DOMAIN-SUFFIX,xn--ngstr-lra8j.com
+
   - DOMAIN-KEYWORD,2dfan
   - DOMAIN-SUFFIX,miaola.work
   - DOMAIN-SUFFIX,erogame.space
@@ -18,6 +18,7 @@ payload:
   - DOMAIN-SUFFIX,guguzhen.com
   # hanime1.me
   - DOMAIN,vdownload.hembed.com
+
   - DOMAIN-SUFFIX,racefans.net
   - DOMAIN-SUFFIX,hacg.me
   # fcitx5 for android updater
@@ -33,3 +34,9 @@ payload:
   - DOMAIN-SUFFIX,azurlane.jp
   # figmemo
   - DOMAIN-SUFFIX,fig-memo-r18.site
+  # plum
+  - DOMAIN,plumz.me
+  - DOMAIN,onahodouga.com
+  - DOMAIN-SUFFIX,omiai-dakimakura.com
+  - DOMAIN,ggbases.dlgal.com
+  - DOMAIN-SUFFIX,bangumi.tv

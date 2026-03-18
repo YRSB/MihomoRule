@@ -15,5 +15,6 @@ payload:
   # Link to Windows
   - DOMAIN,signalrp2-relayhub-prod-as01-3.service.signalr.net
   - DOMAIN,signalrp2-relayhub-prod-as02-3.service.signalr.net
-  
   - DOMAIN-SUFFIX,kotobank.jp
+  - DOMAIN-SUFFIX,test-01-cn.gladns.com
+  - DOMAIN-SUFFIX,test-01-cn.gladns.net

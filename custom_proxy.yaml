@@ -21,7 +21,7 @@ payload:
 
   - DOMAIN-SUFFIX,racefans.net
   - DOMAIN-SUFFIX,hacg.me
-
+  - DOMAIN-SUFFIX,moepedia.net
   # mamuwiki
   - DOMAIN-SUFFIX,namu.wiki
   # hsguru

@@ -21,8 +21,7 @@ payload:
 
   - DOMAIN-SUFFIX,racefans.net
   - DOMAIN-SUFFIX,hacg.me
-  # fcitx5 for android updater
-  - DOMAIN-KEYWORD,jenkins
+
   # mamuwiki
   - DOMAIN-SUFFIX,namu.wiki
   # hsguru

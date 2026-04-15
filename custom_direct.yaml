@@ -19,3 +19,4 @@ payload:
   - DOMAIN-SUFFIX,test-01-cn.gladns.com
   - DOMAIN-SUFFIX,test-01-cn.gladns.net
   - DOMAIN-SUFFIX,sharepoint.com
+  - DOMAIN-KEYWORD,imoutoheaven

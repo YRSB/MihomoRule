@@ -6,3 +6,4 @@ payload:
   - DOMAIN-SUFFIX,battlenet.com.cn
   - DOMAIN-SUFFIX,blzstatic.cn
   - DOMAIN,localhost.work.weixin.qq.com
+  - DOMAIN,api.coolapk.com

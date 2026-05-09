@@ -21,3 +21,4 @@ payload:
   - DOMAIN-SUFFIX,sharepoint.com
   - DOMAIN-SUFFIX,azurlane.jp
   - DOMAIN,blhxstatic.yo-star.com
+  - DOMAIN,jp-sdk-api.yostarplat.com

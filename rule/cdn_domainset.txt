@@ -1,7 +1,7 @@
 #########################################
 # Sukka's Ruleset - CDN Domains
-# Last Updated: 2026-06-06T13:24:31.431Z
-# Size: 4490
+# Last Updated: 2026-06-08T06:14:39.123Z
+# Size: 4491
 # License: AGPL 3.0
 # Homepage: https://ruleset.skk.moe
 # GitHub: https://github.com/SukkaW/Surge
@@ -2930,7 +2930,7 @@ img.xhacgn.com
 img.xbooru.com
 website-prod.cache.wpscdn.com
 frontend-apps.workos.com
-cdn.workos.com
++.cdn.workos.com
 +.wklcdn.com
 embed-cloudfront.wistia.com
 embed-ssl.wistia.com
@@ -3199,6 +3199,7 @@ embedr.flickr.com
 s1.feedly.com
 assets.fastly.com
 +.ezocdn.com
+cdn.evgnet.com
 s3.envato.com
 creative.eizzih.com
 videos2.edclub.com

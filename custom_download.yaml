@@ -21,4 +21,3 @@ payload:
   - DOMAIN,download.dlsite.com
   - DOMAIN,api.nuget.org
   - DOMAIN-KEYWORD,download
-  - DOMAIN,dl.google.com

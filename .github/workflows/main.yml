@@ -21,6 +21,16 @@ jobs:
           wget -O mihomo.deb $MIHOMO_DEB_URL
           sudo dpkg -i mihomo.deb
           mkdir -p rule
+    - name: "Setup sing-box"
+      env:
+        SINGBOX_VERSION: "1.14.2"
+      run: |
+        curl -fSL "https://github.com/SagerNet/sing-box/releases/download/v${SINGBOX_VERSION}/sing-box-${SINGBOX_VERSION}-linux-amd64.tar.gz" -o sing-box.tar.gz
+        tar -xzf sing-box.tar.gz
+        mv "sing-box-${SINGBOX_VERSION}-linux-amd64/sing-box" ./sing-box-bin
+        ./sing-box-bin version
+        mkdir -p sing-box
+
         
         
     - name: Download content1
@@ -91,6 +101,62 @@ jobs:
         mihomo convert-ruleset domain text download_domainset.txt download_domainset.mrs
         mihomo convert-ruleset domain text cdn_domainset.txt cdn_domainset.mrs
         mihomo convert-ruleset ipcidr text china_ip_ipv6.txt china_ip_ipv6.mrs
+    - name: Download and compile sing-box rule-sets
+      run: |
+        set -euo pipefail
+        while read -r tag url; do
+          [ -z "$tag" ] && continue
+          curl -fSL "$url" -o "sing-box/${tag}.json"
+          ./sing-box-bin rule-set compile "sing-box/${tag}.json" -o "sing-box/${tag}.srs"
+          rm "sing-box/${tag}.json"
+        done <<'EOF'
+        sukka-domainset-reject https://ruleset.skk.moe/sing-box/domainset/reject.json
+        sukka-domainset-reject-extra https://ruleset.skk.moe/sing-box/domainset/reject_extra.json
+        sukka-domainset-reject-phishing https://ruleset.skk.moe/sing-box/domainset/reject_phishing.json
+        sukka-domainset-cdn https://ruleset.skk.moe/sing-box/domainset/cdn.json
+        sukka-domainset-download https://ruleset.skk.moe/sing-box/domainset/download.json
+        sukka-domainset-speedtest https://ruleset.skk.moe/sing-box/domainset/speedtest.json
+        sukka-domainset-apple-cdn https://ruleset.skk.moe/sing-box/domainset/apple_cdn.json
+        sukka-reject-drop https://ruleset.skk.moe/sing-box/non_ip/reject-drop.json
+        sukka-reject-no-drop https://ruleset.skk.moe/sing-box/non_ip/reject-no-drop.json
+        sukka-reject https://ruleset.skk.moe/sing-box/non_ip/reject.json
+        sukka-sogouinput https://ruleset.skk.moe/sing-box/non_ip/sogouinput.json
+        sukka-lan https://ruleset.skk.moe/sing-box/non_ip/lan.json
+        sukka-direct https://ruleset.skk.moe/sing-box/non_ip/direct.json
+        sukka-domestic https://ruleset.skk.moe/sing-box/non_ip/domestic.json
+        sukka-domestic-cdn https://ruleset.skk.moe/sing-box/non_ip/domestic_cdn.json
+        sukka-apple-cn https://ruleset.skk.moe/sing-box/non_ip/apple_cn.json
+        sukka-cdn https://ruleset.skk.moe/sing-box/non_ip/cdn.json
+        sukka-global https://ruleset.skk.moe/sing-box/non_ip/global.json
+        sukka-ai https://ruleset.skk.moe/sing-box/non_ip/ai.json
+        sukka-apple-intelligence https://ruleset.skk.moe/sing-box/non_ip/apple_intelligence.json
+        sukka-apple-services https://ruleset.skk.moe/sing-box/non_ip/apple_services.json
+        sukka-microsoft https://ruleset.skk.moe/sing-box/non_ip/microsoft.json
+        sukka-microsoft-cdn https://ruleset.skk.moe/sing-box/non_ip/microsoft_cdn.json
+        sukka-telegram https://ruleset.skk.moe/sing-box/non_ip/telegram.json
+        sukka-neteasemusic https://ruleset.skk.moe/sing-box/non_ip/neteasemusic.json
+        sukka-gitlab https://ruleset.skk.moe/sing-box/non_ip/gitlab.json
+        sukka-stream https://ruleset.skk.moe/sing-box/non_ip/stream.json
+        sukka-stream-us https://ruleset.skk.moe/sing-box/non_ip/stream_us.json
+        sukka-stream-eu https://ruleset.skk.moe/sing-box/non_ip/stream_eu.json
+        sukka-stream-jp https://ruleset.skk.moe/sing-box/non_ip/stream_jp.json
+        sukka-stream-kr https://ruleset.skk.moe/sing-box/non_ip/stream_kr.json
+        sukka-stream-hk https://ruleset.skk.moe/sing-box/non_ip/stream_hk.json
+        sukka-stream-tw https://ruleset.skk.moe/sing-box/non_ip/stream_tw.json
+        sukka-ip-reject https://ruleset.skk.moe/sing-box/ip/reject.json
+        sukka-ip-ai https://ruleset.skk.moe/sing-box/ip/ai.json
+        sukka-ip-telegram https://ruleset.skk.moe/sing-box/ip/telegram.json
+        sukka-ip-stream https://ruleset.skk.moe/sing-box/ip/stream.json
+        sukka-ip-apple-services https://ruleset.skk.moe/sing-box/ip/apple_services.json
+        sukka-ip-neteasemusic https://ruleset.skk.moe/sing-box/ip/neteasemusic.json
+        sukka-ip-cdn https://ruleset.skk.moe/sing-box/ip/cdn.json
+        sukka-ip-download https://ruleset.skk.moe/sing-box/ip/download.json
+        sukka-ip-domestic https://ruleset.skk.moe/sing-box/ip/domestic.json
+        sukka-ip-lan https://ruleset.skk.moe/sing-box/ip/lan.json
+        sukka-china-ip https://ruleset.skk.moe/sing-box/ip/china_ip.json
+        sukka-china-ipv6 https://ruleset.skk.moe/sing-box/ip/china_ip_ipv6.json
+        EOF
+
 
     - name: Commit and push
       run: |
@@ -99,6 +165,7 @@ jobs:
         git add ./rule/*.mrs
         git add ./rule/*.txt
         git add ./rule/*.yaml
+        git add ./sing-box/*.srs
 
         # 检查是否有文件被修改
         if git diff --staged --quiet; then

@@ -189,7 +189,7 @@ jobs:
                   rule[k] = u
           with open(sys.argv[2], "w", encoding="utf-8") as f:
               json.dump({"version": 2, "rules": [rule]}, f, ensure_ascii=False)
-          PYEOF
+        PYEOF
           ./sing-box-bin rule-set compile "sing-box/${tag}.json" -o "sing-box/${tag}.srs"
           rm "sing-box/${tag}.txt" "sing-box/${tag}.json"
         done <<'EOF'

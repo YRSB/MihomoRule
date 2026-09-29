@@ -1,0 +1,19 @@
+{
+  "version": 2,
+  "rules": [
+    {
+      "domain": [
+        "localhost.work.weixin.qq.com",
+        "api.coolapk.com"
+      ],
+      "domain_suffix": [
+        "trustfar.cn",
+        "msftconnecttest.com",
+        "msftncsi.com",
+        "push.oppomobile.com",
+        "battlenet.com.cn",
+        "blzstatic.cn"
+      ]
+    }
+  ]
+}

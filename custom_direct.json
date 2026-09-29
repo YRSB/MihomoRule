@@ -1,0 +1,37 @@
+{
+  "version": 2,
+  "rules": [
+    {
+      "domain": [
+        "ero.plumz.me",
+        "dcg.microsoft.com",
+        "asmrconnecting.xyz",
+        "lmgx-my.sharepoint.com",
+        "signalrp2-relayhub-prod-as01-3.service.signalr.net",
+        "signalrp2-relayhub-prod-as02-3.service.signalr.net",
+        "blhxstatic.yo-star.com",
+        "jp-sdk-api.yostarplat.com",
+        "dl.google.com"
+      ],
+      "domain_suffix": [
+        "msftconnecttest.com",
+        "cloudapp.net",
+        "cloudapp.azure.com",
+        "inari.site",
+        "mistakey.top",
+        "msftncsi.com",
+        "grtsports.com",
+        "kotobank.jp",
+        "test-01-cn.gladns.com",
+        "test-01-cn.gladns.net",
+        "sharepoint.com",
+        "azurlane.jp",
+        "aihub.dog"
+      ],
+      "domain_keyword": [
+        "trustfar",
+        "foxmail"
+      ]
+    }
+  ]
+}

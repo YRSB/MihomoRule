@@ -1,0 +1,17 @@
+{
+  "version": 2,
+  "rules": [
+    {
+      "domain_suffix": [
+        "prestige-av.com",
+        "syosetu.org",
+        "melonbooks.co.jp"
+      ]
+    },
+    {
+      "process_path_regex": [
+        "(?i)fanza"
+      ]
+    }
+  ]
+}

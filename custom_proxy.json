@@ -1,0 +1,42 @@
+{
+  "version": 2,
+  "rules": [
+    {
+      "domain": [
+        "res.e39x.com",
+        "vdownload.hembed.com",
+        "plumz.me",
+        "onahodouga.com",
+        "ggbases.dlgal.com",
+        "p.inari.site"
+      ],
+      "domain_suffix": [
+        "icekylin.online",
+        "exhobby.net",
+        "south-plus.net",
+        "services.googleapis.cn",
+        "miaola.work",
+        "erogame.space",
+        "f1calendar.com",
+        "kfpromax.com",
+        "momozhen.com",
+        "guguzhen.com",
+        "racefans.net",
+        "hacg.me",
+        "moepedia.net",
+        "namu.wiki",
+        "hsguru",
+        "redgifs.com",
+        "yo-star.com",
+        "yostarplat.com",
+        "fig-memo-r18.site",
+        "omiai-dakimakura.com",
+        "bangumi.tv"
+      ],
+      "domain_keyword": [
+        "freemdict",
+        "2dfan"
+      ]
+    }
+  ]
+}

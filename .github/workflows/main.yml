@@ -156,6 +156,47 @@ jobs:
         sukka-china-ip https://ruleset.skk.moe/sing-box/ip/china_ip.json
         sukka-china-ipv6 https://ruleset.skk.moe/sing-box/ip/china_ip_ipv6.json
         EOF
+    - name: Download and compile text rule-sets
+      run: |
+        set -euo pipefail
+        while read -r tag url; do
+          [ -z "$tag" ] && continue
+          curl -fSL "$url" -o "sing-box/${tag}.txt"
+          python3 - "sing-box/${tag}.txt" "sing-box/${tag}.json" <<'PYEOF'
+          import json, sys
+          d, ds, kw, rx, ip = [], [], [], [], []
+          with open(sys.argv[1], encoding="utf-8") as f:
+              for raw in f:
+                  line = raw.strip()
+                  if not line or line.startswith("#"):
+                      continue
+                  p = line.split(",")
+                  t = p[0].strip()
+                  if t == "DOMAIN-SUFFIX":
+                      ds.append(p[1].strip())
+                  elif t == "DOMAIN":
+                      d.append(p[1].strip())
+                  elif t == "DOMAIN-KEYWORD":
+                      kw.append(p[1].strip())
+                  elif t == "DOMAIN-REGEX":
+                      rx.append(p[1].strip())
+                  elif t == "IP-CIDR":
+                      ip.append(p[1].strip())
+          rule = {}
+          for k, v in [("domain", d), ("domain_suffix", ds), ("domain_keyword", kw), ("domain_regex", rx), ("ip_cidr", ip)]:
+              u = list(dict.fromkeys(v))
+              if u:
+                  rule[k] = u
+          with open(sys.argv[2], "w", encoding="utf-8") as f:
+              json.dump({"version": 2, "rules": [rule]}, f, ensure_ascii=False)
+          PYEOF
+          ./sing-box-bin rule-set compile "sing-box/${tag}.json" -o "sing-box/${tag}.srs"
+          rm "sing-box/${tag}.txt" "sing-box/${tag}.json"
+        done <<'EOF'
+        pcdn https://raw.githubusercontent.com/uselibrary/PCDN/main/pcdn.list
+        stream-jp-nonip https://ruleset.skk.moe/Clash/non_ip/stream_jp.txt
+        EOF
+
 
 
     - name: Commit and push

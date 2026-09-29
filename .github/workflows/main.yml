@@ -194,7 +194,6 @@ jobs:
           rm "sing-box/${tag}.txt" "sing-box/${tag}.json"
         done <<'EOF'
         pcdn https://raw.githubusercontent.com/uselibrary/PCDN/main/pcdn.list
-        stream-jp-nonip https://ruleset.skk.moe/Clash/non_ip/stream_jp.txt
         EOF
 
 

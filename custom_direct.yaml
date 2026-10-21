@@ -22,5 +22,13 @@ payload:
   - DOMAIN-SUFFIX,azurlane.jp
   - DOMAIN,blhxstatic.yo-star.com
   - DOMAIN,jp-sdk-api.yostarplat.com
-  - DOMAIN-SUFFIX,aihub.dog
   - DOMAIN,dl.google.com
+  - PROCESS-NAME-WILDCARD,*avp*,DIRECT
+  - PROCESS-NAME,com.tencent.mm,DIRECT
+  - PROCESS-NAME-WILDCARD,*PhoneExperienceHost*,DIRECT
+  - PROCESS-NAME-WILDCARD,*CrossDeviceService*,DIRECT
+  - PROCESS-NAME-WILDCARD,*Weixin*,DIRECT
+  - PROCESS-NAME-WILDCARD,*WeChat*,DIRECT
+  - DOMAIN-SUFFIX,test-01-cn.gladns.com,DIRECT
+  - DOMAIN-SUFFIX,test-01-cn.gladns.net,DIRECT
+  - PROCESS-NAME-WILDCARD,*bittorrent*,DIRECT
